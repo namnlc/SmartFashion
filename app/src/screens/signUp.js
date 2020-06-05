@@ -11,6 +11,10 @@ import touchid from '../../res/images/Signin/touchid.png';
 import Divider from 'react-native-divider';
 import Animated from 'react-native-reanimated';
 import * as React from 'react';
+import Modal from 'react-native-modal';
+import {useState} from 'react';
+
+
 import {
   Text,
   View,
@@ -20,34 +24,107 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
+  ScrollView,
+  FlatList
 } from 'react-native';
 import {TabView, SceneMap} from 'react-native-tab-view';
-
+import {Component} from 'react';
 const initialLayout = {width: Dimensions.get('window').width};
 
+
+ const GenModal = () => {
+  const gender = [
+    {
+      title: 'Female',
+      id: 1,
+    },
+    {
+      title: 'Male',
+      id: 2,
+    },
+    {
+      title: 'Others',
+      id: 3,
+    },
+  ];
+  return (
+    <View style={{flex: 1}}>
+      {gender.map(e => {
+        return (
+          <View
+            style={{backgroundColor: 'red',top:25,width:314,height:65,left:-10}}>
+              <TouchableOpacity key={e.id} style={{padding:10,width:300}} activeOpacity={0.}>
+              <Text key={e.id}>{e.title}</Text>
+              </TouchableOpacity>
+          </View>
+        );
+      })}
+    </View>
+  );
+};
+
+const BirthModal = () => {
+  var day = [] ; 
+  for ( var i = 1 ; i <=  100;i++)
+  {
+    day.push(<Text key ={i}>{i}</Text>)
+  }
+  return ( 
+    <View
+      style={{backgroundColor: 'red',left:-10,top:22,zIndex:1}}>
+      <TouchableOpacity  style={{width:20}} >
+        {day}
+      </TouchableOpacity>
+    </View>
+   )
+}
 const RenderSignUp = () => {
+  const [isShow, setIsShow] = useState(false);
+  const [isBirth, setIsBirth] = useState(false);
+  const [isChange, setIsChange] = useState ('Gender')
   return (
     <View style={styles.container}>
       <Text style={signup.txt}>Sign In or Sign Up to upload your model!</Text>
-      <TextInput
-        placeholder="Name"
-        placeholderTextColor="#696969"
-        style={signup.txtInput}
-      />
-      <TextInput
-        placeholder="Gender"
-        placeholderTextColor="#696969"
-        style={signup.txtInput}
-      />
+      <TouchableOpacity
+        style={[signup.textGender,signup.txtInput, isShow == true ? {borderColor:'#00AEBB',borderWidth:1}: null]}
+          onPress={()=>setIsShow(!isShow)}
+          activeOpacity={0.5}
+      >
+         <Text style={signup.txtDrop} >Gender</Text> 
+        {isShow==true ? (<GenModal />) : null}         
+      </TouchableOpacity>
+      <View style={{flexDirection:'row',width:"82%", marginHorizontal:10,zIndex:-1}}>
+      <TouchableOpacity 
+      style={[signup.txtInput,signup.textGender, {padding:12.5, zIndex:-1,width:110,marginRight:10}]}
+      onPress={()=>setIsBirth(!isBirth)}
+      >
+        <Text style={signup.txtDrop}>Month</Text>
+        {isBirth == true ? (<View style={{height:100}}><BirthModal/></View>) : null}
+      </TouchableOpacity>
+      <TouchableOpacity 
+      style={[signup.txtInput,signup.textGender,  {padding:12.5, zIndex:-1,width:82,marginRight:12}]}
+      
+      >
+        
+        <Text style={signup.txtDrop}>Day</Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+      style={[signup.txtInput, signup.textGender, {padding:12.5, zIndex:-1, width:91}]}
+      
+      >
+        <Text style={signup.txtDrop}>Year</Text>
+      </TouchableOpacity>
+      </View>
+      
       <TextInput
         placeholder="Email"
         placeholderTextColor="#696969"
-        style={signup.txtInput}
+        style={[signup.txtInput,{zIndex:-2}]}
       />
       <TextInput
         placeholder="Password"
         placeholderTextColor="#696969"
-        style={signup.txtInput}
+        style={[signup.txtInput,{zIndex:-2}]}
       />
       <TouchableOpacity style={signup.button}>
         <Text style={signup.txtButton}>Get a code</Text>
@@ -111,11 +188,13 @@ const RenderSignIn = () => {
     </View>
   );
 };
-export default class SignUp extends React.Component {
-
+class SignUp extends React.Component {
   state = {
     index: 0,
-    routes: [{key: 'first', title: 'Sign In'}, {key: 'second', title: 'Sign Up'}],
+    routes: [
+      {key: 'first', title: 'Sign In'},
+      {key: 'second', title: 'Sign Up'},
+    ],
   };
 
   _handleIndexChange = index => this.setState({index});
@@ -125,8 +204,8 @@ export default class SignUp extends React.Component {
     const index = props.nowindex;
     return (
       <View style={styles.tabContainer}>
-        <View >
-          <Image source={logo} style={{ top:8,left:-10}}/>
+        <View>
+          <Image source={logo} style={{top: 8, left: -10}} />
         </View>
         <View style={styles.tabView}>
           {props.navigationState.routes.map((route, i) => {
@@ -142,13 +221,15 @@ export default class SignUp extends React.Component {
               <TouchableOpacity
                 style={[styles.tabBar, {backgroundColor}]}
                 onPress={() => this.setState({index: i})}>
-                <Animated.Text style={[styles.txtTab,{color}]}>{route.title}</Animated.Text>
+                <Animated.Text style={[styles.txtTab, {color}]}>
+                  {route.title}
+                </Animated.Text>
               </TouchableOpacity>
             );
           })}
         </View>
-        <View >
-          <Image source={logo} style={{ top:8,right:-10}}/>
+        <View>
+          <Image source={logo} style={{top: 8, right: -10}} />
         </View>
       </View>
     );
@@ -172,18 +253,27 @@ export default class SignUp extends React.Component {
 }
 
 const signup = StyleSheet.create({
+  textGender:{
+    justifyContent: 'center',
+    padding:12.5,
+    //color:"#696969"
+  },
+  txtDrop:{
+    color:"#696969"
+  },
   txt: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
     marginBottom: 30,
     marginLeft: -25,
   },
   txtInput: {
     width: '82%',
-    height: 40,
+    height: 50,
     borderRadius: 6,
     backgroundColor: '#E3EAEC',
-    padding: 18,
+    paddingLeft: 10,
+    paddingHorizontal:20,
     marginBottom: 15,
   },
   button: {
@@ -264,34 +354,37 @@ const styles = StyleSheet.create({
   // render custom tabbar
   tabContainer: {
     alignItems: 'center',
-    flexDirection:'row',
+    flexDirection: 'row',
     padding: 20,
     justifyContent: 'space-around',
     backgroundColor: '#098FA8',
     borderBottomLeftRadius: 28,
+    zIndex:-1
   },
   tabView: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
     backgroundColor: '#06839A',
     borderRadius: 10,
-    marginTop:20,
-    width:'65%',
-    height:50,
+    marginTop: 20,
+    width: '65%',
+    height: 50,
   },
   tabBar: {
     //flexDirection:'row',
     alignItems: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
     width: '43%',
     padding: 10,
     //marginRight:-20,
-    borderRadius: 10,   
+    borderRadius: 10,
   },
 
-  txtTab:{
-    fontSize:14,
-    fontWeight:'bold'
-  }
+  txtTab: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
 });
+
+export default SignUp
