@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {
   Text,
   View,
@@ -10,60 +10,55 @@ import {
 import america from '../../res/images/welcome/flags/america.png';
 import vietnam from '../../res/images/welcome/flags/vietnam.png';
 import japan from '../../res/images/welcome/flags/japan.png';
-import arrowLeft from '../../res/images/welcome/flags/arrow.png';
-import arrowRight from '../../res/images/welcome/flags/arrowleft.png'
-
-// mobx 
-import { observable } from 'mobx';
-import { observer } from 'mobx-react';
-
- export default class ToggleFlags extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded:true,
-    };
-    this.icons = { 
-      'expand': arrowLeft,
-      'collapse': arrowRight,
-    }
-  }
-
-  toggleFlags() {
-    this.setState({
-      hide : !this.state.hide
-    });
-  }
+import arrowLeft from '../../res/images/welcome/flags/arrowleft.png';
+import arrowRight from '../../res/images/welcome/flags/arrowright.png'
 
 
-  render() {
 
-    let{ active } = this.state;
-    let icon = this.icons['collapse']
-    if (this.state.expanded)
+ const ToggleFlags= () => {
+
+    const [isExpand, setIsExpand] = useState (true);
+    const [isSelected, setIsSelected] = useState(0);
+
     return (
-      <View style={styles.regionImg}>
-          <TouchableOpacity  style={styles.btnSelected}
+      <View style={[styles.regionImg,{paddingRight:20}]}>
+          <TouchableOpacity 
+            onPress={()=>setIsSelected(1)}
+            style={[isExpand==true ? {marginRight:20} : null,
+            isSelected == 1 ? {borderColor:'#098FA8',borderWidth:1, borderRadius:20}: null, 
+            (isSelected == 2 && isExpand == false ) || (isSelected == 3 && isExpand ==false)  ? {display:'none'} : null]}
           >
-              <Image source={(america)}/>
+              <Image source={america}/>       
           </TouchableOpacity>
-          <TouchableOpacity  style={styles.notSelected}
+          <TouchableOpacity  //style={styles.notSelected}    
+            onPress={()=> setIsSelected(2)}
+            style={[isExpand==true ? {marginRight:20} : null,
+              isSelected == 2 ? {borderColor:'#098FA8', borderWidth:1, borderRadius:20}: null, 
+              (isSelected == 1 & isExpand == false) || (isSelected == 3 && isExpand ==false) ? {display:'none',margin:0} : null] }
           >
               <Image source={(japan)} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.notSelected}>
+          <TouchableOpacity 
+          onPress={()=> setIsSelected(3)}
+          style={[
+            isSelected == 3 ? {borderColor:'#098FA8', borderWidth:1,borderRadius:20}:null, 
+            (isSelected == 1 && isExpand ==false) || (isSelected==2 && isExpand ==false) ? {display:'none'} : null]}
+          >
+
               <Image source={(america)} />
           </TouchableOpacity>
-          <TouchableOpacity style={{paddingLeft:10}}
-          
+          <TouchableOpacity style={{paddingLeft:15}}
+            onPress={()=>setIsExpand(!isExpand)}
           >
-            <Image source={active===0 ? arrowLeft : arrowRight}/>
+       
+            <Image source={isExpand == false ? arrowRight : arrowLeft}/>
           </TouchableOpacity>
       </View>
     );
-  }
 }
+
+
+
 const styles = StyleSheet.create({
   touch: {},
   regionImg: {
@@ -82,14 +77,19 @@ const styles = StyleSheet.create({
 
   btnSelected:{
     borderColor:'#098FA8',
+    borderWidth:1
   },
   notSelected:{
     borderWidth:2,
     borderColor:"#f0ecf0",
     borderRadius:25,
   },
-  hide:{
+  hide:{ 
     display:'none'
   }
 
 });
+
+export default ToggleFlags
+
+

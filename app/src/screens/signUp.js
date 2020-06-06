@@ -72,9 +72,11 @@ const BirthModal = () => {
   return ( 
     <View
       style={{backgroundColor: 'red',left:-10,top:22,zIndex:1}}>
-      <TouchableOpacity  style={{width:20}} >
-        {day}
-      </TouchableOpacity>
+      {
+       day.forEach(e => {
+          console.log({e})
+       })
+      }
     </View>
    )
 }
