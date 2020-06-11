@@ -113,6 +113,10 @@ const styles = StyleSheet.create({
     top: 70,
     width: '100%',
   },
+  renderPhoto: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export {styles};

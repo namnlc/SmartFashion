@@ -33,7 +33,6 @@ const Flags = () => {
           onPress={() => setIsSelected(i)}
         />
       ))}
-      {console.log(isExpand)}
       <TouchableOpacity
         onPress={() => {
           setIsExpand(!isExpand);

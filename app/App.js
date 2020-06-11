@@ -1,8 +1,6 @@
-import * as React from 'react'
-import MyStack from './src/routers/MyStack'
+import * as React from 'react';
+import WelcomeNavigator from './src/routers/WelcomeNavigator';
 
-export default function App () {
-  return (
-    <MyStack />
-  )
+export default function App() {
+  return <WelcomeNavigator />;
 }

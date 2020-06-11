@@ -9,8 +9,15 @@ import {
 } from 'react-native';
 import Flags from '../components/Flags/Flags';
 import welcome from '../../res/images/welcome.png';
+import {useStores} from '../stores/Store';
 
 const WelcomeScreen = ({navigation}) => {
+  const {counterStore} = useStores();
+  console.log(counterStore.count);
+  React.useEffect(() => {
+    counterStore.decrement();
+    console.log(counterStore.count);
+  }, [counterStore]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>

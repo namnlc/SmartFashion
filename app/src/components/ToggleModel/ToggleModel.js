@@ -1,42 +1,48 @@
 import React, {Component, useState} from 'react';
-import {View, Dimensions} from 'react-native';
+import {View, Dimensions, Button, Text, TouchableOpacity} from 'react-native';
 
 import {styles} from './Style';
 import {Tab, RenderModal, RenderPhoto, RenderModel} from './Index';
 
-let {width} = Dimensions.get('window');
-
-const ToggleModel = () => {
+const {width} = Dimensions.get('window');
+const modelData = [
+  {
+    title: 'Upload a photo',
+  },
+  {
+    title: 'Pick a Model',
+  },
+];
+const ToggleModel = ({navigation}) => {
   const [active, setActive] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <View style={styles.container}>
       <View style={styles.viewTabs}>
-        {active === 0 ? <RenderPhoto /> : <RenderModel />}
+        {active === 0 ? (
+          <RenderPhoto showModal={() => setIsVisible(!isVisible)} />
+        ) : (
+          <RenderModel />
+        )}
+        {isVisible && <RenderModal isVisible={isVisible} />}
+        {console.log(isVisible)}
+        <TouchableOpacity
+          activeOpacity={0.4}
+          style={styles.btn}
+          onPress={() => navigation.navigate('welcomeScreen')}>
+          <Text style={styles.txtStart}>Start</Text>
+        </TouchableOpacity>
+
         <View style={styles.tabs}>
-          <Tab
-            title="Upload a photo"
-            styleText={[
-              styles.txt,
-              {color: active === 0 ? '#FFFFFF' : '#098FA8'},
-            ]}
-            styleTab={[
-              {backgroundColor: active === 0 ? '#098FA8' : '#E2F7FD'},
-              styles.tab,
-            ]}
-            onPress={() => setActive(0)}
-          />
-          <Tab
-            title="Pick a Model"
-            styleText={[
-              styles.txt,
-              {color: active === 0 ? '#098FA8' : '#ffffff'},
-            ]}
-            styleTab={[
-              {backgroundColor: active === 0 ? '#E2F7FD' : '#098FA8'},
-              styles.tab,
-            ]}
-            onPress={() => setActive(1)}
-          />
+          {modelData.map((v, i) => (
+            <Tab
+              index={i}
+              key={i}
+              title={v.title}
+              onPress={() => setActive(i)}
+              active={active}
+            />
+          ))}
         </View>
       </View>
     </View>

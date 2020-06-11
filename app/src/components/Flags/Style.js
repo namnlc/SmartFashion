@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     display: 'none',
   },
   toggle: {
-    //paddingLeft: 15,
+    // paddingLeft: 15,
   },
 });
 

@@ -1,13 +1,11 @@
 import {
   Text,
   TouchableOpacity,
-  ViewPropTypes,
   View,
   Image,
   SafeAreaView,
   Dimensions,
 } from 'react-native';
-import propTypes from 'prop-types';
 import React, {Component, useState} from 'react';
 import wel from '../../../res/images/welcome2.png';
 import Modal from 'react-native-modal';
@@ -15,77 +13,90 @@ import {styles} from './Style';
 import girl from '../../../res/images/girl.png';
 import man from '../../../res/images/man.png';
 import wel1 from '../../../res/images/welcome3.png';
+import {useNavigation} from '@react-navigation/native';
 
-let {width, height} = Dimensions.get('window');
-console.log(width, height);
-export class Tab extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <TouchableOpacity
-        style={this.props.styleTab}
-        activeOpacity={1}
-        onPress={this.props.onPress}>
-        <Text style={this.props.styleText}>{this.props.title}</Text>
-      </TouchableOpacity>
-    );
-  }
-}
+const {width, height} = Dimensions.get('window');
 
-Tab.propTypes = {
-  onPress: propTypes.func.isRequired,
-  title: propTypes.string.isRequired,
-  styleText: Text.propTypes.style,
-  styleTab: ViewPropTypes.style,
+export const Tab = ({title, onPress, active, index}) => {
+  const styleTab = [
+    index === active && {backgroundColor: '#098FA8'},
+    styles.tab,
+  ];
+  const styleText = [{color: index === active ? '#ffffff' : '#098FA8'}];
+  return (
+    <TouchableOpacity style={styleTab} activeOpacity={1} onPress={onPress}>
+      <Text style={styleText}>{title}</Text>
+    </TouchableOpacity>
+  );
 };
 
-export const RenderPhoto = () => {
+const photoData = [
+  {
+    title: 'Pick a gender & take a photo',
+    styleTouch: styles.pickGender,
+    styleText: [styles.txt, styles.txtPick],
+  },
+  {
+    title: 'Change Later',
+    styleTouch: [styles.pickGender, styles.changeLater],
+    styleText: [styles.txt, styles.txtChange],
+  },
+];
+
+export const RenderPhoto = ({showModal, changeScreen, index}) => {
+  function action(i) {
+    if (i === 0) {
+      showModal();
+    } else {
+      navigation.navigate('welcomeScreen');
+    }
+  }
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.render}>
-      <View style={{justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.renderPhoto}>
         <Image source={wel} />
-        <TouchableOpacity
-          style={styles.pickGender}
-          activeOpacity={0.5}
-          onPress={() => {
-            this.toggleModal(!this.setState.isVisible);
-          }}>
-          <Text style={[styles.txt, styles.txtPick]}>
-            Pick a gender & take a photo
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.pickGender, styles.changeLater]}
-          activeOpacity={0.5}>
-          <Text style={[styles.txt, styles.txtChange]}>Change later</Text>
-        </TouchableOpacity>
+        {photoData.map((v, i) => (
+          <TouchableOpacity
+            style={v.styleTouch}
+            key={i}
+            activeOpacity={0.5}
+            onPress={() => action(i)}>
+            <Text style={v.styleText}>{v.title}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </SafeAreaView>
   );
 };
-
+const modelData = [
+  {
+    title: 'Pick this model',
+    styleTouch: styles.pickModel,
+    styleText: [styles.txt, styles.txtPick],
+  },
+  {
+    title: 'Change later',
+    styleTouch: [styles.pickModel, styles.changeModel],
+    styleText: [styles.txt, styles.txtChange],
+  },
+];
 export const RenderModel = () => {
   return (
     <SafeAreaView style={styles.render}>
       <Image source={wel1} />
       <View style={styles.model}>
-        <TouchableOpacity style={styles.pickModel} activeOpacity={0.5}>
-          <Text style={[styles.txt, styles.txtPick]}>Pick this model</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.pickModel, styles.changeModel]}
-          activeOpacity={0.5}>
-          <Text style={[styles.txt, styles.txtChange]}>Change later</Text>
-        </TouchableOpacity>
+        {modelData.map((v, i) => (
+          <TouchableOpacity key={i} style={v.styleTouch} activeOpacity={0.5}>
+            <Text style={v.styleText}>{v.title}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </SafeAreaView>
   );
 };
 
-export const RenderModal = () => {
-  const [isVisible, setIsVisible] = useState(true);
+export const RenderModal = ({isVisible}) => {
   return (
     <Modal isVisible={isVisible}>
       <View style={styles.containerModal}>
@@ -102,8 +113,7 @@ export const RenderModal = () => {
           <View style={styles.underModal}>
             <TouchableOpacity
               style={[styles.touchModal, {backgroundColor: '#E2F7FD'}]}
-              activeOpacity={0.5}
-              onPress={() => setIsVisible(!isVisible)}>
+              activeOpacity={0.5}>
               <Text style={[styles.txt, styles.txtChange]}>Cancel</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -111,8 +121,7 @@ export const RenderModal = () => {
                 styles.touchModal,
                 {backgroundColor: '#098FA8', marginLeft: 15},
               ]}
-              activeOpacity={0.5}
-              onPress={() => setIsVisible(!isVisible)}>
+              activeOpacity={0.5}>
               <Text style={styles.txtModal}>Take a photo</Text>
             </TouchableOpacity>
           </View>

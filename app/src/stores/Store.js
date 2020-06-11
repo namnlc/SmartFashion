@@ -1,14 +1,8 @@
-import {observable, action} from 'mobx';
-import {observer} from 'mobx-react';
+// src/contexts/index.tsx
+import React from 'react'
+import { CounterStore } from './counter'
 
-class Store {
-  @observable value = 0;
-
-  @action increment() {
-    this.value++;
-  }
-  @action decrement() {
-    this.value--;
-  }
-}
-export default Store;
+export const storesContext = React.createContext({
+  counterStore: new CounterStore()
+})
+export const useStores = () => React.useContext(storesContext)
