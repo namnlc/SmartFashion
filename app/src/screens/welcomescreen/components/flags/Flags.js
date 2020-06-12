@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Image} from 'react-native';
-import america from '../../../res/images/america.png';
-import japan from '../../../res/images/japan.png';
-import arrowLeft from '../../../res/images/arrowleft.png';
-import arrowRight from '../../../res/images/arrowright.png';
+import america from '../../../../../res/images/america.png';
+import japan from '../../../../../res/images/japan.png';
+import arrowLeft from '../../../../../res/images/arrowleft.png';
+import arrowRight from '../../../../../res/images/arrowright.png';
 import {styles} from './Style';
 import {Flag} from './Index';
 

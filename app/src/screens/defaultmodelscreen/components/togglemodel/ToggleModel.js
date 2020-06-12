@@ -13,7 +13,7 @@ const modelData = [
     title: 'Pick a Model',
   },
 ];
-const ToggleModel = ({navigation}) => {
+const ToggleModel = () => {
   const [active, setActive] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   return (
@@ -24,15 +24,12 @@ const ToggleModel = ({navigation}) => {
         ) : (
           <RenderModel />
         )}
-        {isVisible && <RenderModal isVisible={isVisible} />}
-        {console.log(isVisible)}
-        <TouchableOpacity
-          activeOpacity={0.4}
-          style={styles.btn}
-          onPress={() => navigation.navigate('welcomeScreen')}>
-          <Text style={styles.txtStart}>Start</Text>
-        </TouchableOpacity>
-
+        {isVisible && (
+          <RenderModal
+            isVisible={isVisible}
+            onPress={() => setIsVisible(!isVisible)}
+          />
+        )}
         <View style={styles.tabs}>
           {modelData.map((v, i) => (
             <Tab

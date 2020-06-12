@@ -7,12 +7,12 @@ import {
   Dimensions,
 } from 'react-native';
 import React, {Component, useState} from 'react';
-import wel from '../../../res/images/welcome2.png';
+import wel from '../../../../../res/images/welcome2.png';
 import Modal from 'react-native-modal';
 import {styles} from './Style';
-import girl from '../../../res/images/girl.png';
-import man from '../../../res/images/man.png';
-import wel1 from '../../../res/images/welcome3.png';
+import girl from '../../../../../res/images/girl.png';
+import man from '../../../../../res/images/man.png';
+import wel1 from '../../../../../res/images/welcome3.png';
 import {useNavigation} from '@react-navigation/native';
 
 const {width, height} = Dimensions.get('window');
@@ -43,12 +43,12 @@ const photoData = [
   },
 ];
 
-export const RenderPhoto = ({showModal, changeScreen, index}) => {
+export const RenderPhoto = ({showModal, index}) => {
   function action(i) {
     if (i === 0) {
       showModal();
     } else {
-      navigation.navigate('welcomeScreen');
+      navigation.navigate('signUpNavigator');
     }
   }
   const navigation = useNavigation();
@@ -96,7 +96,7 @@ export const RenderModel = () => {
   );
 };
 
-export const RenderModal = ({isVisible}) => {
+export const RenderModal = ({isVisible, onPress}) => {
   return (
     <Modal isVisible={isVisible}>
       <View style={styles.containerModal}>
@@ -113,7 +113,8 @@ export const RenderModal = ({isVisible}) => {
           <View style={styles.underModal}>
             <TouchableOpacity
               style={[styles.touchModal, {backgroundColor: '#E2F7FD'}]}
-              activeOpacity={0.5}>
+              activeOpacity={0.5}
+              onPress={onPress}>
               <Text style={[styles.txt, styles.txtChange]}>Cancel</Text>
             </TouchableOpacity>
             <TouchableOpacity

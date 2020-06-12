@@ -1,35 +1,27 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import WelcomeScreen from '../screens/WelcomeScreen';
-import DefaultModel from '../screens/DefaultModel';
+import WelcomeScreen from '../screens/welcomescreen/WelcomeScreen';
+import DefaultModel from '../screens/defaultmodelscreen/DefaultModel';
 
 const Stack = createStackNavigator();
-
 function WelcomeNavigator() {
   const myOptions = {
     headerShown: false,
   };
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="welcomeScreen">
-        <Stack.Screen
-          name="welcomeScreen"
-          component={WelcomeScreen}
-          options={myOptions}
-        />
-        <Stack.Screen
-          name="defaultModel"
-          component={DefaultModel}
-          options={myOptions}
-        />
-        {/* <Stack.Screen
-          name="signup"
-          component={signUp}
-          options={myOptionsWelcome}
-        /> */}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator initialRouteName="welcomeScreen">
+      <Stack.Screen
+        name="welcomeScreen"
+        component={WelcomeScreen}
+        options={myOptions}
+      />
+      <Stack.Screen
+        name="defaultModel"
+        component={DefaultModel}
+        options={myOptions}
+      />
+    </Stack.Navigator>
   );
 }
 

@@ -1,7 +1,7 @@
 // src/stores/counter-store.tsx
 import {observable, action, computed} from 'mobx';
 
-export class CounterStore {
+export class SignStore {
   @observable
   count = 0;
 
