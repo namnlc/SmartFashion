@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import Flags from './components/flags/Flags';
 import welcome from '../../../res/images/welcome.png';
@@ -24,7 +25,7 @@ const WelcomeScreen = ({navigation}) => {
         <Flags />
         <View style={styles.body}>
           <View style={styles.img}>
-            <Image source={welcome} />
+            <Image source={welcome} resizeMode="contain" />
             <Text style={styles.txt}>Smarten up your Style!</Text>
           </View>
           <View style={{alignItems: 'center'}}>
@@ -51,14 +52,11 @@ const WelcomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // display:'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor:'#000'
   },
   body: {
     position: 'relative',
-    // backgroundColor:"#000"
   },
   btn: {
     backgroundColor: '#098FA8',
@@ -81,6 +79,8 @@ const styles = StyleSheet.create({
   },
   img: {
     marginTop: 0,
+    top: Platform.OS === 'android' ? 50 : null,
+    aspectRatio: 3 / 4,
   },
 
   txt2: {

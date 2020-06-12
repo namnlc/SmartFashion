@@ -3,6 +3,7 @@ import {View, Dimensions, Button, Text, TouchableOpacity} from 'react-native';
 
 import {styles} from './Style';
 import {Tab, RenderModal, RenderPhoto, RenderModel} from './Index';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const {width} = Dimensions.get('window');
 const modelData = [
@@ -17,7 +18,7 @@ const ToggleModel = () => {
   const [active, setActive] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.viewTabs}>
         {active === 0 ? (
           <RenderPhoto showModal={() => setIsVisible(!isVisible)} />
@@ -42,7 +43,7 @@ const ToggleModel = () => {
           ))}
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

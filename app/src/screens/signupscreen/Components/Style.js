@@ -10,19 +10,20 @@ export const signUp = StyleSheet.create({
     color: '#696969',
   },
   txt: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: 'bold',
     marginBottom: 30,
     marginLeft: -25,
   },
   txtInput: {
+    top: -10,
     width: '82%',
     height: 50,
     borderRadius: 6,
     backgroundColor: '#E3EAEC',
     paddingLeft: 10,
     paddingHorizontal: 20,
-    marginBottom: 15,
+    marginVertical: 15,
   },
   button: {
     backgroundColor: '#098FA8',
@@ -61,6 +62,7 @@ export const signIn = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     paddingBottom: 30,
+    textAlign: 'center',
     //letterSpacing:0.1
   },
   txtTouchId: {
@@ -85,6 +87,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  errorNull: {
+    fontSize: 12,
+    color: 'red',
+    width: '100%',
+    left: 32,
+    top: -10,
   },
   banner: {
     alignSelf: 'center',

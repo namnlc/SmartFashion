@@ -1,11 +1,11 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import WelcomeNavigator from './WelcomeNavigator';
-import SignUpNavigator from './SignUpNavigator';
-import React from 'react';
+import AuthNavigator from './AuthNavigator';
+import React, {useContext} from 'react';
 
 const stack = createStackNavigator();
-
+const authContext = React.createContext();
 const RootNavigator = () => {
   const myOptions = {
     headerShown: false,
@@ -20,7 +20,7 @@ const RootNavigator = () => {
         />
         <stack.Screen
           name="signUpNavigator"
-          component={SignUpNavigator}
+          component={AuthNavigator}
           options={myOptions}
         />
       </stack.Navigator>

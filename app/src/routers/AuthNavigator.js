@@ -3,16 +3,8 @@ import * as React from 'react';
 import {AsyncStorage, View, Text} from 'react-native';
 import SignUp from '../screens/signupscreen/SignUp';
 
-const authStack = React.createContext();
 const stack = createStackNavigator();
-function Spash() {
-  return (
-    <View>
-      <Text>Loading...</Text>
-    </View>
-  );
-}
-function SignUpNavigator() {
+function AuthNavigator() {
   const myOptions = {
     headerShown: false,
   };
@@ -23,4 +15,4 @@ function SignUpNavigator() {
   );
 }
 
-export default SignUpNavigator;
+export default AuthNavigator;
