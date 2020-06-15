@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export const signUp = StyleSheet.create({
   textGender: {
     justifyContent: 'center',
-    padding: 12.5,
+    //padding: 12.5,
     //color:"#696969"
   },
   txtDrop: {
@@ -12,18 +12,19 @@ export const signUp = StyleSheet.create({
   txt: {
     fontSize: 13,
     fontWeight: 'bold',
-    marginBottom: 30,
-    marginLeft: -25,
+    //marginLeft: -25,
+    textAlign: 'center',
+    paddingVertical: 20,
   },
   txtInput: {
-    top: -10,
+    //top: -10,
     width: '82%',
-    height: 50,
+    height: 40,
     borderRadius: 6,
     backgroundColor: '#E3EAEC',
     paddingLeft: 10,
     paddingHorizontal: 20,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   button: {
     backgroundColor: '#098FA8',
@@ -44,11 +45,7 @@ export const signUp = StyleSheet.create({
     marginVertical: 10,
   },
   icon: {
-    width: '80%',
-    height: 33,
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 10,
   },
   img: {
     width: 33,
@@ -195,5 +192,44 @@ export const styles = StyleSheet.create({
   logo2: {
     top: 8,
     left: -10,
+  },
+});
+
+export const modal = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  openButton: {
+    backgroundColor: '#F194FF',
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });

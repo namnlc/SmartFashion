@@ -5,7 +5,10 @@ import AuthNavigator from './AuthNavigator';
 import React, {useContext} from 'react';
 
 const stack = createStackNavigator();
-const authContext = React.createContext();
+const useAuthContext = React.createContext();
+const LOGIN_KEY = 'login';
+
+
 const RootNavigator = () => {
   const myOptions = {
     headerShown: false,

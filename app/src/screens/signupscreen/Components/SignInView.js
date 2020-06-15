@@ -21,6 +21,8 @@ import {signUp, styles, signIn} from './Style';
 import {useForm} from 'react-hook-form';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {useStores} from '../../../stores/Store';
+import {Icon} from 'react-native-elements';
 
 const RenderSignIn = () => {
   const onSubmit = data => {
@@ -34,6 +36,12 @@ const RenderSignIn = () => {
     register({name: 'Password'}, {required: true});
   }, [register]);
 
+  const {signStore} = useStores();
+  console.log(signStore.Email);
+  React.useEffect(() => {
+    signStore.onSubmit();
+    console.log(signStore.Email);
+  }, [signStore]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <KeyboardAwareScrollView
@@ -66,7 +74,6 @@ const RenderSignIn = () => {
           {errors.Email && (
             <Text style={styles.errorNull}>Please enter your email</Text>
           )}
-          {errors.Email.message && <Text>123</Text>}
           <TextInput
             placeholder="Password"
             placeholderTextColor="#696969"
@@ -94,11 +101,42 @@ const RenderSignIn = () => {
             </Divider>
           </View>
           <View style={signUp.icon}>
-            <Image source={facebook} style={signUp.img} />
-            <Image source={printer} style={signUp.img} />
-            <Image source={instagram} style={signUp.img} />
-            <Image source={twitter} style={signUp.img} />
-            <Image source={google} style={signUp.img} />
+            <Icon
+              type="font-awesome"
+              name="facebook"
+              color="#396AD6"
+              onPress={() => console.log('ahihi')}
+              reverseColor="white"
+              reverse={true}
+              size={20}
+            />
+            <Icon
+              type="font-awesome"
+              name="google"
+              color="#FC5253"
+              onPress={() => console.log('ahihi')}
+              reverseColor="white"
+              reverse={true}
+              size={20}
+            />
+            <Icon
+              type="font-awesome"
+              name="twitter"
+              color="#02B3F8"
+              onPress={() => console.log('ahihi')}
+              reverseColor="white"
+              reverse={true}
+              size={20}
+            />
+            <Icon
+              type="font-awesome"
+              name="apple"
+              color="black"
+              onPress={() => console.log('ahihi')}
+              reverseColor="white"
+              reverse={true}
+              size={20}
+            />
           </View>
         </View>
       </KeyboardAwareScrollView>

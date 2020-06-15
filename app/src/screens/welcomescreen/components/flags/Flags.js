@@ -5,7 +5,21 @@ import japan from '../../../../../res/images/japan.png';
 import arrowLeft from '../../../../../res/images/arrowleft.png';
 import arrowRight from '../../../../../res/images/arrowright.png';
 import {styles} from './Style';
-import {Flag} from './Index';
+
+const Flag = ({selected, source, isExpand, onPress, index}) => {
+  const style = [
+    {marginRight: 20},
+    index === selected && styles.touchFlags,
+    !isExpand && selected !== index ? {display: 'none'} : null,
+  ];
+  return (
+    <View>
+      <TouchableOpacity onPress={onPress} style={style}>
+        <Image source={source} />
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const flagsData = [
   {
