@@ -88,16 +88,12 @@ const TabBar = createReactClass({
 
     const translateX = this.props.scrollValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, containerWidth / numberOfTabs],
+      outputRange: [0, 0],
     });
     return (
-      <ScrollView
-        // style={[
-        //   styles.tabs,
-        //   {backgroundColor: this.props.backgroundColor},
-        //   this.props.style,
-        // ]}
-        //style={{width:'82%'}}
+      <Animated.ScrollView
+        style={{transform: [{translateX}]}}
+        scrollToOverflowEnabled={true}
         horizontal={true}
         showsHorizontalScrollIndicator={false}>
         {this.props.tabs.map((name, page) => {
@@ -114,7 +110,7 @@ const TabBar = createReactClass({
             this.props.underlineStyle,
           ]}
         />
-      </ScrollView>
+      </Animated.ScrollView>
     );
   },
 });

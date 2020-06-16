@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import WelcomeScreen from '../screens/welcomescreen/WelcomeScreen';
-import DefaultModel from '../screens/defaultmodelscreen/DefaultModel';
+import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
 
 const Stack = createStackNavigator();
 function WelcomeNavigator() {

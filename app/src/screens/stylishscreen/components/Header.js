@@ -3,21 +3,20 @@ import {SafeAreaView, View, Image, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
 import logo from '../../../../res/images/logo.png';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import TabBar from './TabBar';
-import ArrivalScreen from '../../newarrivalscreen/ArrivalScreen';
-const HeaderHome = () => {
+
+export default function Header() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <SafeAreaView style={styles.headerIcon}>
           <Image source={logo} />
-          <IconHeader />
         </SafeAreaView>
         <ScrollTab />
       </View>
     </View>
   );
-};
+}
+
 const ScrollTab = () => {
   return (
     <ScrollableTabView
@@ -28,9 +27,7 @@ const ScrollTab = () => {
       tabBarTextStyle={{fontSize: 12, fontWeight: 'bold'}}
       tabBarInactiveTextColor="white"
       renderTabBar={() => <TabBar />}>
-      <View tabLabel="NEW ARRIVAL">
-        <ArrivalScreen />
-      </View>
+      <View tabLabel="NEW ARRIVAL" />
       <View tabLabel="POPULAR">
         <View style={{backgroundColor: 'red', width: 100, height: 100}} />
       </View>
@@ -40,31 +37,6 @@ const ScrollTab = () => {
       <View tabLabel="SMART STYLISH" />
       <View tabLabel="SALE" />
     </ScrollableTabView>
-  );
-};
-const IconHeader = () => {
-  return (
-    <View style={{flexDirection: 'row'}}>
-      <Icon
-        name="qrcode"
-        type="font-awesome"
-        color="white"
-        style={{marginRight: 20}}
-      />
-      <Icon
-        name="search"
-        type="font-awesome"
-        color="white"
-        style={{marginRight: 20}}
-      />
-      <Icon
-        name="cart-plus"
-        type="font-awesome"
-        color="white"
-        style={{marginRight: 20}}
-      />
-      <Icon name="bell" type="font-awesome" color="white" />
-    </View>
   );
 };
 
@@ -85,5 +57,3 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
 });
-
-export default HeaderHome;
