@@ -5,13 +5,14 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import Divider from 'react-native-divider';
 import * as React from 'react';
 import {styles, signUp} from './Style';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {IndexPath, Select, SelectItem, Button} from '@ui-kitten/components';
-import {Icon} from 'react-native-elements';
+import {Select, SelectItem} from '@ui-kitten/components';
+import {Icon, ListItem} from 'react-native-elements';
 
 const dataGender = ['Male', 'Female', 'Others'];
 var dataAge = [];
@@ -19,14 +20,12 @@ for (var i = 1; i <= 100; i++) {
   dataAge.push(i);
 }
 const RenderSignUp = () => {
-  const [isBirth, setIsBirth] = useState(false);
-  //const genderState = useSelectState();
   const renderOption = title => <SelectItem title={title} />;
   const [selectGender, setSelectGender] = React.useState('');
-  const displayValue = dataGender[selectGender.row];
-  //const renderOptions = () => <Text style={{color:'red'}}>asdd</Text>;
   const [selectAge, setSelectAge] = React.useState('');
   const displayAge = dataAge[selectAge.row];
+  const displayValue = dataGender[selectGender.row];
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <KeyboardAwareScrollView
@@ -40,7 +39,7 @@ const RenderSignUp = () => {
         <Select
           style={{width: 310}}
           placeholder="Gender"
-          //status="primary"
+          //status="alternative"
           value={displayValue}
           selectedIndex={selectGender}
           onSelect={index => setSelectGender(index)}>
@@ -54,13 +53,13 @@ const RenderSignUp = () => {
           onSelect={index => setSelectAge(index)}>
           {dataAge.map(renderOption)}
         </Select>
-
         <TextInput
           placeholder="Email"
           placeholderTextColor="#696969"
           style={[signUp.txtInput, {zIndex: -2}]}
         />
         <TextInput
+          secureTextEntry={true}
           placeholder="Password"
           placeholderTextColor="#696969"
           style={[signUp.txtInput, {zIndex: -2}]}
@@ -117,4 +116,18 @@ const RenderSignUp = () => {
   );
 };
 
+const list = [
+  {
+    name: 'Amy Farha',
+    avatar_url:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    subtitle: 'Vice President',
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman',
+  },
+];
 export default RenderSignUp;

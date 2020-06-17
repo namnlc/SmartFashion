@@ -19,8 +19,10 @@ import {useStores} from '../../../stores/Store';
 import {Icon} from 'react-native-elements';
 import {Input, ApplicationProvider, IndexPath} from '@ui-kitten/components';
 import RenderSignUp from './SignUpView';
+import {useNavigation} from '@react-navigation/native';
 
 const RenderSignIn = () => {
+  const navigation = useNavigation();
   const onSubmit = data => {
     Alert.alert('FormData', JSON.stringify(data));
   };
@@ -90,7 +92,10 @@ const RenderSignIn = () => {
           <TouchableOpacity style={styles.touchForgot}>
             <Text style={styles.txtForgot}>Forgot Password?</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={signUp.button}>
+          <TouchableOpacity
+            style={signUp.button}
+            onPress={() => navigation.navigate('primaryNavigator')}
+            >
             <Text style={signUp.txtButton}>Sign In</Text>
           </TouchableOpacity>
           <TouchableOpacity style={signIn.touchID}>

@@ -2,6 +2,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import WelcomeNavigator from './WelcomeNavigator';
 import AuthNavigator from './AuthNavigator';
+import PrimaryNavigator from './PrimaryNavigator';
 import React, {useContext} from 'react';
 
 const {Navigator, Screen} = createStackNavigator();
@@ -23,6 +24,11 @@ const RootNavigator = () => {
         <Screen
           name="signUpNavigator"
           component={AuthNavigator}
+          options={myOptions}
+        />
+        <Screen
+          name="primaryNavigator"
+          component={PrimaryNavigator}
           options={myOptions}
         />
       </Navigator>

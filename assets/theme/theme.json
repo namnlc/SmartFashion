@@ -1,4 +1,19 @@
 {
+  "text-basic-color": "#000000",
+  "text-alternate-color": "red",
+  "text-control-color": "red",
+  "text-disabled-color": "red",
+  "text-hint-color": "#696969",
+
+  //backgroundColor
+  //"background-basic-color-2": "#E4EAEC",
+  // "background-basic-color-4": "#E4EAEC",
+  // "background-basic-color-1": "white",
+  // "background-basic-color-3": "blue",
+
+  //"color-basic-400":"red",
+  "color-basic-100":"white",
+  "color-basic-200":"#E4EAEC",
   "color-primary-100": "#CBFAF3",
   "color-primary-200": "#99F6EF",
   "color-primary-300": "#62E4E4",
