@@ -5,43 +5,54 @@ import {
   TouchableOpacity,
   View,
   Alert,
-  Button,
-  StyleSheet,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import touchId from '../../../../res/images/touchid.png';
 import Divider from 'react-native-divider';
-import facebook from '../../../../res/images/facebook.png';
-import printer from '../../../../res/images/printer.png';
-import instagram from '../../../../res/images/instagram.png';
-import twitter from '../../../../res/images/twitter.png';
-import google from '../../../../res/images/google.png';
 import * as React from 'react';
+import * as eva from '@eva-design/eva';
 import {useEffect} from 'react';
 import {signUp, styles, signIn} from './Style';
-import {useForm} from 'react-hook-form';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useStores} from '../../../stores/Store';
 import {Icon} from 'react-native-elements';
+import {Input, ApplicationProvider, IndexPath} from '@ui-kitten/components';
+import RenderSignUp from './SignUpView';
 
 const RenderSignIn = () => {
   const onSubmit = data => {
     Alert.alert('FormData', JSON.stringify(data));
   };
+  const [username, setUserName] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [secureTextEntry, setSecureTextEntry] = React.useState(true);
 
-  const {register, handleSubmit, setValue, errors} = useForm();
+  const toggleSecureEntry = () => {
+    setSecureTextEntry(!secureTextEntry);
+  };
 
-  useEffect(() => {
-    register({name: 'Email'}, {required: true});
-    register({name: 'Password'}, {required: true});
-  }, [register]);
+  const renderIcon = props => (
+    <TouchableWithoutFeedback onPress={toggleSecureEntry}>
+      <Icon
+        type="material"
+        name={secureTextEntry ? 'visibility-off' : 'visibility'}
+        color="#BEBEBE"
+      />
+    </TouchableWithoutFeedback>
+  );
 
-  const {signStore} = useStores();
-  console.log(signStore.Email);
-  React.useEffect(() => {
-    signStore.onSubmit();
-    console.log(signStore.Email);
-  }, [signStore]);
+  // useEffect(() => {
+  //   register({name: 'Email'}, {required: true});
+  //   register({name: 'Password'}, {required: true});
+  // }, [register]);
+
+  // const {signStore} = useStores();
+  // console.log(signStore.Email);
+  // React.useEffect(() => {
+  //   signStore.onSubmit();
+  //   console.log(signStore.Email);
+  // }, [signStore]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <KeyboardAwareScrollView
@@ -57,38 +68,29 @@ const RenderSignIn = () => {
             alignItems: 'center',
             width: '100%',
           }}>
-          <TextInput
+          <Input
+            size="medium"
             placeholder="Email"
+            value={username}
             placeholderTextColor="#696969"
-            onChangeText={text => setValue('Email', text, true)}
-            ref={register({
-              required: true,
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: 'invalid email address',
-              },
-            })}
             style={signUp.txtInput}
+            //secureTextEntry={secureTextEntry}
+            onChangeText={nextValue => setUserName(nextValue)}
           />
-          {console.log(errors.Email)}
-          {errors.Email && (
-            <Text style={styles.errorNull}>Please enter your email</Text>
-          )}
-          <TextInput
+          <Input
+            style={signUp.txtInput}
+            value={password}
+            size="medium"
+            placeholderTextColor="#696969"
             placeholder="Password"
-            placeholderTextColor="#696969"
-            onChangeText={text => setValue('Password', text, true)}
-            style={signUp.txtInput}
+            accessoryRight={renderIcon}
+            secureTextEntry={secureTextEntry}
+            onChangeText={nextValue => setPassword(nextValue)}
           />
-          {errors.Password && (
-            <Text style={styles.errorNull}>Please enter your password</Text>
-          )}
           <TouchableOpacity style={styles.touchForgot}>
             <Text style={styles.txtForgot}>Forgot Password?</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={signUp.button}
-            onPress={handleSubmit(onSubmit)}>
+          <TouchableOpacity style={signUp.button}>
             <Text style={signUp.txtButton}>Sign In</Text>
           </TouchableOpacity>
           <TouchableOpacity style={signIn.touchID}>

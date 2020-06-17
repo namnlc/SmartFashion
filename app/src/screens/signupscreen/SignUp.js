@@ -6,7 +6,7 @@ import {TabView, SceneMap} from 'react-native-tab-view';
 import RenderSignIn from './Components/SignInView';
 import RenderSignUp from './Components/SignUpView';
 import {styles} from './Components/Style';
-
+import {Icon, Layout} from 'react-native-elements';
 class SignUp extends React.Component {
   state = {
     index: 0,
@@ -21,9 +21,7 @@ class SignUp extends React.Component {
   _renderTabBar = props => {
     return (
       <View style={styles.tabContainer}>
-        <View>
-          <Image source={logo} style={styles.logo2} />
-        </View>
+        <Image source={logo} style={styles.logo2} />
         <View style={styles.tabView}>
           {props.navigationState.routes.map((route, i) => {
             let color = '#80BFCB';
@@ -46,9 +44,15 @@ class SignUp extends React.Component {
             );
           })}
         </View>
-        <View>
-          <Image source={logo} style={{top: 8, right: -10}} />
-        </View>
+
+        <Icon
+          type="font-awesome"
+          name="times"
+          color="white"
+          size={26}
+          style={{marginTop:20}}
+          onPress={() => console.log('hi')}
+        />
       </View>
     );
   };

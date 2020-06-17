@@ -1,34 +1,32 @@
 import {useState} from 'react';
 import {
-  Image,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  Modal,
-  Button,
-  StyleSheet,
   SafeAreaView,
 } from 'react-native';
 import Divider from 'react-native-divider';
 import * as React from 'react';
-import {styles, signUp, modal} from './Style';
-import {validateAll} from 'indicative/validator';
+import {styles, signUp} from './Style';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {Input, Card, FormValidationMessage, Icon} from 'react-native-elements';
+import {IndexPath, Select, SelectItem, Button} from '@ui-kitten/components';
+import {Icon} from 'react-native-elements';
 
+const dataGender = ['Male', 'Female', 'Others'];
+var dataAge = [];
+for (var i = 1; i <= 100; i++) {
+  dataAge.push(i);
+}
 const RenderSignUp = () => {
-  const [isShow, setIsShow] = useState(false);
   const [isBirth, setIsBirth] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [text, setText] = useState('Gender');
-  const handleSignUp = () => {
-    const rules = {
-      email: 'required|email',
-      password: 'required|string|min:8|max:20|confirmed',
-    };
-  };
-
+  //const genderState = useSelectState();
+  const renderOption = title => <SelectItem title={title} />;
+  const [selectGender, setSelectGender] = React.useState('');
+  const displayValue = dataGender[selectGender.row];
+  //const renderOptions = () => <Text style={{color:'red'}}>asdd</Text>;
+  const [selectAge, setSelectAge] = React.useState('');
+  const displayAge = dataAge[selectAge.row];
   return (
     <SafeAreaView style={{flex: 1}}>
       <KeyboardAwareScrollView
@@ -39,34 +37,23 @@ const RenderSignUp = () => {
           Sign In or Sign Up to unlock and explore more features with Smart
           Fashion!
         </Text>
-        <TouchableOpacity
-          style={[
-            signUp.textGender,
-            signUp.txtInput,
-            isVisible ? styles.showGender : null,
-          ]}
-          onPress={() => setIsVisible(!isVisible)}
-          activeOpacity={0.5}>
-          <Text style={signUp.txtDrop}>{text}</Text>
-        </TouchableOpacity>
-        {isVisible ? (
-          <ModalGender
-            isVisible={isVisible}
-            onPress={() => {
-              setIsVisible(!isVisible);
-            }}
-            txt={() => setText(text)}
-          />
-        ) : null}
-
-        <TouchableOpacity
-          style={[signUp.txtInput, signUp.textGender]}
-          onPress={() => setIsBirth(!isBirth)}>
-          <Text style={signUp.txtDrop}>Age</Text>
-          {isBirth === true ? (
-            <View style={{height: 100}}>{/*<BirthModal />*/}</View>
-          ) : null}
-        </TouchableOpacity>
+        <Select
+          style={{width: 310}}
+          placeholder="Gender"
+          //status="primary"
+          value={displayValue}
+          selectedIndex={selectGender}
+          onSelect={index => setSelectGender(index)}>
+          {dataGender.map(renderOption)}
+        </Select>
+        <Select
+          style={{width: 310, marginTop: 20}}
+          placeholder="Age"
+          value={displayAge}
+          selectedIndex={selectAge}
+          onSelect={index => setSelectAge(index)}>
+          {dataAge.map(renderOption)}
+        </Select>
 
         <TextInput
           placeholder="Email"
@@ -129,32 +116,5 @@ const RenderSignUp = () => {
     </SafeAreaView>
   );
 };
-const genderData = [
-  {
-    title: 'Female',
-  },
-  {
-    title: 'Male',
-  },
-  {
-    title: 'Others',
-  },
-];
 
-export const ModalGender = ({isVisible, onPress, txt}) => {
-  return (
-    <Modal animationType="fade" transparent={true} visible={isVisible}>
-      <View style={modal.centeredView}>
-        <View style={modal.modalView}>
-          <Text style={modal.modalText}>Hello World!</Text>
-          {genderData.map((v, i) => (
-            <TouchableOpacity key={i} onPress={onPress}>
-              <Text>{v.title}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-    </Modal>
-  );
-};
 export default RenderSignUp;

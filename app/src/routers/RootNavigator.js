@@ -4,10 +4,9 @@ import WelcomeNavigator from './WelcomeNavigator';
 import AuthNavigator from './AuthNavigator';
 import React, {useContext} from 'react';
 
-const stack = createStackNavigator();
+const {Navigator, Screen} = createStackNavigator();
 const useAuthContext = React.createContext();
 const LOGIN_KEY = 'login';
-
 
 const RootNavigator = () => {
   const myOptions = {
@@ -15,18 +14,18 @@ const RootNavigator = () => {
   };
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="welcomeNavigator">
-        <stack.Screen
+      <Navigator initialRouteName="welcomeNavigator">
+        <Screen
           name="welcomeNavigator"
           component={WelcomeNavigator}
           options={myOptions}
         />
-        <stack.Screen
+        <Screen
           name="signUpNavigator"
           component={AuthNavigator}
           options={myOptions}
         />
-      </stack.Navigator>
+      </Navigator>
     </NavigationContainer>
   );
 };

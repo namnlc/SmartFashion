@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Image, StyleSheet} from 'react-native';
+import {SafeAreaView, View, Image, StyleSheet, Text} from 'react-native';
 import {Icon} from 'react-native-elements';
 import logo from '../../../../res/images/logo.png';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -8,9 +8,6 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <SafeAreaView style={styles.headerIcon}>
-          <Image source={logo} />
-        </SafeAreaView>
         <ScrollTab />
       </View>
     </View>
@@ -23,18 +20,10 @@ const ScrollTab = () => {
       style={{marginVertical: 10}}
       initialPage={0}
       tabBarUnderlineStyle={{display: 'none'}}
-      tabBarActiveTextColor="#098FA8"
+      tabBarActiveTextColor="white"
       tabBarTextStyle={{fontSize: 12, fontWeight: 'bold'}}
-      tabBarInactiveTextColor="white"
-      renderTabBar={() => <TabBar />}>
-      <View tabLabel="NEW ARRIVAL" />
-      <View tabLabel="POPULAR">
-        <View style={{backgroundColor: 'red', width: 100, height: 100}} />
-      </View>
-      <View tabLabel="TOP TRIED-ON">
-        <View style={{backgroundColor: 'red', width: 100, height: 100}} />
-      </View>
-      <View tabLabel="SMART STYLISH" />
+      tabBarInactiveTextColor="black">
+      <View tabLabel="NEW ARRIVAL"><Text>123</Text></View>
       <View tabLabel="SALE" />
     </ScrollableTabView>
   );

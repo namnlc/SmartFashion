@@ -11,7 +11,6 @@ import {
 import Flags from './components/flags/Flags';
 import welcome from '../../../res/images/welcome.png';
 import {useStores} from '../../stores/Store';
-
 const WelcomeScreen = ({navigation}) => {
   const {signStore} = useStores();
   console.log(signStore.count);
