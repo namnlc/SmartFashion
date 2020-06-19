@@ -14,7 +14,7 @@ import girl from '../../../../../res/images/girl.png';
 import man from '../../../../../res/images/man.png';
 import wel1 from '../../../../../res/images/welcome3.png';
 import {useNavigation} from '@react-navigation/native';
-
+import {Sex} from '../../../../components/Sex/Sex';
 const {width, height} = Dimensions.get('window');
 
 export const Tab = ({title, onPress, active, index}) => {
@@ -29,19 +29,6 @@ export const Tab = ({title, onPress, active, index}) => {
     </TouchableOpacity>
   );
 };
-
-const photoData = [
-  {
-    title: 'Pick a gender & take a photo',
-    styleTouch: styles.pickGender,
-    styleText: [styles.txt, styles.txtPick],
-  },
-  {
-    title: 'Change Later',
-    styleTouch: [styles.pickGender, styles.changeLater],
-    styleText: [styles.txt, styles.txtChange],
-  },
-];
 
 export const RenderPhoto = ({showModal, index}) => {
   function action(i) {
@@ -69,18 +56,7 @@ export const RenderPhoto = ({showModal, index}) => {
     </SafeAreaView>
   );
 };
-const modelData = [
-  {
-    title: 'Pick this model',
-    styleTouch: styles.pickModel,
-    styleText: [styles.txt, styles.txtPick],
-  },
-  {
-    title: 'Change later',
-    styleTouch: [styles.pickModel, styles.changeModel],
-    styleText: [styles.txt, styles.txtChange],
-  },
-];
+
 export const RenderModel = () => {
   return (
     <SafeAreaView style={styles.render}>
@@ -97,17 +73,22 @@ export const RenderModel = () => {
 };
 
 export const RenderModal = ({isVisible, onPress}) => {
+  const [active, setActive] = useState('false');
   return (
     <Modal isVisible={isVisible}>
       <View style={styles.containerModal}>
         <View style={styles.modal}>
           <View style={styles.viewModal}>
-            <TouchableOpacity style={{paddingRight: 60}}>
-              <Image source={girl} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={man} />
-            </TouchableOpacity>
+            {sexData.map((v, i) => (
+              <Sex
+                title={v.title}
+                image={v.image}
+                key={i}
+                onPress={() => setActive(i)}
+                index={i}
+                active={active}
+              />
+            ))}
           </View>
           <View style={styles.btnModal} />
           <View style={styles.underModal}>
@@ -131,3 +112,40 @@ export const RenderModal = ({isVisible, onPress}) => {
     </Modal>
   );
 };
+
+const modelData = [
+  {
+    title: 'Pick this model',
+    styleTouch: styles.pickModel,
+    styleText: [styles.txt, styles.txtPick],
+  },
+  {
+    title: 'Change later',
+    styleTouch: [styles.pickModel, styles.changeModel],
+    styleText: [styles.txt, styles.txtChange],
+  },
+];
+
+const photoData = [
+  {
+    title: 'Pick a gender & take a photo',
+    styleTouch: styles.pickGender,
+    styleText: [styles.txt, styles.txtPick],
+  },
+  {
+    title: 'Change Later',
+    styleTouch: [styles.pickGender, styles.changeLater],
+    styleText: [styles.txt, styles.txtChange],
+  },
+];
+
+const sexData = [
+  {
+    image: girl,
+    title: 'Girl',
+  },
+  {
+    image: man,
+    title: 'Man',
+  },
+];

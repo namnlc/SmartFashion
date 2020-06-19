@@ -10,14 +10,8 @@ import {
 } from 'react-native';
 import Flags from './components/flags/Flags';
 import welcome from '../../../res/images/welcome.png';
-import {useStores} from '../../stores/Store';
+import Sex from '../../components/Sex/Sex';
 const WelcomeScreen = ({navigation}) => {
-  const {signStore} = useStores();
-  console.log(signStore.count);
-  React.useEffect(() => {
-    signStore.decrement();
-    console.log(signStore.count);
-  }, [signStore]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
@@ -35,7 +29,6 @@ const WelcomeScreen = ({navigation}) => {
               <Text style={styles.txtStart}>Start</Text>
             </TouchableOpacity>
           </View>
-
           <View>
             <Text style={styles.txt2}>Try on everything on Smart Fashion</Text>
             <Text style={styles.txt2}>

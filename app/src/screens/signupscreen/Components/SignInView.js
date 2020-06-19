@@ -34,6 +34,12 @@ const RenderSignIn = () => {
     setSecureTextEntry(!secureTextEntry);
   };
 
+  const {signStore} = useStores();
+  console.log(signStore.isLoggedIn);
+  React.useEffect(() => {
+    signStore.onPressLogin();
+    console.log(signStore.isLoggedIn);
+  }, [signStore]);
   const renderIcon = props => (
     <TouchableWithoutFeedback onPress={toggleSecureEntry}>
       <Icon
@@ -43,18 +49,6 @@ const RenderSignIn = () => {
       />
     </TouchableWithoutFeedback>
   );
-
-  // useEffect(() => {
-  //   register({name: 'Email'}, {required: true});
-  //   register({name: 'Password'}, {required: true});
-  // }, [register]);
-
-  // const {signStore} = useStores();
-  // console.log(signStore.Email);
-  // React.useEffect(() => {
-  //   signStore.onSubmit();
-  //   console.log(signStore.Email);
-  // }, [signStore]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <KeyboardAwareScrollView
@@ -94,8 +88,7 @@ const RenderSignIn = () => {
           </TouchableOpacity>
           <TouchableOpacity
             style={signUp.button}
-            onPress={() => navigation.navigate('primaryNavigator')}
-            >
+            onPress={() => navigation.navigate('primaryNavigator')}>
             <Text style={signUp.txtButton}>Sign In</Text>
           </TouchableOpacity>
           <TouchableOpacity style={signIn.touchID}>

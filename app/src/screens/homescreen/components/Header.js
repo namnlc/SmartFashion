@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#098FA8',
     borderBottomLeftRadius: 18,
     height: '50%',
+    //display: 'flex'
   },
   headerIcon: {
     flexDirection: 'row',

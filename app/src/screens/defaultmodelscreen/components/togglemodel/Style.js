@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   viewModal: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flex: 1,
   },

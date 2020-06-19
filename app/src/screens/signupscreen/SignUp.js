@@ -7,6 +7,7 @@ import RenderSignIn from './Components/SignInView';
 import RenderSignUp from './Components/SignUpView';
 import {styles} from './Components/Style';
 import {Icon, Layout} from 'react-native-elements';
+
 class SignUp extends React.Component {
   state = {
     index: 0,
@@ -15,7 +16,6 @@ class SignUp extends React.Component {
       {key: 'second', title: 'Sign Up'},
     ],
   };
-
   _handleIndexChange = index => this.setState({index});
 
   _renderTabBar = props => {

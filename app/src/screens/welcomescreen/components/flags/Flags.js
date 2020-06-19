@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, TouchableOpacity, Image} from 'react-native';
 import america from '../../../../../res/images/america.png';
 import japan from '../../../../../res/images/japan.png';
+import vietnam from '../../../../../res/images/vietnam.png';
 import arrowLeft from '../../../../../res/images/arrowleft.png';
 import arrowRight from '../../../../../res/images/arrowright.png';
 import {styles} from './Style';
@@ -15,7 +16,7 @@ const Flag = ({selected, source, isExpand, onPress, index}) => {
   return (
     <View>
       <TouchableOpacity onPress={onPress} style={style}>
-        <Image source={source} />
+        <Image source={source} style={{width: 20, height: 20}} />
       </TouchableOpacity>
     </View>
   );
@@ -29,7 +30,7 @@ const flagsData = [
     source: japan,
   },
   {
-    source: america,
+    source: vietnam,
   },
 ];
 const Flags = () => {

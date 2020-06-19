@@ -1,27 +1,14 @@
 // src/stores/counter-store.tsx
-import {observable, action, computed} from 'mobx';
+import {observable, action} from 'mobx';
 
 export class SignStore {
-  @observable count = 0;
-  Email = 'nam@gmail.com';
-  Password = '12345678';
+  @observable isLoggedIn = false;
 
   @action
-  onSubmit() {
-    this.Email = 'name@g.com';
-    this.Password = '12345678';
+  onPressLogin() {
+    this.isLoggedIn = true;
   }
-  @action
-  increment() {
-    this.count++;
-  }
-  @action
-  decrement() {
-    this.count--;
-  }
-
-  @computed
-  get doubleCount() {
-    return this.count * 2;
+  onPressLogout() {
+    this.isLoggedIn = false;
   }
 }
