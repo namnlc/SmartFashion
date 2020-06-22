@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Flags from './components/flags/Flags';
 import welcome from '../../../res/images/welcome.png';
-import Sex from '../../components/Sex/Sex';
+import {Sex} from '../../components/sex/Sex';
 const WelcomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>

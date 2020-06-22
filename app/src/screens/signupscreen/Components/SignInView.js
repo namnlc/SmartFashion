@@ -83,7 +83,9 @@ const RenderSignIn = () => {
             secureTextEntry={secureTextEntry}
             onChangeText={nextValue => setPassword(nextValue)}
           />
-          <TouchableOpacity style={styles.touchForgot}>
+          <TouchableOpacity
+            style={styles.touchForgot}
+            onPress={() => navigation.navigate('forgotPassword')}>
             <Text style={styles.txtForgot}>Forgot Password?</Text>
           </TouchableOpacity>
           <TouchableOpacity

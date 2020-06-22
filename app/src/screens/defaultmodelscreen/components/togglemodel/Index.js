@@ -14,7 +14,7 @@ import girl from '../../../../../res/images/girl.png';
 import man from '../../../../../res/images/man.png';
 import wel1 from '../../../../../res/images/welcome3.png';
 import {useNavigation} from '@react-navigation/native';
-import {Sex} from '../../../../components/Sex/Sex';
+import {Sex} from '../../../../components/sex/Sex';
 const {width, height} = Dimensions.get('window');
 
 export const Tab = ({title, onPress, active, index}) => {
