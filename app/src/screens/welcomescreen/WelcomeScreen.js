@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     width: 184,
   },
   txt: {
-    // fontFamily:'poppins',
+    fontFamily: 'Poppins-Black',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   txtStart: {
     color: '#fff',
     fontSize: 16,
+    fontFamily: 'Poppins-Regular',
   },
   img: {
     marginTop: 0,

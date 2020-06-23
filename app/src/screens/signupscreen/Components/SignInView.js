@@ -10,14 +10,12 @@ import {
 import touchId from '../../../../res/images/touchid.png';
 import Divider from 'react-native-divider';
 import * as React from 'react';
-import * as eva from '@eva-design/eva';
-import {useEffect} from 'react';
 import {signUp, styles, signIn} from './Style';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useStores} from '../../../stores/Store';
 import {Icon} from 'react-native-elements';
-import {Input, ApplicationProvider, IndexPath} from '@ui-kitten/components';
+import {Input} from '@ui-kitten/components';
 import RenderSignUp from './SignUpView';
 import {useNavigation} from '@react-navigation/native';
 

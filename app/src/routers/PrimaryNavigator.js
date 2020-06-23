@@ -26,7 +26,7 @@ function MyTabs() {
       initialRouteName="Home"
       tabBarOptions={{
         keyboardHidesTabBar: true,
-        style: {height: 60},
+        style: {height: 50},
         tabStyle: {marginVertical: 5, paddingTop: 5},
       }}>
       <Tab.Screen
@@ -38,7 +38,7 @@ function MyTabs() {
               style={{
                 display: focused ? 'none' : null,
                 color: focused ? null : '#CACACA',
-                fontWeight: 'bold',
+                //fontWeight: 'bold',
                 paddingTop: 10,
               }}>
               Home
@@ -70,7 +70,7 @@ function MyTabs() {
               style={{
                 display: focused ? 'none' : null,
                 color: focused ? null : '#CACACA',
-                fontWeight: 'bold',
+                //fontWeight: 'bold',
                 paddingTop: 10,
               }}>
               Stylish
@@ -103,7 +103,7 @@ function MyTabs() {
               style={{
                 display: focused ? 'none' : null,
                 color: focused ? null : '#CACACA',
-                fontWeight: 'bold',
+                //fontWeight: 'bold',
                 paddingTop: 10,
               }}>
               Try on
@@ -136,7 +136,7 @@ function MyTabs() {
               style={{
                 display: focused ? 'none' : null,
                 color: focused ? null : '#CACACA',
-                fontWeight: 'bold',
+                //fontWeight: 'bold',
                 paddingTop: 10,
               }}>
               Profiles

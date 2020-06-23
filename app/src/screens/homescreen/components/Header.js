@@ -1,77 +1,56 @@
 import React from 'react';
-import {SafeAreaView, View, Image, StyleSheet} from 'react-native';
+import {SafeAreaView, View, Text, Image, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
-import logo from '../../../../res/images/logo.png';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
-import TabBar from './TabBar';
-import ArrivalScreen from '../../newarrivalscreen/ArrivalScreen';
+import ScrollableTabView, {
+  ScrollableTabBar,
+} from 'react-native-scrollable-tab-view';
+import LOGO from '../logo.png';
 const HeaderHome = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <SafeAreaView style={styles.headerIcon}>
-          <Image source={logo} />
-          <IconHeader />
-        </SafeAreaView>
-        <ScrollTab />
+    <SafeAreaView style={styles.container}>
+      <View
+        style={{
+          //flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignSelf: 'auto',
+          backgroundColor: 'red',
+          height: 30,
+        }}>
+        <Icon type="material" name="menu" color="black" size={30} />
+        <Image
+          source={LOGO}
+          style={{resizeMode: 'contain', width: 164, height: 28}}
+        />
+        <View>
+          <Icon type="font-awesome" name="cart-plus" color="black" size={30} />
+        </View>
       </View>
-    </View>
+      <ScrollTab />
+    </SafeAreaView>
   );
 };
 const ScrollTab = () => {
   return (
     <ScrollableTabView
-      style={{marginVertical: 10}}
+      tabBarPosition="overlayTop"
+      tabBarActiveTextColor={{color: 'black'}}
+      tabBarInactiveTextColor={{color: '#6c6c6c'}}
+      tabBarUnderlineStyle={{backgroundColor: 'black'}}
       initialPage={0}
-      tabBarUnderlineStyle={{display: 'none'}}
-      tabBarActiveTextColor="#098FA8"
-      tabBarTextStyle={{fontSize: 12, fontWeight: 'bold'}}
-      tabBarInactiveTextColor="white"
-      renderTabBar={() => <TabBar />}>
-      <View tabLabel="NEW ARRIVAL">
-        <ArrivalScreen />
-      </View>
-      <View tabLabel="POPULAR">
-        <View style={{backgroundColor: 'red', width: 100, height: 100}} />
-      </View>
-      <View tabLabel="TOP TRIED-ON">
-        <View style={{backgroundColor: 'red', width: 100, height: 100}} />
-      </View>
-      <View tabLabel="SMART STYLISH" />
-      <View tabLabel="SALE" />
+      style={{justifyContent: 'space-between'}}
+      renderTabBar={() => <ScrollableTabBar />}>
+      <Text tabLabel="HOME">My</Text>
+      <Text tabLabel="NEWS FEED">favorite</Text>
+      <Text tabLabel="INFORMATION">project</Text>
     </ScrollableTabView>
-  );
-};
-const IconHeader = () => {
-  return (
-    <View style={{flexDirection: 'row'}}>
-      <Icon
-        name="qrcode"
-        type="font-awesome"
-        color="white"
-        style={{marginRight: 20}}
-      />
-      <Icon
-        name="search"
-        type="font-awesome"
-        color="white"
-        style={{marginRight: 20}}
-      />
-      <Icon
-        name="cart-plus"
-        type="font-awesome"
-        color="white"
-        style={{marginRight: 20}}
-      />
-      <Icon name="bell" type="font-awesome" color="white" />
-    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'absolute',
+    backgroundColor: 'blue',
   },
   header: {
     backgroundColor: '#098FA8',
