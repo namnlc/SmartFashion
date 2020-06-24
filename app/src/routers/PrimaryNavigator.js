@@ -1,22 +1,11 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/react-in-jsx-scope */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeScreen from '../screens/homescreen/HomeScreen';
 import WelcomeScreen from '../screens/welcomescreen/WelcomeScreen';
 import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
-import {NavigationContainer, BaseRouter} from '@react-navigation/native';
 import React from 'react';
-import {Image, View, Text, TouchableOpacity, SafeAreaView} from 'react-native';
-const tabs = createBottomTabNavigator();
-const STARWAND = require('../screens/homescreen/starwand.png');
-const STARWANDACTIVE = require('../screens/homescreen/starwandactive.png');
-const HOME = require('../screens/homescreen/home.png');
-const HOMEACTIVE = require('../screens/homescreen/homeactive.png');
-const TRYON = require('../screens/homescreen/tryon.png');
-const TRYONACTIVE = require('../screens/homescreen/tryonactive.png');
-const PROFILE = require('../screens/homescreen/profile.png');
-const PROFILEACTIVE = require('../screens/homescreen/profile.png');
+import {Image, View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {Icon} from 'react-native-elements';
+import StylishScreen from '../screens/stylishscreen/StylishScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,8 +14,15 @@ function MyTabs() {
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        keyboardHidesTabBar: true,
-        style: {height: 50},
+        activeTintColor: 'black',
+        inactiveTintColor: '#CACACA',
+        //keyboardHidesTabBar: true,
+        style: {
+          height: '10%',
+          alignSelf: 'center',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        },
         tabStyle: {marginVertical: 5, paddingTop: 5},
       }}>
       <Tab.Screen
@@ -34,62 +30,30 @@ function MyTabs() {
         component={HomeScreen}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text
-              style={{
-                display: focused ? 'none' : null,
-                color: focused ? null : '#CACACA',
-                //fontWeight: 'bold',
-                paddingTop: 10,
-              }}>
-              Home
+            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+              HOME
             </Text>
           ),
-          tabBarIcon: ({focused, color, size}) => (
-            <Image
-              source={focused ? HOMEACTIVE : HOME}
-              style={
-                focused
-                  ? {
-                      resizeMode: 'contain',
-                      width: 47,
-                      height: 47,
-                      marginBottom: 20,
-                    }
-                  : {width: 17, height: 20}
-              }
-            />
+          tabBarIcon: ({focused, color}) => (
+            <Icon name="home" type="feather" color={color} size={22} />
           ),
         }}
       />
       <Tab.Screen
         name="Notifications"
-        component={WelcomeScreen}
+        component={StylishScreen}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text
-              style={{
-                display: focused ? 'none' : null,
-                color: focused ? null : '#CACACA',
-                //fontWeight: 'bold',
-                paddingTop: 10,
-              }}>
-              Stylish
+            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+              STYLISH
             </Text>
           ),
           tabBarIcon: ({focused, color, size}) => (
-            <Image
-              source={focused ? STARWANDACTIVE : STARWAND}
-              style={
-                focused
-                  ? {
-                      //resizeMethod: 'scale',
-                      resizeMode: 'contain',
-                      width: 47,
-                      height: 47,
-                      marginBottom: 18,
-                    }
-                  : {width: 17, height: 20}
-              }
+            <Icon
+              type="simple-line-icon"
+              name="magic-wand"
+              size={22}
+              color={color}
             />
           ),
         }}
@@ -99,64 +63,43 @@ function MyTabs() {
         component={DefaultModel}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text
-              style={{
-                display: focused ? 'none' : null,
-                color: focused ? null : '#CACACA',
-                //fontWeight: 'bold',
-                paddingTop: 10,
-              }}>
-              Try on
+            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+              TRY ON
+            </Text>
+          ),
+          tabBarIcon: ({focused, color, size}) => <Icon type="" />,
+        }}
+      />
+      <Tab.Screen
+        name="Events"
+        component={DefaultModel}
+        options={{
+          tabBarLabel: ({focused}) => (
+            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+              EVENTS
             </Text>
           ),
           tabBarIcon: ({focused, color, size}) => (
-            <Image
-              source={focused ? TRYONACTIVE : TRYON}
-              style={
-                focused
-                  ? {
-                      //resizeMethod: 'scale',
-                      resizeMode: 'contain',
-                      width: 47,
-                      height: 47,
-                      marginBottom: 18,
-                    }
-                  : {width: 17, height: 27}
-              }
+            <Icon
+              type="simple-line-icon"
+              name="trophy"
+              size={22}
+              color={color}
             />
           ),
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Profiles"
         component={DefaultModel}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text
-              style={{
-                display: focused ? 'none' : null,
-                color: focused ? null : '#CACACA',
-                //fontWeight: 'bold',
-                paddingTop: 10,
-              }}>
-              Profiles
+            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+              EVENTS
             </Text>
           ),
           tabBarIcon: ({focused, color, size}) => (
-            <Image
-              source={focused ? PROFILEACTIVE : PROFILE}
-              style={
-                focused
-                  ? {
-                      //resizeMethod: 'scale',
-                      resizeMode: 'contain',
-                      width: 47,
-                      height: 47,
-                      marginBottom: 18,
-                    }
-                  : {width: 17, height: 20}
-              }
-            />
+            <Icon type="simple-line-icon" name="user" size={22} color={color} />
           ),
         }}
       />
@@ -164,4 +107,17 @@ function MyTabs() {
   );
 }
 
+const styles = StyleSheet.create({
+  txt: {
+    fontFamily: 'Optima',
+    fontSize: 12,
+    top: 5,
+  },
+  iconTab: {
+    resizeMode: 'contain',
+    width: 47,
+    height: 47,
+    marginBottom: 18,
+  },
+});
 export default MyTabs;

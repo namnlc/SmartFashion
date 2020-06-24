@@ -3,15 +3,15 @@ import {NavigationContainer} from '@react-navigation/native';
 import WelcomeNavigator from './WelcomeNavigator';
 import AuthNavigator from './AuthNavigator';
 import PrimaryNavigator from './PrimaryNavigator';
-import React, {useContext} from 'react';
+import React from 'react';
+import DrawerHomeScreen from '../screens/homescreen/components/DrawerHomeScreen';
 
 const {Navigator, Screen} = createStackNavigator();
-const useAuthContext = React.createContext();
-const LOGIN_KEY = 'login';
 
 const RootNavigator = () => {
   const myOptions = {
     headerShown: false,
+    gestureEnabled: false,
   };
   return (
     <NavigationContainer>

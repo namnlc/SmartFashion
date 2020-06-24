@@ -8,5 +8,4 @@ const StylishScreen = () => {
     </View>
   );
 };
-
 export default StylishScreen;
