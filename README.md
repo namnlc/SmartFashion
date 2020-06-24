@@ -11,6 +11,9 @@
 ```sh
 yarn install
 ```
+```sh
+cd ios && pod install
+```
 
 ## Usage
 
@@ -37,6 +40,3 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
