@@ -1,4 +1,5 @@
 {
   "name": "SmartFashion",
-  "displayName": "SmartFashion"
+  "displayName": "SmartFashion",
+  "resolutions": { "logkitty": "^0.7.1" }
 }
