@@ -1,23 +1,11 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  Image,
-  StyleSheet,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
+import {SafeAreaView, View, Image, Text, TouchableOpacity} from 'react-native';
 import {Icon} from 'react-native-elements';
-import logo from '../../../../res/images/logo.png';
 import ScrollableTabView, {
   ScrollableTabBar,
 } from 'react-native-scrollable-tab-view';
-import {ScrollableComponent} from 'react-native-keyboard-aware-scroll-view';
 import FORYOU from '../foryou.png';
-
-let {width, height} = Dimensions.get('window');
+import {styles} from './Style';
 export default function Header() {
   return (
     <SafeAreaView style={styles.container}>
@@ -46,55 +34,16 @@ const ScrollTab = () => {
 };
 const StyleForYouView = () => {
   return (
-    <View
-      style={{
-        height: height,
-        //justifyContent: 'space-between',
-      }}>
-      <Image
-        source={FORYOU}
-        style={{
-          resizeMode: 'contain',
-          alignSelf: 'center',
-          width: width / 2,
-          height: height / 2,
-        }}
-      />
+    <View style={styles.containerFor}>
+      <Image source={FORYOU} style={styles.img} />
 
-      <Text
-        style={{
-          textAlign: 'center',
-          marginHorizontal: 20,
-          fontFamily: 'Optima',
-        }}>
+      <Text style={styles.txt}>
         Take a photo and see what match or look similar to your clothes
       </Text>
-      <TouchableOpacity
-        style={{
-          justifyContent: 'center',
-          flexDirection: 'row',
-          borderWidth: 1,
-          borderRadius: 25,
-          alignItems: 'center',
-          alignSelf: 'center',
-          padding: 10,
-          marginTop: 20,
-        }}>
+      <TouchableOpacity style={styles.upload}>
         <Icon name="camera" type="simple-line-icon" color="black" size={24} />
-        <Text style={{marginLeft: 10, fontFamily: 'Optima'}}>Upload</Text>
+        <Text style={styles.txtTouch}>Upload</Text>
       </TouchableOpacity>
     </View>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    position: 'absolute',
-  },
-  header: {
-    flex: 1,
-    //backgroundColor: 'red',
-    //position: 'absolute',
-  },
-});

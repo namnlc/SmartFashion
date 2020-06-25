@@ -1,11 +1,11 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
+import ProfileNavigator from './ProfileNavigator';
 import React from 'react';
-import {Image, View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
 import StylishScreen from '../screens/stylishscreen/StylishScreen';
 import HomeNavigator from './HomeNavigator';
-
+import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
 const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
@@ -89,11 +89,11 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Profiles"
-        component={DefaultModel}
+        component={ProfileNavigator}
         options={{
           tabBarLabel: ({focused}) => (
             <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
-              EVENTS
+              PROFILES
             </Text>
           ),
           tabBarIcon: ({focused, color, size}) => (

@@ -1,7 +1,6 @@
 import {
   Image,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
   Alert,
@@ -16,7 +15,6 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useStores} from '../../../stores/Store';
 import {Icon} from 'react-native-elements';
 import {Input} from '@ui-kitten/components';
-import RenderSignUp from './SignUpView';
 import {useNavigation} from '@react-navigation/native';
 
 const RenderSignIn = () => {
