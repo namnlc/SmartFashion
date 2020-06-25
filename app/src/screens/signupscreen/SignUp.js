@@ -1,7 +1,7 @@
 import logo from '../../../res/images/logo.png';
 import Animated from 'react-native-reanimated';
 import * as React from 'react';
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import {Text, View, Image, TouchableOpacity, SafeAreaView} from 'react-native';
 import {TabView, SceneMap} from 'react-native-tab-view';
 import RenderSignIn from './Components/SignInView';
 import RenderSignUp from './Components/SignUpView';
@@ -20,7 +20,7 @@ class SignUp extends React.Component {
 
   _renderTabBar = props => {
     return (
-      <View style={styles.tabContainer}>
+      <SafeAreaView style={styles.tabContainer}>
         <Image source={logo} style={styles.logo2} />
         <View style={styles.tabView}>
           {props.navigationState.routes.map((route, i) => {
@@ -50,10 +50,10 @@ class SignUp extends React.Component {
           name="times"
           color="white"
           size={26}
-          style={{marginTop:20}}
+          style={{marginRight: 15}}
           onPress={() => console.log('hi')}
         />
-      </View>
+      </SafeAreaView>
     );
   };
 

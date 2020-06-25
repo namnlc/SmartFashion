@@ -21,7 +21,7 @@ export const Sex = ({title, image, onPress, active, index}) => {
       {index === active && (
         <View style={styles.check}>
           <Icon
-            type="material-community"
+            type="font-awesome5"
             name="check-circle"
             size={28}
             color="#098FA8"

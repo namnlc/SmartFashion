@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import logo from '../../../../res/images/logo.png';
@@ -16,6 +17,7 @@ import ScrollableTabView, {
 import {ScrollableComponent} from 'react-native-keyboard-aware-scroll-view';
 import FORYOU from '../foryou.png';
 
+let {width, height} = Dimensions.get('window');
 export default function Header() {
   return (
     <SafeAreaView style={styles.container}>
@@ -46,38 +48,41 @@ const StyleForYouView = () => {
   return (
     <View
       style={{
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        flex: 1,
+        height: height,
+        //justifyContent: 'space-between',
       }}>
       <Image
         source={FORYOU}
         style={{
           resizeMode: 'contain',
-          justifyContent: 'center',
           alignSelf: 'center',
-          //top: 20,
-          backgroundColor: 'red',
-          width: '100%',
-          height: '70%',
-          aspectRatio: 4 / 3,
-          marginVertical: 20,
-          // bottom: 20,
-          //backgroundColor: 'transparent',
+          width: width / 2,
+          height: height / 2,
         }}
       />
-      <Text style={{textAlign: 'center', marginHorizontal: 20}}>
+
+      <Text
+        style={{
+          textAlign: 'center',
+          marginHorizontal: 20,
+          fontFamily: 'Optima',
+        }}>
         Take a photo and see what match or look similar to your clothes
       </Text>
       <TouchableOpacity
         style={{
+          justifyContent: 'center',
+          flexDirection: 'row',
           borderWidth: 1,
-          borderColor: 'black',
           borderRadius: 25,
+          alignItems: 'center',
+          alignSelf: 'center',
+          padding: 10,
+          marginTop: 20,
         }}>
         <Icon name="camera" type="simple-line-icon" color="black" size={24} />
+        <Text style={{marginLeft: 10, fontFamily: 'Optima'}}>Upload</Text>
       </TouchableOpacity>
-      <Text>Upload</Text>
     </View>
   );
 };

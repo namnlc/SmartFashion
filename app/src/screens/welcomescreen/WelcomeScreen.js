@@ -7,34 +7,34 @@ import {
   Image,
   TouchableOpacity,
   Platform,
+  Dimensions,
 } from 'react-native';
 import Flags from './components/flags/Flags';
 import welcome from '../../../res/images/welcome.png';
 import {Sex} from '../../components/sex/Sex';
+
+let {width, height} = Dimensions.get('window');
+
 const WelcomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         <Flags />
-        <View style={styles.body}>
-          <View style={styles.img}>
-            <Image source={welcome} resizeMode="contain" />
-            <Text style={styles.txt}>Smarten up your Style!</Text>
-          </View>
-          <View style={{alignItems: 'center'}}>
-            <TouchableOpacity
-              activeOpacity={0.4}
-              style={styles.btn}
-              onPress={() => navigation.navigate('defaultModel')}>
-              <Text style={styles.txtStart}>Start</Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <Text style={styles.txt2}>Try on everything on Smart Fashion</Text>
-            <Text style={styles.txt2}>
-              Be fashionable with our Stylish feature
-            </Text>
-          </View>
+        <View>
+          <Image style={styles.img} source={welcome} resizeMode="contain" />
+        </View>
+        <Text style={styles.txt}>Smarten up your Style!</Text>
+        <TouchableOpacity
+          activeOpacity={0.4}
+          style={styles.btn}
+          onPress={() => navigation.navigate('defaultModel')}>
+          <Text style={styles.txtStart}>Start</Text>
+        </TouchableOpacity>
+        <View>
+          <Text style={styles.txt2}>Try on everything on Smart Fashion</Text>
+          <Text style={styles.txt2}>
+            Be fashionable with our Stylish feature
+          </Text>
         </View>
       </View>
     </SafeAreaView>
@@ -44,23 +44,20 @@ const WelcomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
-  },
-  body: {
-    position: 'relative',
   },
   btn: {
     backgroundColor: '#098FA8',
     borderRadius: 25,
-    marginVertical: 20,
+    //marginVertical: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
-    width: 184,
+    width: width / 2,
+    height: '8%',
   },
   txt: {
-    fontFamily: 'Poppins-Black',
+    fontFamily: 'Optima',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -68,16 +65,20 @@ const styles = StyleSheet.create({
   txtStart: {
     color: '#fff',
     fontSize: 16,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Optima',
   },
   img: {
-    marginTop: 0,
-    top: Platform.OS === 'android' ? 50 : null,
-    aspectRatio: 3 / 4,
+    resizeMode: 'contain',
+    width: width,
+    height: height / 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 20,
   },
 
   txt2: {
     fontSize: 15,
+    fontFamily: 'Optima',
     textAlign: 'center',
     paddingVertical: 5,
   },

@@ -22,7 +22,10 @@ export const Tab = ({title, onPress, active, index}) => {
     index === active && {backgroundColor: '#098FA8'},
     styles.tab,
   ];
-  const styleText = [{color: index === active ? '#ffffff' : '#098FA8'}];
+  const styleText = [
+    {color: index === active ? '#ffffff' : '#098FA8'},
+    {fontFamily: 'Optima'},
+  ];
   return (
     <TouchableOpacity style={styleTab} activeOpacity={1} onPress={onPress}>
       <Text style={styleText}>{title}</Text>
@@ -41,18 +44,16 @@ export const RenderPhoto = ({showModal, index}) => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.render}>
-      <View style={styles.renderPhoto}>
-        <Image source={wel} />
-        {photoData.map((v, i) => (
-          <TouchableOpacity
-            style={v.styleTouch}
-            key={i}
-            activeOpacity={0.5}
-            onPress={() => action(i)}>
-            <Text style={v.styleText}>{v.title}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      <Image source={wel} style={styles.img} />
+      {photoData.map((v, i) => (
+        <TouchableOpacity
+          style={v.styleTouch}
+          key={i}
+          activeOpacity={0.5}
+          onPress={() => action(i)}>
+          <Text style={v.styleText}>{v.title}</Text>
+        </TouchableOpacity>
+      ))}
     </SafeAreaView>
   );
 };
@@ -60,14 +61,12 @@ export const RenderPhoto = ({showModal, index}) => {
 export const RenderModel = () => {
   return (
     <SafeAreaView style={styles.render}>
-      <Image source={wel1} />
-      <View style={styles.model}>
-        {modelData.map((v, i) => (
-          <TouchableOpacity key={i} style={v.styleTouch} activeOpacity={0.5}>
-            <Text style={v.styleText}>{v.title}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      <Image source={wel1} style={styles.img} />
+      {modelData.map((v, i) => (
+        <TouchableOpacity key={i} style={v.styleTouch} activeOpacity={0.5}>
+          <Text style={v.styleText}>{v.title}</Text>
+        </TouchableOpacity>
+      ))}
     </SafeAreaView>
   );
 };
@@ -116,12 +115,12 @@ export const RenderModal = ({isVisible, onPress}) => {
 const modelData = [
   {
     title: 'Pick this model',
-    styleTouch: styles.pickModel,
+    styleTouch: styles.pickGender,
     styleText: [styles.txt, styles.txtPick],
   },
   {
-    title: 'Change later',
-    styleTouch: [styles.pickModel, styles.changeModel],
+    title: 'Change Later',
+    styleTouch: [styles.pickGender, styles.changeLater],
     styleText: [styles.txt, styles.txtChange],
   },
 ];

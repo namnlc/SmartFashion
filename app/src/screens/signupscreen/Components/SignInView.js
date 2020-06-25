@@ -57,20 +57,16 @@ const RenderSignIn = () => {
           Sign In or Sign Up to unlock and explore more features with Smart
           Fashion!
         </Text>
-        <View
-          style={{
-            alignItems: 'center',
-            width: '100%',
-          }}>
-          <Input
-            size="medium"
-            placeholder="Email"
-            value={username}
-            placeholderTextColor="#696969"
-            style={signUp.txtInput}
-            //secureTextEntry={secureTextEntry}
-            onChangeText={nextValue => setUserName(nextValue)}
-          />
+        <Input
+          size="medium"
+          placeholder="Email"
+          value={username}
+          placeholderTextColor="#696969"
+          style={signUp.txtInput}
+          //secureTextEntry={secureTextEntry}
+          onChangeText={nextValue => setUserName(nextValue)}
+        />
+        <View style={{flexDirection: 'column', justifyContent: 'space-around'}}>
           <Input
             style={signUp.txtInput}
             value={password}
@@ -86,58 +82,58 @@ const RenderSignIn = () => {
             onPress={() => navigation.navigate('forgotPassword')}>
             <Text style={styles.txtForgot}>Forgot Password?</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={signUp.button}
-            onPress={() => navigation.navigate('primaryNavigator')}>
-            <Text style={signUp.txtButton}>Sign In</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={signIn.touchID}>
-            <Image source={touchId} />
-            <Text style={signIn.txtTouchId}>Touch ID</Text>
-          </TouchableOpacity>
-          <View style={signUp.divider}>
-            <Divider orientation="center" color="#696969">
-              Or
-            </Divider>
-          </View>
-          <View style={signUp.icon}>
-            <Icon
-              type="font-awesome"
-              name="facebook"
-              color="#396AD6"
-              onPress={() => console.log('ahihi')}
-              reverseColor="white"
-              reverse={true}
-              size={20}
-            />
-            <Icon
-              type="font-awesome"
-              name="google"
-              color="#FC5253"
-              onPress={() => console.log('ahihi')}
-              reverseColor="white"
-              reverse={true}
-              size={20}
-            />
-            <Icon
-              type="font-awesome"
-              name="twitter"
-              color="#02B3F8"
-              onPress={() => console.log('ahihi')}
-              reverseColor="white"
-              reverse={true}
-              size={20}
-            />
-            <Icon
-              type="font-awesome"
-              name="apple"
-              color="black"
-              onPress={() => console.log('ahihi')}
-              reverseColor="white"
-              reverse={true}
-              size={20}
-            />
-          </View>
+        </View>
+        <TouchableOpacity
+          style={signUp.button}
+          onPress={() => navigation.navigate('primaryNavigator')}>
+          <Text style={signUp.txtButton}>Sign In</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={signIn.touchID}>
+          <Image source={touchId} />
+          <Text style={signIn.txtTouchId}>Touch ID</Text>
+        </TouchableOpacity>
+        <View style={signUp.divider}>
+          <Divider orientation="center" color="#696969">
+            Or
+          </Divider>
+        </View>
+        <View style={signUp.icon}>
+          <Icon
+            type="font-awesome"
+            name="facebook"
+            color="#396AD6"
+            onPress={() => console.log('ahihi')}
+            reverseColor="white"
+            reverse={true}
+            size={20}
+          />
+          <Icon
+            type="font-awesome"
+            name="google"
+            color="#FC5253"
+            onPress={() => console.log('ahihi')}
+            reverseColor="white"
+            reverse={true}
+            size={20}
+          />
+          <Icon
+            type="font-awesome"
+            name="twitter"
+            color="#02B3F8"
+            onPress={() => console.log('ahihi')}
+            reverseColor="white"
+            reverse={true}
+            size={20}
+          />
+          <Icon
+            type="font-awesome"
+            name="apple"
+            color="black"
+            onPress={() => console.log('ahihi')}
+            reverseColor="white"
+            reverse={true}
+            size={20}
+          />
         </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>

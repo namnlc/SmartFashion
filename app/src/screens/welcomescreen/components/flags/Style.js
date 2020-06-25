@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-
+import {StyleSheet, Dimensions} from 'react-native';
+let {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   touch: {},
   touchFlags: {
@@ -8,16 +8,15 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   regionImg: {
-    position: 'absolute',
-    top: 5,
-    left: 10,
-    height: '5%',
+    alignSelf: 'flex-start',
+    //width: width / 2,
     backgroundColor: '#F0ECF0',
     padding: 10,
     borderRadius: 24,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    marginLeft: 10,
+    //backgroundColor: 'red',
   },
 
   btnSelected: {

@@ -49,6 +49,7 @@ const Flags = () => {
         />
       ))}
       <TouchableOpacity
+        style={{justifyContent: 'center'}}
         onPress={() => {
           setIsExpand(!isExpand);
         }}>

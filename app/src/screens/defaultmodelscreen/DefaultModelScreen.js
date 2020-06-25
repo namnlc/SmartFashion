@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, SafeAreaView} from 'react-native';
+import {Text, StyleSheet, SafeAreaView, View} from 'react-native';
 import ToggleModel from './components/togglemodel/ToggleModel';
 
 function DefaultModel() {
@@ -15,13 +15,14 @@ function DefaultModel() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
   },
   txtDef: {
+    fontFamily: 'Optima',
     fontWeight: 'bold',
     fontSize: 15,
-    paddingTop: 40,
     textAlign: 'center',
-    paddingBottom: 20,
   },
 });
 

@@ -1,41 +1,39 @@
-import * as React from 'react';
-import {View, Text, Button} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
-import WelcomeScreen from '../../welcomescreen/WelcomeScreen';
-import SignUp from '../../signupscreen/SignUp';
+import React from 'react';
+import {View, Text, SafeAreaView, StyleSheet, Dimensions} from 'react-native';
+import {DrawerItem, DrawerContentScrollView} from '@react-navigation/drawer';
+import {useNavigation, DrawerActions} from '@react-navigation/native';
+import {Icon} from 'react-native-elements';
+let {width, height} = Dimensions.get('window');
 
-function CustomDrawerContent(props) {
+const DrawerHomeScreen = () => {
+  const navigation = useNavigation();
   return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-      <DrawerItem
-        label="Close drawer"
-        onPress={() => props.navigation.closeDrawer()}
-      />
-      <DrawerItem
-        label="Toggle drawer"
-        onPress={() => props.navigation.toggleDrawer()}
-      />
-    </DrawerContentScrollView>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.txt}>Hey Yo</Text>
+        <Icon
+          name="x"
+          type="feather"
+          size={24}
+          onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}
+        />
+      </View>
+    </SafeAreaView>
   );
-}
+};
 
-const Drawer = createDrawerNavigator();
-
-function DrawerHomeScreen() {
-  return (
-    <Drawer.Navigator
-      drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Feed" component={WelcomeScreen} />
-      <Drawer.Screen name="Notifications" component={SignUp} />
-    </Drawer.Navigator>
-  );
-}
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+  },
+  txt: {
+    fontSize: 15,
+    fontFamily: 'Optima',
+  },
+});
 export default DrawerHomeScreen;

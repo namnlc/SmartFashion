@@ -5,9 +5,11 @@ import AuthNavigator from './AuthNavigator';
 import PrimaryNavigator from './PrimaryNavigator';
 import React from 'react';
 import DrawerHomeScreen from '../screens/homescreen/components/DrawerHomeScreen';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import HomeScreen from '../screens/homescreen/HomeScreen';
 
 const {Navigator, Screen} = createStackNavigator();
-
+const drawer = createDrawerNavigator();
 const RootNavigator = () => {
   const myOptions = {
     headerShown: false,

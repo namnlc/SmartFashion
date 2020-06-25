@@ -5,7 +5,6 @@ import {styles} from './Style';
 import {Tab, RenderModal, RenderPhoto, RenderModel} from './Index';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-const {width} = Dimensions.get('window');
 const modelData = [
   {
     title: 'Upload a photo',
@@ -20,17 +19,6 @@ const ToggleModel = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.viewTabs}>
-        {active === 0 ? (
-          <RenderPhoto showModal={() => setIsVisible(!isVisible)} />
-        ) : (
-          <RenderModel />
-        )}
-        {isVisible && (
-          <RenderModal
-            isVisible={isVisible}
-            onPress={() => setIsVisible(!isVisible)}
-          />
-        )}
         <View style={styles.tabs}>
           {modelData.map((v, i) => (
             <Tab
@@ -42,6 +30,17 @@ const ToggleModel = () => {
             />
           ))}
         </View>
+        {active === 0 ? (
+          <RenderPhoto showModal={() => setIsVisible(!isVisible)} />
+        ) : (
+          <RenderModel />
+        )}
+        {isVisible && (
+          <RenderModal
+            isVisible={isVisible}
+            onPress={() => setIsVisible(!isVisible)}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

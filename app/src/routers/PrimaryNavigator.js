@@ -1,14 +1,12 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/homescreen/HomeScreen';
-import WelcomeScreen from '../screens/welcomescreen/WelcomeScreen';
 import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
 import React from 'react';
 import {Image, View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import {Icon} from 'react-native-elements';
 import StylishScreen from '../screens/stylishscreen/StylishScreen';
+import HomeNavigator from './HomeNavigator';
 
 const Tab = createBottomTabNavigator();
-
 function MyTabs() {
   return (
     <Tab.Navigator
@@ -27,7 +25,7 @@ function MyTabs() {
       }}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeNavigator}
         options={{
           tabBarLabel: ({focused}) => (
             <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
