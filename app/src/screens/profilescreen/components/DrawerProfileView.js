@@ -9,13 +9,13 @@ import {useNavigation, DrawerActions} from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
 let {width, height} = Dimensions.get('window');
 
-const DrawerHomeScreen = ({props}) => {
-  const navigation = useNavigation();
+const DrawerProfileView = ({props}) => {
+  const navigation = useNavigation(props);
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItem
-        style={{backgroundColor: 'blue'}}
-        color="red"
+        style={{backgroundColor: 'red'}}
+        color="blue"
         label="1"
         onPress={() => navigation.closeDrawer()}
       />
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
     fontFamily: 'Optima',
   },
 });
-export default DrawerHomeScreen;
+export default DrawerProfileView;

@@ -38,7 +38,7 @@ export const RenderPhoto = ({showModal, index}) => {
     if (i === 0) {
       showModal();
     } else {
-      navigation.navigate('signUpNavigator');
+      navigation.navigate('primaryNavigator');
     }
   }
   const navigation = useNavigation();

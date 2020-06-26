@@ -6,6 +6,7 @@ import {Icon} from 'react-native-elements';
 import StylishScreen from '../screens/stylishscreen/StylishScreen';
 import HomeNavigator from './HomeNavigator';
 import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
+import profileRoot from './ProfileNavigator';
 const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
@@ -89,7 +90,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Profiles"
-        component={ProfileNavigator}
+        component={profileRoot}
         options={{
           tabBarLabel: ({focused}) => (
             <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>

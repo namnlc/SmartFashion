@@ -32,10 +32,10 @@ const RenderSignIn = () => {
 
   const {signStore} = useStores();
   console.log(signStore.isLoggedIn);
-  React.useEffect(() => {
-    signStore.onPressLogin();
-    console.log(signStore.isLoggedIn);
-  }, [signStore]);
+  // React.useEffect(() => {
+  //   signStore.onPressLogin();
+  //   //console.log(signStore.isLoggedIn);
+  // }, [signStore]);
   const renderIcon = props => (
     <TouchableWithoutFeedback onPress={toggleSecureEntry}>
       <Icon
@@ -83,7 +83,13 @@ const RenderSignIn = () => {
         </View>
         <TouchableOpacity
           style={signUp.button}
-          onPress={() => navigation.navigate('primaryNavigator')}>
+          onPress={() => {
+            signStore.onPressLogin();
+            console.log(signStore.isLoggedIn);
+            signStore.isLoggedIn === true
+              ? navigation.navigate('primaryNavigator')
+              : null;
+          }}>
           <Text style={signUp.txtButton}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity style={signIn.touchID}>

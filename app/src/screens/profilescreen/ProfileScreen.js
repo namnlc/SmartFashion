@@ -1,20 +1,31 @@
 import React from 'react';
-import {
-  View,
-  SafeAreaView,
-  Text,
-  Image,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
-import {Icon, Divider} from 'react-native-elements';
+import {View, SafeAreaView, Text, Image} from 'react-native';
+import {Icon} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import profile from './profile.jpg';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-let {width, height} = Dimensions.get('window');
+import {styles} from './Style';
+import {useStores} from '../../stores/Store';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
+  const {signStore} = useStores();
+
+  React.useEffect(() => {
+    signStore.isLoggedIn;
+    return () => {
+      signStore.isLoggedIn ? (
+        <ProfileNotSign />
+      ) : (
+        <View style={{width: 100, height: 100, backgroundColor: 'red'}} />
+      );
+    };
+  }, [signStore]);
+  return;
+};
+
+const ProfileNotSign = navigation => {
+  const navi = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -30,16 +41,16 @@ const ProfileScreen = () => {
       <Image source={profile} style={styles.img} />
       <View style={{marginVertical: 10}}>
         {data.map((v, i) => (
-          <View style={styles.viewList}>
+          <View style={styles.viewList} key={i}>
             <Icon name="lens" type="material" size={10} />
-            <Text style={styles.txtList} key={i}>
-              {v.title}
-            </Text>
+            <Text style={styles.txtList}>{v.title}</Text>
           </View>
         ))}
       </View>
       <Text style={styles.txtSign}>And more than that just by Signing Up</Text>
-      <TouchableOpacity style={styles.touchSign}>
+      <TouchableOpacity
+        style={styles.touchSign}
+        onPress={() => navi.navigate('signUpNavigator')}>
         <Text style={styles.txtTouch}>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.divider} />
@@ -63,71 +74,5 @@ const data = [
     title: 'Experience unlimited features',
   },
 ];
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    //backgroundColor: 'red',
-  },
-  header: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: width - 20,
-  },
-  txtHeader: {
-    fontFamily: 'Optima',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  img: {
-    resizeMode: 'contain',
-    width: width - 20,
-    height: height / 3,
-  },
-  txtList: {
-    fontSize: 16,
-    fontFamily: 'Optima',
-    marginLeft: 10,
-  },
-  viewList: {
-    flexDirection: 'row',
-    marginBottom: 10,
-  },
-  txtSign: {
-    fontSize: 14,
-    fontFamily: 'Optima',
-    color: '#8A8A8A',
-    //marginBottom: 30,
-  },
-  touchSign: {
-    borderRadius: 10,
-    borderWidth: 1,
-    //height: '25%',
-    width: width / 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: '#8A8A8A',
-    padding: 10,
-  },
-  txtTouch: {
-    fontFamily: 'Optima',
-  },
-  divider: {
-    height: 1,
-    width: width - 40,
-    backgroundColor: '#8A8A8A',
-  },
-  txtSignin: {
-    fontFamily: 'Optima',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  footer: {
-    width: '60%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-});
+
 export default ProfileScreen;
