@@ -27,16 +27,4 @@ yarn ios
 yarn run test
 ```
 
-## Author
 
-👤 **namnlc**
-
-* Github: [@namnlc](https://github.com/namnlc)
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/namnlc/SmartFashion/issues). 
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
