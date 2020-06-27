@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useDispatch} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, Dimensions} from 'react-native';
 import {
   DrawerItem,
@@ -8,18 +8,23 @@ import {
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
 let {width, height} = Dimensions.get('window');
-
+import {Menu} from 'react-native-paper';
 const DrawerHomeScreen = ({props}) => {
   const navigation = useNavigation();
   return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItem
-        style={{backgroundColor: 'blue'}}
-        color="red"
-        label="1"
-        onPress={() => navigation.closeDrawer()}
-      />
-    </DrawerContentScrollView>
+    <SafeAreaView style={styles.container}>
+      <DrawerContentScrollView {...props}>
+        <View style={styles.content}>
+          <Text>Hey Yo</Text>
+          <Icon
+            name="x"
+            type="octicon"
+            size={22}
+            onPress={() => navigation.dispatch(DrawerActions.jumpTo('home'))}
+          />
+        </View>
+      </DrawerContentScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -28,6 +33,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+  },
+  content: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 20,

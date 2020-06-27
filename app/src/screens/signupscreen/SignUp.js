@@ -51,7 +51,7 @@ class SignUp extends React.Component {
           color="white"
           size={26}
           style={{marginRight: 15}}
-          onPress={() => console.log('hi')}
+          onPress={() => this.props.navigation.pop()}
         />
       </SafeAreaView>
     );

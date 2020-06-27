@@ -12,7 +12,6 @@ import * as React from 'react';
 import {signUp, styles, signIn} from './Style';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useStores} from '../../../stores/Store';
 import {Icon} from 'react-native-elements';
 import {Input} from '@ui-kitten/components';
 import {useNavigation} from '@react-navigation/native';
@@ -30,8 +29,6 @@ const RenderSignIn = () => {
     setSecureTextEntry(!secureTextEntry);
   };
 
-  const {signStore} = useStores();
-  console.log(signStore.isLoggedIn);
   // React.useEffect(() => {
   //   signStore.onPressLogin();
   //   //console.log(signStore.isLoggedIn);
@@ -81,15 +78,7 @@ const RenderSignIn = () => {
             <Text style={styles.txtForgot}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={signUp.button}
-          onPress={() => {
-            signStore.onPressLogin();
-            console.log(signStore.isLoggedIn);
-            signStore.isLoggedIn === true
-              ? navigation.navigate('primaryNavigator')
-              : null;
-          }}>
+        <TouchableOpacity style={signUp.button} onPress={() => {}}>
           <Text style={signUp.txtButton}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity style={signIn.touchID}>

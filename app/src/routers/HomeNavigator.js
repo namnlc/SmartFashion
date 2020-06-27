@@ -10,22 +10,20 @@ import ProfileScreen from '../screens/profilescreen/ProfileScreen';
 
 const drawerHome = createDrawerNavigator();
 
-const root = createStackNavigator();
-const homeRoot = () => {
-  return (
-    <root.Navigator initialRouteName="home">
-      <root.Screen name="home" component={HomeScreen} options={myOptions} />
-    </root.Navigator>
-  );
-};
 const myOptions = {
   headerShown: false,
   //gestureEnabled: false,
 };
 const HomeNavigator = () => {
   return (
-    <drawerHome.Navigator initialRouteName="home">
-      <drawerHome.Screen name="home" component={homeRoot} options={myOptions} />
+    <drawerHome.Navigator
+      initialRouteName="home"
+      drawerContent={props => <DrawerHomeScreen {...props} />}>
+      <drawerHome.Screen
+        name="home"
+        component={HomeScreen}
+        options={myOptions}
+      />
     </drawerHome.Navigator>
   );
 };

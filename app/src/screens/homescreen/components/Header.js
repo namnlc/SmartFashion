@@ -12,14 +12,9 @@ import ScrollableTabView, {
   ScrollableTabBar,
 } from 'react-native-scrollable-tab-view';
 import LOGO from '../logo.png';
-import {
-  useNavigation,
-  DrawerActions,
-  NavigationContainer,
-} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-const drawer = createDrawerNavigator();
-let {width} = Dimensions.get('window');
+import {useNavigation} from '@react-navigation/native';
+
+let {width, height} = Dimensions.get('window');
 
 const HeaderHome = () => {
   const navigation = useNavigation();
@@ -53,7 +48,6 @@ const HeaderHome = () => {
 const ScrollTab = () => {
   return (
     <ScrollableTabView
-      tabBarPosition="overlayTop"
       tabBarActiveTextColor="black"
       tabBarInactiveTextColor="#6c6c6c"
       tabBarUnderlineStyle={{backgroundColor: 'black'}}
@@ -61,22 +55,32 @@ const ScrollTab = () => {
       initialPage={0}
       //style={{justifyContent: 'space-between', flexDirection: 'row'}}
       renderTabBar={() => <ScrollableTabBar />}>
-      <Text tabLabel="HOME">My</Text>
+      <Test tabLabel="HOME" />
       <Text tabLabel="NEWS FEED">project</Text>
     </ScrollableTabView>
   );
 };
+
+const Test = () => {
+  return (
+    <View style={{backgroundColor: 'green', width: 122, height: 100}}>
+      <Text>123</Text>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: 'blue',
+    position: 'absolute',
+    alignItems: 'center',
   },
   header: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     width: width - 20,
-    height: 30,
-    marginHorizontal: 10,
+    justifyContent: 'space-between',
+    //backgroundColor: 'red',
   },
   headerIcon: {
     flexDirection: 'row',

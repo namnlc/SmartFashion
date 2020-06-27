@@ -12,14 +12,21 @@ let {width, height} = Dimensions.get('window');
 const DrawerProfileView = ({props}) => {
   const navigation = useNavigation(props);
   return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItem
-        style={{backgroundColor: 'red'}}
-        color="blue"
-        label="1"
-        onPress={() => navigation.closeDrawer()}
-      />
-    </DrawerContentScrollView>
+    <SafeAreaView style={styles.container}>
+      <DrawerContentScrollView {...props}>
+        <View style={styles.content}>
+          <Text>1123</Text>
+          <Icon
+            name="x"
+            type="octicon"
+            size={22}
+            onPress={() =>
+              navigation.dispatch(DrawerActions.jumpTo('profiles'))
+            }
+          />
+        </View>
+      </DrawerContentScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -28,6 +35,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+  },
+  content: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 20,
