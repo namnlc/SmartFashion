@@ -21,11 +21,7 @@ const TryonScreen = () => {
               type="simple-line-icon"
               size={25}
               color="white"
-              iconStyle={{
-                transform: [{rotate: '90deg'}],
-                paddingRight: 2,
-                marginRight: 20,
-              }}
+              iconStyle={styles.iconShare}
             />
             <Icon
               name="share"
@@ -55,6 +51,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     //alignItems: 'center',
     marginHorizontal: 20,
+  },
+  iconShare: {
+    transform: [{rotate: '90deg'}],
+    paddingRight: 2,
+    marginRight: 20,
   },
 });
 export default TryonScreen;

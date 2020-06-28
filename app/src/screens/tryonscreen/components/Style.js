@@ -5,8 +5,6 @@ let {width, height} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //position: 'absolute',
-    //backgroundColor: 'red',
   },
   botView: {
     width: width,
@@ -21,9 +19,29 @@ export const styles = StyleSheet.create({
     elevation: 18,
     backgroundColor: 'white',
   },
+  content: {
+    position: 'absolute',
+  },
   txt: {
     fontFamily: 'Optima',
     textTransform: 'uppercase',
+    fontSize: 15,
+  },
+  txtCate: {
+    fontFamily: 'Optima',
     fontSize: 13,
+  },
+  iconMinius: {
+    fontSize: 50,
+    height: 30,
+    top: -15,
+  },
+  yourChoice: {
+    marginTop: 10,
+    width: width / 2,
+  },
+  categories: {
+    marginTop: 10,
+    width: width / 2 + 65,
   },
 });

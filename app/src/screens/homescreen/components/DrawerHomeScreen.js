@@ -8,7 +8,6 @@ import {
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
 let {width, height} = Dimensions.get('window');
-import {Menu} from 'react-native-paper';
 const DrawerHomeScreen = ({props}) => {
   const navigation = useNavigation();
   return (

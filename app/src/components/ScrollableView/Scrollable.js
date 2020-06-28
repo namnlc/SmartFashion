@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const CustomBot = createReactClass({
+const ScrollableView = createReactClass({
   propTypes: {
     goToPage: PropTypes.func,
     activeTab: PropTypes.number,
@@ -19,6 +19,8 @@ const CustomBot = createReactClass({
     backgroundColor: PropTypes.string,
     activeTextColor: PropTypes.string,
     inactiveTextColor: PropTypes.string,
+    activeTabs: ViewPropTypes.style,
+    inactiveTabs: ViewPropTypes.style,
     textStyle: Text.propTypes.style,
     tabStyle: ViewPropTypes.style,
     renderTab: PropTypes.func,
@@ -36,12 +38,16 @@ const CustomBot = createReactClass({
   renderTabOption(name, page) {},
 
   renderTab(name, page, isTabActive, onPressHandler) {
-    const {activeTextColor, inactiveTextColor, textStyle} = this.props;
+    const {
+      activeTextColor,
+      activeTabs,
+      inactiveTabs,
+      inactiveTextColor,
+      textStyle,
+    } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    const border = isTabActive
-      ? {borderBottomWidth: 2, alignSelf: 'center'}
-      : null;
+    const tabActive = isTabActive ? activeTabs : inactiveTabs;
     return (
       <TouchableOpacity
         activeOpacity={0.8}
@@ -51,7 +57,7 @@ const CustomBot = createReactClass({
         accessibilityLabel={name}
         accessibilityTraits="button"
         onPress={() => onPressHandler(page)}>
-        <View style={[styles.tab, this.props.tabStyle, border]}>
+        <View style={[styles.tab, this.props.tabStyle, tabActive]}>
           <Text style={[{color: textColor, fontWeight}, textStyle]}>
             {name}
           </Text>
@@ -80,6 +86,7 @@ const CustomBot = createReactClass({
       <View
         style={[
           styles.tabs,
+          {width: this.props.width},
           {backgroundColor: this.props.backgroundColor},
           this.props.style,
         ]}>
@@ -111,9 +118,8 @@ const styles = StyleSheet.create({
   },
   tabs: {
     height: 30,
-    //width: 100,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     //borderWidth: 1,
     borderTopWidth: 0,
     borderLeftWidth: 0,
@@ -122,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomBot;
+export default ScrollableView;

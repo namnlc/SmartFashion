@@ -3,21 +3,16 @@ import {View, Text, Dimensions} from 'react-native';
 import {styles} from './Style';
 import BottomSheet from 'reanimated-bottom-sheet';
 import {Icon} from 'react-native-elements';
-import ScrollableTabView, {
-  ScrollableTabBar,
-} from 'react-native-scrollable-tab-view';
-import CustomBot from './CustomBot';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import ScrollableView from '../../../components/ScrollableView/Scrollable';
 let {width, height} = Dimensions.get('window');
 
 const BotSheet = () => {
   return (
     <View style={styles.container}>
       <BottomSheet
-        snapPoints={[20, height / 3, height / 3]}
+        snapPoints={[height / 3, height / 3, 20]}
         renderContent={() => <ViewBot />}
-        //renderHeader={() => <HeaderBotSheet />}
-        //initialSnap={200}
-        enableBottomClamp={true}
       />
     </View>
   );
@@ -30,24 +25,76 @@ const ViewBot = () => {
         name="minus"
         type="feather"
         color="#b3b3b3"
-        iconStyle={{fontSize: 50, height: 30, top: -15}}
+        iconStyle={styles.iconMinius}
       />
       <ScrollableTabView
         renderTabBar={() => (
-          <CustomBot textStyle={styles.txt} activeTextColor="black" />
+          <ScrollableView
+            textStyle={styles.txt}
+            activeTextColor="black"
+            activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
+          />
         )}>
-        <Text tabLabel="caterogies">1</Text>
-        <Text tabLabel="your choices">2</Text>
+        <Categories tabLabel="categories" />
+        <YourChoice tabLabel="your choices" />
         <Text tabLabel="model">3</Text>
       </ScrollableTabView>
     </View>
   );
 };
-const ScrollHeader = () => {
+const YourChoice = () => {
   return (
     <View>
-      <Icon name="minus" type="feather" size={25} />
+      <ScrollableTabView
+        style={styles.content}
+        renderTabBar={() => (
+          <ScrollableView
+            textStyle={styles.txtCate}
+            activeTextColor="black"
+            style={styles.yourChoice}
+          />
+        )}>
+        <View tabLabel="Chosen" style={{backgroundColor: 'red'}}>
+          <Text>1</Text>
+        </View>
+        <View tabLabel="Tried" style={{backgroundColor: 'blue'}}>
+          <Text>2</Text>
+        </View>
+        <View tabLabel="Favorite" style={{backgroundColor: 'green'}}>
+          <Text>3</Text>
+        </View>
+      </ScrollableTabView>
     </View>
+  );
+};
+
+const Categories = () => {
+  return (
+    <ScrollableTabView
+      style={styles.content}
+      renderTabBar={() => (
+        <ScrollableView
+          textStyle={styles.txtCate}
+          activeTextColor="black"
+          tabStyle={{
+            left: -15,
+          }}
+          style={styles.categories}
+        />
+      )}>
+      <View tabLabel="All" style={{backgroundColor: 'red'}}>
+        <Text>1</Text>
+      </View>
+      <View tabLabel="Full Outfits" style={{backgroundColor: 'blue'}}>
+        <Text>2</Text>
+      </View>
+      <View tabLabel="Tops" style={{backgroundColor: 'green'}}>
+        <Text>3</Text>
+      </View>
+      <View tabLabel="Bottoms" style={{backgroundColor: 'pink'}}>
+        <Text>4</Text>
+      </View>
+    </ScrollableTabView>
   );
 };
 export default BotSheet;
