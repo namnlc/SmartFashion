@@ -6,6 +6,7 @@ import StylishScreen from '../screens/stylishscreen/StylishScreen';
 import HomeNavigator from './HomeNavigator';
 import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
 import ProfileNavigator from './ProfileNavigator';
+import TryonScreen from '../screens/tryonscreen/TryonScreen';
 const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
@@ -58,7 +59,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Try On"
-        component={DefaultModel}
+        component={TryonScreen}
         options={{
           tabBarLabel: ({focused}) => (
             <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
