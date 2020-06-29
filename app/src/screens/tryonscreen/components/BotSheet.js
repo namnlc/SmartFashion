@@ -1,17 +1,17 @@
 import React from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import {View, Text, Dimensions, TouchableOpacity} from 'react-native';
 import {styles} from './Style';
 import BottomSheet from 'reanimated-bottom-sheet';
 import {Icon} from 'react-native-elements';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../../components/ScrollableView/Scrollable';
 let {width, height} = Dimensions.get('window');
-
+import {useNavigation} from '@react-navigation/native';
 const BotSheet = () => {
   return (
     <View style={styles.container}>
       <BottomSheet
-        snapPoints={[height / 3, height / 3, 20]}
+        snapPoints={[height / 3, height / 3, '3%']}
         renderContent={() => <ViewBot />}
       />
     </View>
@@ -36,8 +36,8 @@ const ViewBot = () => {
           />
         )}>
         <Categories tabLabel="categories" />
-        <YourChoice tabLabel="your choices" />
-        <Text tabLabel="model">3</Text>
+        <YourChoice tabLabel="your choice" />
+        <Text tabLabel="models">3</Text>
       </ScrollableTabView>
     </View>
   );
@@ -57,44 +57,74 @@ const YourChoice = () => {
         <View tabLabel="Chosen" style={{backgroundColor: 'red'}}>
           <Text>1</Text>
         </View>
-        <View tabLabel="Tried" style={{backgroundColor: 'blue'}}>
-          <Text>2</Text>
-        </View>
+        <Tried tabLabel="Tried" />
         <View tabLabel="Favorite" style={{backgroundColor: 'green'}}>
           <Text>3</Text>
         </View>
       </ScrollableTabView>
+      <Arrange />
     </View>
   );
 };
 
 const Categories = () => {
   return (
-    <ScrollableTabView
-      style={styles.content}
-      renderTabBar={() => (
-        <ScrollableView
-          textStyle={styles.txtCate}
-          activeTextColor="black"
-          tabStyle={{
-            left: -15,
-          }}
-          style={styles.categories}
-        />
-      )}>
-      <View tabLabel="All" style={{backgroundColor: 'red'}}>
-        <Text>1</Text>
-      </View>
-      <View tabLabel="Full Outfits" style={{backgroundColor: 'blue'}}>
-        <Text>2</Text>
-      </View>
-      <View tabLabel="Tops" style={{backgroundColor: 'green'}}>
-        <Text>3</Text>
-      </View>
-      <View tabLabel="Bottoms" style={{backgroundColor: 'pink'}}>
-        <Text>4</Text>
-      </View>
-    </ScrollableTabView>
+    <View style={{}}>
+      <ScrollableTabView
+        style={styles.content}
+        renderTabBar={() => (
+          <ScrollableView
+            textStyle={styles.txtCate}
+            activeTextColor="black"
+            tabStyle={styles.tabCategories}
+            style={styles.categories}
+          />
+        )}>
+        <View tabLabel="All" style={{backgroundColor: 'red'}}>
+          <Text>1</Text>
+        </View>
+        <View tabLabel="Full Outfits" style={{backgroundColor: 'blue'}}>
+          <Text>2</Text>
+        </View>
+        <View tabLabel="Tops" style={{backgroundColor: 'green'}}>
+          <Text>3</Text>
+        </View>
+        <View tabLabel="Bottoms" style={{backgroundColor: 'pink'}}>
+          <Text>4</Text>
+        </View>
+      </ScrollableTabView>
+      <Arrange />
+    </View>
+  );
+};
+
+const Arrange = () => {
+  const navi = useNavigation();
+
+  return (
+    <View style={styles.viewArrange}>
+      <TouchableOpacity
+        style={styles.arrange}
+        onPress={() => console.log('ahihi')}>
+        <Text style={styles.txtArrange}>Arrange</Text>
+        <Icon name="arrow-right" type="feather" size={18} />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const Tried = () => {
+  const navigation = useNavigation();
+  return (
+    <View style={styles.viewTried}>
+      <Icon
+        name="plus"
+        type="simple-line-icon"
+        size={50}
+        onPress={() => navigation.navigate('homeNavigator')}
+      />
+      <Text style={styles.txtTried}>Add items to your try-on list!</Text>
+    </View>
   );
 };
 export default BotSheet;

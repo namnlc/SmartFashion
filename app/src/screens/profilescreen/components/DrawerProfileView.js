@@ -1,21 +1,17 @@
 import React from 'react';
-import {View, Text, SafeAreaView, StyleSheet, Dimensions} from 'react-native';
-import {
-  DrawerItem,
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer';
+import {View, Text, SafeAreaView} from 'react-native';
+import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
-let {width, height} = Dimensions.get('window');
-
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {styles} from './Style';
 const DrawerProfileView = ({props}) => {
   const navigation = useNavigation(props);
   return (
     <SafeAreaView style={styles.container}>
       <DrawerContentScrollView {...props}>
         <View style={styles.content}>
-          <Text>1123</Text>
+          <Text style={styles.txt}>Hey Yo</Text>
           <Icon
             name="x"
             type="octicon"
@@ -25,28 +21,35 @@ const DrawerProfileView = ({props}) => {
             }
           />
         </View>
+        <ContentProfile />
       </DrawerContentScrollView>
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 20,
-  },
-  content: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 20,
-  },
-  txt: {
-    fontSize: 15,
-    fontFamily: 'Optima',
-  },
-});
+const ContentProfile = () => {
+  return (
+    <View style={styles.contentProfile}>
+      <TouchableOpacity style={styles.touchProfile}>
+        <Icon name="user" type="font-awesome" size={22} />
+        <Text style={styles.txt}>My Profile</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.touchProfile}>
+        <Icon name="settings" type="octicons" size={22} />
+        <Text style={styles.txt}>Settings</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.touchProfile}>
+        <Icon name="info" type="feather" />
+        <Text style={styles.txt}>Help</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.touchProfile}>
+        <Icon name="login" type="simple-line-icon" />
+        <Text style={styles.txt}>Log out</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 export default DrawerProfileView;
