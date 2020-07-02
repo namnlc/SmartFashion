@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import {Input} from '@ui-kitten/components';
-import {signUp} from '../signupscreen/Components/Style';
+import {signUp} from '../signscreen/Style';
 
 const ForgotPassword = ({navigation: {goBack}}) => {
   const [username, setUserName] = React.useState('');

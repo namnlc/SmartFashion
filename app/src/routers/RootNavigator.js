@@ -4,9 +4,6 @@ import WelcomeNavigator from './WelcomeNavigator';
 import AuthNavigator from './AuthNavigator';
 import PrimaryNavigator from './PrimaryNavigator';
 import React from 'react';
-import DrawerHomeScreen from '../screens/homescreen/components/DrawerHomeScreen';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import HomeScreen from '../screens/homescreen/HomeScreen';
 
 const {Navigator, Screen} = createStackNavigator();
 
@@ -24,7 +21,7 @@ const RootNavigator = () => {
           options={myOptions}
         />
         <Screen
-          name="signUpNavigator"
+          name="authNavigator"
           component={AuthNavigator}
           options={myOptions}
         />

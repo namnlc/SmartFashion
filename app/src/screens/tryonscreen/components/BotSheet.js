@@ -99,8 +99,6 @@ const Categories = () => {
 };
 
 const Arrange = () => {
-  const navi = useNavigation();
-
   return (
     <View style={styles.viewArrange}>
       <TouchableOpacity

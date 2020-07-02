@@ -4,7 +4,7 @@ import {Icon} from 'react-native-elements';
 import ScrollableTabView, {
   ScrollableTabBar,
 } from 'react-native-scrollable-tab-view';
-import LOGO from '../logo.png';
+import LOGO from '../../../../res/images/logo.png';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styles} from './Style';

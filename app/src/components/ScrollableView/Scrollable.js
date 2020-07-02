@@ -68,20 +68,20 @@ const ScrollableView = createReactClass({
 
   render() {
     const containerWidth = this.props.containerWidth;
-    const numberOfTabs = this.props.tabs.length;
-    const tabUnderlineStyle = {
-      position: 'absolute',
-      //alignItems: 'center',
-      width: containerWidth / numberOfTabs,
-      height: 1,
-      backgroundColor: 'black',
-      bottom: 0,
-    };
+    // const numberOfTabs = this.props.tabs.length;
+    // const tabUnderlineStyle = {
+    //   position: 'absolute',
+    //   //alignItems: 'center',
+    //   width: containerWidth / numberOfTabs,
+    //   height: 1,
+    //   backgroundColor: 'black',
+    //   bottom: 0,
+    // };
 
-    const translateX = this.props.scrollValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, containerWidth / numberOfTabs],
-    });
+    // const translateX = this.props.scrollValue.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: [0, containerWidth / numberOfTabs],
+    // });
     return (
       <View
         style={[
