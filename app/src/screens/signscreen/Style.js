@@ -53,6 +53,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+  viewIconSignUp: {
+    top: -10,
+  },
   apple: {
     backgroundColor: 'black',
   },
@@ -60,6 +63,7 @@ export const styles = StyleSheet.create({
     width: w,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   logo: {
     resizeMode: 'contain',
@@ -69,5 +73,18 @@ export const styles = StyleSheet.create({
   },
   x: {
     marginRight: 10,
+  },
+  sizeIcon: {
+    width: 35,
+    height: 35,
+  },
+  txParam: {
+    color: '#616161',
+  },
+  txHeader: {
+    paddingBottom: 10,
+  },
+  pickDate: {
+    backgroundColor: 'transparent',
   },
 });
