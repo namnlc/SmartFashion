@@ -6,18 +6,16 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  Platform,
   Dimensions,
 } from 'react-native';
 import Flags from './components/flags/Flags';
 import welcome from '../../../res/images/welcome.png';
-import {Sex} from '../../components/sex/Sex';
 
 let {width, height} = Dimensions.get('window');
 
 const WelcomeScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={styles.content}>
       <View style={styles.container}>
         <Flags />
         <View>
@@ -42,6 +40,9 @@ const WelcomeScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'space-around',

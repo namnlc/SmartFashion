@@ -13,7 +13,7 @@ const ProfileNavigator = () => {
   return (
     <profile.Navigator
       initialRouteName="profiles"
-      drawerContent={props => <DrawerProfileView {...props} />}>
+      drawerContent={(props) => <DrawerProfileView {...props} />}>
       <profile.Screen
         name="profiles"
         component={ProfileScreen}

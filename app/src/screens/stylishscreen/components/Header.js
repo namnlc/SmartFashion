@@ -22,8 +22,8 @@ const ScrollTab = () => {
       tabBarPosition="top"
       tabBarActiveTextColor="black"
       tabBarInactiveTextColor="#6c6c6c"
-      tabBarUnderlineStyle={{backgroundColor: 'black'}}
-      tabBarTextStyle={{fontFamily: 'Optima', fontSize: 13}}
+      tabBarUnderlineStyle={styles.underLine}
+      tabBarTextStyle={styles.txBar}
       initialPage={0}
       //style={{justifyContent: 'space-between', flexDirection: 'row'}}
       renderTabBar={() => <ScrollableTabBar />}>

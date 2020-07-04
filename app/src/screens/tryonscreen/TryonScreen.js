@@ -12,10 +12,10 @@ import GIRL from './components/girl.png';
 let {width, height} = Dimensions.get('window');
 const TryonScreen = () => {
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <ImageBackground source={GIRL} style={styles.img}>
         <SafeAreaView style={styles.header}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={styles.content}>
             <Icon
               name="login"
               type="simple-line-icon"
@@ -28,7 +28,7 @@ const TryonScreen = () => {
               type="simple-line-icon"
               size={25}
               color="white"
-              iconStyle={{paddingRight: 2}}
+              iconStyle={styles.iconPad}
             />
           </View>
           <Icon name="camera" type="simple-line-icon" size={30} color="white" />
@@ -39,6 +39,12 @@ const TryonScreen = () => {
   );
 };
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  content: {
+    flexDirection: 'row',
+  },
   img: {
     resizeMode: 'contain',
     width: width,
@@ -56,6 +62,9 @@ const styles = StyleSheet.create({
     transform: [{rotate: '90deg'}],
     paddingRight: 2,
     marginRight: 20,
+  },
+  iconPad: {
+    paddingRight: 2,
   },
 });
 export default TryonScreen;

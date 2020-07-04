@@ -16,7 +16,7 @@ const Flag = ({selected, source, isExpand, onPress, index}) => {
   return (
     <View>
       <TouchableOpacity onPress={onPress} style={style}>
-        <Image source={source} style={{width: 20, height: 20}} />
+        <Image source={source} style={styles.imgFlags} />
       </TouchableOpacity>
     </View>
   );
@@ -37,7 +37,7 @@ const Flags = () => {
   const [isExpand, setIsExpand] = useState(true);
   const [selected, setIsSelected] = useState(0);
   return (
-    <View style={[styles.regionImg, {paddingRight: 20}]}>
+    <View style={[styles.regionImg, styles.flag]}>
       {flagsData.map((v, i) => (
         <Flag
           key={i}
@@ -49,7 +49,7 @@ const Flags = () => {
         />
       ))}
       <TouchableOpacity
-        style={{justifyContent: 'center'}}
+        style={styles.expandArrow}
         onPress={() => {
           setIsExpand(!isExpand);
         }}>

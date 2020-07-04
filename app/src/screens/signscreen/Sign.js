@@ -7,10 +7,13 @@ import {styles} from './Style';
 import Divider from 'react-native-divider';
 import logo from '../../../res/images/logo.png';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-
-import {useNavigation} from '@react-navigation/native';
+import {useForm} from 'react-hook-form';
+import {
+  emailErrorsMessage,
+  checkFormatEmail,
+  passwordErrorsMessage,
+} from '../../../utils/validation';
 const Sign = () => {
-  //const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.viewHeader}>
@@ -43,19 +46,7 @@ const SignInView = () => {
           Fashion!
         </Text>
         <FormSignIn />
-        <View>
-          <Button
-            title="Sign In"
-            buttonStyle={styles.btnSignIn}
-            titleStyle={styles.txt}
-          />
-          <Button
-            type="outline"
-            title="Face Id"
-            buttonStyle={styles.btnSignUp}
-            titleStyle={[styles.txt, styles.colorSign]}
-          />
-        </View>
+
         <View>
           <Divider orientation="center">
             <Text style={styles.txt}>Or</Text>
@@ -77,8 +68,6 @@ const SignInView = () => {
 };
 
 const SignUpView = () => {
-  const [active, setActive] = useState(false);
-
   return (
     <KeyboardAwareScrollView contentContainerStyle={styles.container}>
       <View style={styles.contentSign}>
@@ -92,8 +81,6 @@ const SignUpView = () => {
           {'\n'}
           Unlimitedly try on millions of items
         </Text>
-        <Text />
-        <Text />
         <FormSignUp />
         <Button
           title="Sign Up"
@@ -135,7 +122,6 @@ const FormSignUp = () => {
             type="simple-line-icon"
             size={13}
             style={styles.pickDate}
-            onPress={() => console.log('hi')}
           />
         }
         inputStyle={[styles.txt, styles.txtSmall]}
@@ -151,18 +137,92 @@ const FormSignUp = () => {
 };
 
 const FormSignIn = () => {
+  const [secure, setSecure] = useState(true);
+  const {handleSubmit, setError, errors} = useForm();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const onSubmit = () => {
+    emailErrorsMessage.forEach(({name, type, message}) =>
+      setError(name, {type, message}),
+    );
+    passwordErrorsMessage.forEach(({name, type, message}) =>
+      setError(name, {type, message}),
+    );
+  };
   return (
     <View>
-      <Input placeholder="Email*" inputStyle={[styles.txt, styles.txtSmall]} />
       <Input
-        placeholder="Password*"
+        placeholder="Email*"
         inputStyle={[styles.txt, styles.txtSmall]}
-        rightIcon={<Icon name="eye" type="foundation" color="#616161" />}
+        name="email"
+        onChange={() => {
+          emailErrorsMessage.forEach(({name, type, message}) =>
+            setError(name, {type, message}),
+          );
+        }}
+        onBlur={() =>
+          emailErrorsMessage.forEach(({name, type, message}) =>
+            setError(name, {type, message}),
+          )
+        }
+        errorMessage={
+          email.length === 0 && errors.NOEMAIL
+            ? errors.NOEMAIL.message
+            : !checkFormatEmail(email) && errors.INVALIDEMAIL
+            ? errors.INVALIDEMAIL.message
+            : ''
+        }
+        onChangeText={(value) => setEmail(value)}
+      />
+      <Input
+        secureTextEntry={secure}
+        placeholder="Password*"
+        name="password"
+        inputStyle={[styles.txt, styles.txtSmall]}
+        onChange={() => {
+          passwordErrorsMessage.forEach(({name, type, message}) =>
+            setError(name, {type, message}),
+          );
+        }}
+        rightIcon={
+          <Icon
+            name="eye"
+            type="foundation"
+            color="#616161"
+            onPress={() => setSecure(!secure)}
+          />
+        }
+        onBlur={() =>
+          passwordErrorsMessage.forEach(({name, type, message}) =>
+            setError(name, {type, message}),
+          )
+        }
+        errorMessage={
+          password.length === 0 && errors.NOPASSWORD
+            ? errors.NOPASSWORD.message
+            : password.length < 8 && errors.MINPASSWORD
+            ? errors.MINPASSWORD.message
+            : ''
+        }
+        onChangeText={(value) => setPassword(value)}
       />
       <TouchableOpacity>
         <Text style={[styles.txt, styles.txtForgot]}>Forgot password?</Text>
       </TouchableOpacity>
+      <Button
+        title="Sign In"
+        buttonStyle={styles.btnSignIn}
+        titleStyle={styles.txt}
+        onPress={handleSubmit(onSubmit)}
+      />
+      <Button
+        type="outline"
+        title="Face Id"
+        buttonStyle={styles.btnSignUp}
+        titleStyle={[styles.txt, styles.colorSign]}
+      />
     </View>
   );
 };
+
 export default Sign;

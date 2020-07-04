@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, SafeAreaView, Text, Image, Button} from 'react-native';
+import {View, SafeAreaView, Text, Image} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import profile from './profile.jpg';
@@ -7,7 +7,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styles} from './Style';
 
 const ProfileScreen = () => {
-  const navigation = useNavigation();
+  //const navigation = useNavigation();
 
   return <ProfileNotSign />;
 };
@@ -27,7 +27,7 @@ const ProfileNotSign = () => {
         <Icon name="cart-plus" type="font-awesome" size={24} />
       </View>
       <Image source={profile} style={styles.img} />
-      <View style={{marginVertical: 10}}>
+      <View style={styles.contentList}>
         {data.map((v, i) => (
           <View style={styles.viewList} key={i}>
             <Icon name="lens" type="material" size={10} />

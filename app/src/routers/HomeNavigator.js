@@ -18,7 +18,7 @@ const HomeNavigator = () => {
   return (
     <drawerHome.Navigator
       initialRouteName="home"
-      drawerContent={props => <DrawerHomeScreen {...props} />}>
+      drawerContent={(props) => <DrawerHomeScreen {...props} />}>
       <drawerHome.Screen
         name="home"
         component={HomeScreen}

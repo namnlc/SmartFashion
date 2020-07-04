@@ -38,4 +38,11 @@ export const styles = StyleSheet.create({
   containerFor: {
     height: height,
   },
+  underLine: {
+    backgroundColor: 'black',
+  },
+  txBar: {
+    fontFamily: 'Optima',
+    fontSize: 13,
+  },
 });

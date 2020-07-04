@@ -4,23 +4,18 @@ import {
   Text,
   FlatList,
   ActivityIndicator,
-  ActivityIndicatorBase,
   StyleSheet,
-  Image,
-  Dimensions,
 } from 'react-native';
-import {Icon} from 'react-native-elements';
 import {ScrollView} from 'react-native-gesture-handler';
 import TabBarHome from '../../components/tabbarhome/TabBarHome';
-let width = Dimensions.get('window').width;
 const ArrivalScreen = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState();
   useEffect(() => {
     fetch('https://reactnative.dev/movies.json')
-      .then(res => res.json())
-      .then(json => setData(json.movies))
-      .catch(error => console.log(error))
+      .then((res) => res.json())
+      .then((json) => setData(json.movies))
+      .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   }, []);
 
@@ -28,7 +23,7 @@ const ArrivalScreen = () => {
     <View style={styles.container}>
       <TabBarHome />
       <ScrollView style={styles.container}>
-        <View style={{backgroundColor: 'blue'}}>
+        <View>
           {isLoading ? (
             <ActivityIndicator />
           ) : (

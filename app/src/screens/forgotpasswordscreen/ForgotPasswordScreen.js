@@ -34,8 +34,8 @@ const ForgotPassword = ({navigation: {goBack}}) => {
           placeholder="Email"
           value={username}
           placeholderTextColor="#696969"
-          onChangeText={nextValue => setUserName(nextValue)}
-          onChange={active => setActive(!active)}
+          onChangeText={(nextValue) => setUserName(nextValue)}
+          onChange={(active) => setActive(!active)}
         />
       </View>
       <TouchableOpacity

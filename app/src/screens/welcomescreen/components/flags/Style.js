@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-let {width, height} = Dimensions.get('window');
+import {StyleSheet} from 'react-native';
+//let {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   touch: {},
   touchFlags: {
@@ -33,6 +33,16 @@ const styles = StyleSheet.create({
   },
   toggle: {
     // paddingLeft: 15,
+  },
+  imgFlags: {
+    width: 20,
+    height: 20,
+  },
+  expandArrow: {
+    justifyContent: 'center',
+  },
+  flag: {
+    paddingRight: 20,
   },
 });
 

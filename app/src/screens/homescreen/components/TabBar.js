@@ -7,11 +7,10 @@ import {
   Animated,
   ViewPropTypes,
   TouchableOpacity,
-  ScrollView,
 } from 'react-native';
 import React from 'react';
 
-const Button = props => {
+const Button = (props) => {
   return <TouchableOpacity {...props}>{props.children}</TouchableOpacity>;
 };
 const TabBar = createReactClass({
@@ -55,7 +54,7 @@ const TabBar = createReactClass({
     const viewColor = isTabActive ? activeViewColor : inactiveViewColor;
     return (
       <Button
-        style={{flex: 1}}
+        style={styles.container}
         key={name}
         accessible={true}
         accessibilityLabel={name}
@@ -116,6 +115,9 @@ const TabBar = createReactClass({
 });
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   tab: {
     //flex: 1,
     alignItems: 'center',

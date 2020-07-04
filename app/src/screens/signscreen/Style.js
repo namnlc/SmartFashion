@@ -1,5 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
-let {width: w, height: h} = Dimensions.get('window');
+let {width: w} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -33,6 +33,7 @@ export const styles = StyleSheet.create({
   txtForgot: {
     marginLeft: 10,
     color: '#616161',
+    marginBottom: 20,
   },
   contentSign: {
     flex: 1,
