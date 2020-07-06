@@ -38,7 +38,7 @@ const ProfileNotSign = () => {
       <Text style={styles.txtSign}>And more than that just by Signing Up</Text>
       <TouchableOpacity
         style={styles.touchSign}
-        onPress={() => navigation.push('signUpNavigator')}>
+        onPress={() => navigation.push('authNavigator')}>
         <Text style={styles.txtTouch}>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.divider} />

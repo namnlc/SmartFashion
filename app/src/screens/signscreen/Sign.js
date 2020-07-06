@@ -13,12 +13,24 @@ import {
   checkFormatEmail,
   passwordErrorsMessage,
 } from '../../../utils/validation';
+import {
+  PickBottomDate,
+  PickBottomGender,
+} from '../../components/Picker/PickBottom';
+import {StackActions, useNavigation} from '@react-navigation/native';
+
 const Sign = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.viewHeader}>
         <Image source={logo} style={styles.logo} />
-        <Icon name="x" type="feather" style={styles.x} />
+        <Icon
+          name="x"
+          type="feather"
+          style={styles.x}
+          onPress={() => navigation.pop()}
+        />
       </View>
       <ScrollableTabView
         tabBarActiveTextColor="black"
@@ -38,6 +50,8 @@ const Sign = () => {
 };
 
 const SignInView = () => {
+  const navigation = useNavigation();
+
   return (
     <KeyboardAwareScrollView contentContainerStyle={styles.container}>
       <View style={styles.contentSign}>
@@ -46,7 +60,6 @@ const SignInView = () => {
           Fashion!
         </Text>
         <FormSignIn />
-
         <View>
           <Divider orientation="center">
             <Text style={styles.txt}>Or</Text>
@@ -79,7 +92,7 @@ const SignUpView = () => {
           {'\n'}
           Unlimitedly try on millions of items
           {'\n'}
-          Unlimitedly try on millions of items
+          Easily manage your data
         </Text>
         <FormSignUp />
         <Button
@@ -111,21 +124,8 @@ const FormSignUp = () => {
   return (
     <View>
       <Input placeholder="Name*" inputStyle={[styles.txt, styles.txtSmall]} />
-      <Input placeholder="Gender" inputStyle={[styles.txt, styles.txtSmall]} />
-      <Input
-        placeholder="Date of birth"
-        placeholderTextColor="#616161"
-        disabled={true}
-        rightIcon={
-          <Icon
-            name="arrow-down"
-            type="simple-line-icon"
-            size={13}
-            style={styles.pickDate}
-          />
-        }
-        inputStyle={[styles.txt, styles.txtSmall]}
-      />
+      <PickBottomGender />
+      <PickBottomDate />
       <Input placeholder="Email*" inputStyle={[styles.txt, styles.txtSmall]} />
       <Input
         placeholder="Password*"
@@ -137,6 +137,7 @@ const FormSignUp = () => {
 };
 
 const FormSignIn = () => {
+  const navigation = useNavigation();
   const [secure, setSecure] = useState(true);
   const {handleSubmit, setError, errors} = useForm();
   const [email, setEmail] = useState('');
@@ -206,7 +207,7 @@ const FormSignIn = () => {
         }
         onChangeText={(value) => setPassword(value)}
       />
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('forgotPassword')}>
         <Text style={[styles.txt, styles.txtForgot]}>Forgot password?</Text>
       </TouchableOpacity>
       <Button
