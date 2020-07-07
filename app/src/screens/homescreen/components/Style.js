@@ -4,28 +4,24 @@ let {width: w, height: h} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'absolute',
-    alignItems: 'center',
+    backgroundColor: 'white',
   },
   header: {
-    flex: 1,
+    marginHorizontal: 10,
     flexDirection: 'row',
-    width: w - 20,
+    height: h / 13,
     justifyContent: 'space-between',
-    //backgroundColor: 'red',
   },
   logo: {
     resizeMode: 'contain',
     width: w / 3,
     height: h / 23,
-    alignSelf: 'center',
   },
   headerIcon: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   viewHome: {
-    flex: 1,
     backgroundColor: '#F3F5F7',
   },
   txt: {
@@ -48,11 +44,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   containerHot: {
-    backgroundColor: 'white',
     height: h / 3,
   },
   containerNew: {
-    backgroundColor: 'white',
+    //backgroundColor: 'white',
     height: h / 3,
     marginVertical: 8,
   },
@@ -65,5 +60,23 @@ export const styles = StyleSheet.create({
   touchShop: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  iconHeader: {
+    flexDirection: 'row',
+  },
+  favoriteView: {
+    marginVertical: 20,
+    marginLeft: 10,
+  },
+  txTab: {
+    fontFamily: 'Optima',
+    fontSize: 13,
+  },
+  content: {
+    marginTop: 10,
+    width: w,
+  },
+  test: {
+    width: w,
   },
 });

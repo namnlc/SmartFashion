@@ -44,34 +44,35 @@ const ViewBot = () => {
 };
 const YourChoice = () => {
   return (
-    <View>
+    <View style={styles.container}>
+      <Arrange />
       <ScrollableTabView
-        style={styles.content}
+        //style={{top: -10}}
         renderTabBar={() => (
           <ScrollableView
+            tabStyle={styles.tabChoice}
             textStyle={styles.txtCate}
             activeTextColor="black"
             style={styles.yourChoice}
           />
         )}>
-        <View tabLabel="Chosen" style={{backgroundColor: 'red'}}>
+        <View tabLabel="Chosen">
           <Text>1</Text>
         </View>
         <Tried tabLabel="Tried" />
-        <View tabLabel="Favorite" style={{backgroundColor: 'green'}}>
+        <View tabLabel="Favorite">
           <Text>3</Text>
         </View>
       </ScrollableTabView>
-      <Arrange />
     </View>
   );
 };
 
 const Categories = () => {
   return (
-    <View style={{}}>
+    <View style={styles.container}>
+      <Arrange />
       <ScrollableTabView
-        style={styles.content}
         renderTabBar={() => (
           <ScrollableView
             textStyle={styles.txtCate}
@@ -80,20 +81,19 @@ const Categories = () => {
             style={styles.categories}
           />
         )}>
-        <View tabLabel="All" style={{backgroundColor: 'red'}}>
+        <View tabLabel="All">
           <Text>1</Text>
         </View>
-        <View tabLabel="Full Outfits" style={{backgroundColor: 'blue'}}>
+        <View tabLabel="Full Outfits">
           <Text>2</Text>
         </View>
-        <View tabLabel="Tops" style={{backgroundColor: 'green'}}>
+        <View tabLabel="Tops">
           <Text>3</Text>
         </View>
-        <View tabLabel="Bottoms" style={{backgroundColor: 'pink'}}>
+        <View tabLabel="Bottoms">
           <Text>4</Text>
         </View>
       </ScrollableTabView>
-      <Arrange />
     </View>
   );
 };
@@ -121,7 +121,7 @@ const Tried = () => {
         size={50}
         onPress={() => navigation.navigate('homeNavigator')}
       />
-      <Text style={styles.txtTried}>Add items to your try-on list!</Text>
+      <Text style={styles.txtTried}>There is no data yet!</Text>
     </View>
   );
 };

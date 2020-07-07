@@ -18,18 +18,13 @@ export const styles = StyleSheet.create({
     shadowRadius: 11.95,
     backgroundColor: 'white',
   },
-  content: {
-    position: 'absolute',
-    //zIndex: -1,
-    //backgroundColor: 'red',
-  },
   txt: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     textTransform: 'uppercase',
     fontSize: 15,
   },
   txtCate: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 13,
   },
   iconMinius: {
@@ -38,15 +33,18 @@ export const styles = StyleSheet.create({
     top: -15,
   },
   yourChoice: {
-    marginTop: 10,
     width: width / 2,
+    top: -10,
   },
   categories: {
-    marginTop: 10,
     width: width / 2 + 65,
+    top: -10,
   },
   tabCategories: {
     left: -15,
+  },
+  tabChoice: {
+    //top: -20,
   },
   arrange: {
     flexDirection: 'row',
@@ -54,30 +52,25 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     padding: 5,
-    //width: width / 4,
-    //alignSelf: 'flex-end',
     marginRight: 10,
-    //backgroundColor: 'blue',
   },
   viewArrange: {
-    width: width / 3 - 20,
+    width: width / 4,
     alignSelf: 'flex-end',
-    //backgroundColor: 'pink',
+    top: 10,
   },
   txtArrange: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 14,
     fontWeight: 'bold',
   },
   viewTried: {
-    height: height / 6 + 10,
-    //width: width,
-    //backgroundColor: 'red',
+    height: height / 6,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   txtTried: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 15,
     color: '#777777',
   },

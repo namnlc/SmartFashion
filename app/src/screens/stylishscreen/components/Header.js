@@ -25,7 +25,6 @@ const ScrollTab = () => {
       tabBarUnderlineStyle={styles.underLine}
       tabBarTextStyle={styles.txBar}
       initialPage={0}
-      //style={{justifyContent: 'space-between', flexDirection: 'row'}}
       renderTabBar={() => <ScrollableTabBar />}>
       <StyleForYouView tabLabel="STYLE FOR YOU" />
       <Text tabLabel="STYLISH WARDROBE">project</Text>

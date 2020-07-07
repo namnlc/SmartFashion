@@ -111,20 +111,16 @@ const ScrollableView = createReactClass({
 
 const styles = StyleSheet.create({
   tab: {
-    //flex: 1,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 5,
+    //paddingBottom: 5,
   },
   tabs: {
     height: 30,
+    backgroundColor: 'red',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    //borderWidth: 1,
-    borderTopWidth: 0,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    //borderColor: '#ccc',
   },
 });
 

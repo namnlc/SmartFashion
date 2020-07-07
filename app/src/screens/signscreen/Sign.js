@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, SafeAreaView, Text, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
 import {Input, Icon, Button, SocialIcon} from 'react-native-elements';
@@ -18,7 +25,7 @@ import {
   PickBottomGender,
 } from '../../components/Picker/PickBottom';
 import {StackActions, useNavigation} from '@react-navigation/native';
-
+const {height} = Dimensions.get('window');
 const Sign = () => {
   const navigation = useNavigation();
   return (
@@ -53,7 +60,10 @@ const SignInView = () => {
   const navigation = useNavigation();
 
   return (
-    <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+    <KeyboardAwareScrollView
+      contentContainerStyle={styles.container}
+      enableAutomaticScroll={true}
+      enableOnAndroid={true}>
       <View style={styles.contentSign}>
         <Text style={[styles.txt, styles.txtSmall]}>
           Sign In or Sign Up to unlock and explore more features with Smart
@@ -82,7 +92,11 @@ const SignInView = () => {
 
 const SignUpView = () => {
   return (
-    <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+    <KeyboardAwareScrollView
+      contentContainerStyle={styles.container}
+      enableAutomaticScroll={true}
+      enableOnAndroid={true}
+      extraHeight={height}>
       <View style={styles.contentSign}>
         <Text style={[styles.txt, styles.txtSmall, styles.txHeader]}>
           Sign In or Sign Up to unlock and explore more features

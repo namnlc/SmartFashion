@@ -50,12 +50,10 @@ const styles = StyleSheet.create({
     width: width,
     height: height,
     flex: 1,
-    //alignItems: 'center',
   },
   header: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    //alignItems: 'center',
     marginHorizontal: 20,
   },
   iconShare: {
