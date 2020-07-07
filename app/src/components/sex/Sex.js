@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 export const Sex = ({title, image, onPress, active, index}) => {

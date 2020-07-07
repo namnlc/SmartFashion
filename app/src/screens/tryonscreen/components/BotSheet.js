@@ -5,7 +5,7 @@ import BottomSheet from 'reanimated-bottom-sheet';
 import {Icon} from 'react-native-elements';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../../components/ScrollableView/Scrollable';
-let {width, height} = Dimensions.get('window');
+let {height} = Dimensions.get('window');
 import {useNavigation} from '@react-navigation/native';
 const BotSheet = () => {
   return (

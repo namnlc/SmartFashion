@@ -1,13 +1,8 @@
-import React, {useDispatch} from 'react';
-import {View, Text, SafeAreaView, StyleSheet, Dimensions} from 'react-native';
-import {
-  DrawerItem,
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer';
+import React from 'react';
+import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
-let {width, height} = Dimensions.get('window');
 const DrawerHomeScreen = ({props}) => {
   const navigation = useNavigation();
   return (

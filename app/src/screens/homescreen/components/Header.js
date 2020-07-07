@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import {Icon} from 'react-native-elements';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import LOGO from '../../../../res/images/logohome.png';

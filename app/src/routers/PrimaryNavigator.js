@@ -29,7 +29,7 @@ function MyTabs() {
         component={HomeNavigator}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+            <Text style={[styles.txt, focused ? styles.color1 : styles.color2]}>
               HOME
             </Text>
           ),
@@ -43,7 +43,7 @@ function MyTabs() {
         component={StylishScreen}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+            <Text style={[styles.txt, focused ? styles.color1 : styles.color2]}>
               STYLISH
             </Text>
           ),
@@ -62,7 +62,7 @@ function MyTabs() {
         component={TryonScreen}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+            <Text style={[styles.txt, focused ? styles.color1 : styles.color2]}>
               TRY ON
             </Text>
           ),
@@ -74,7 +74,7 @@ function MyTabs() {
         component={DefaultModel}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+            <Text style={[styles.txt, focused ? styles.color1 : styles.color2]}>
               EVENTS
             </Text>
           ),
@@ -93,7 +93,7 @@ function MyTabs() {
         component={ProfileNavigator}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text style={[styles.txt, {color: focused ? 'black' : '#CACACA'}]}>
+            <Text style={[styles.txt, focused ? styles.color1 : styles.color2]}>
               PROFILES
             </Text>
           ),
@@ -117,6 +117,12 @@ const styles = StyleSheet.create({
     width: 47,
     height: 47,
     marginBottom: 18,
+  },
+  color1: {
+    color: 'black',
+  },
+  color2: {
+    color: '#CACACA',
   },
 });
 export default MyTabs;

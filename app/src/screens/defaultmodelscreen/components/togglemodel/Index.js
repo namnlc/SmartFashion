@@ -1,12 +1,5 @@
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  SafeAreaView,
-  Dimensions,
-} from 'react-native';
-import React, {Component, useState} from 'react';
+import {Text, TouchableOpacity, View, Image, SafeAreaView} from 'react-native';
+import React, {useState} from 'react';
 import wel from '../../../../../res/images/welcome2.png';
 import Modal from 'react-native-modal';
 import {styles} from './Style';
@@ -15,8 +8,6 @@ import man from '../../../../../res/images/man.png';
 import wel1 from '../../../../../res/images/welcome3.png';
 import {useNavigation} from '@react-navigation/native';
 import {Sex} from '../../../../components';
-
-const {width, height} = Dimensions.get('window');
 
 export const Tab = ({title, onPress, active, index}) => {
   const styleTab = [

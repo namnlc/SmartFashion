@@ -1,12 +1,12 @@
 import React from 'react';
-import {Button, View} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
+//import {Button, View} from 'react-native';
+//import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/homescreen/HomeScreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerHomeScreen from '../screens/homescreen/components/DrawerHomeScreen';
-import StylishScreen from '../screens/stylishscreen/StylishScreen';
-import profileRoot from './ProfileNavigator';
-import ProfileScreen from '../screens/profilescreen/ProfileScreen';
+//import StylishScreen from '../screens/stylishscreen/StylishScreen';
+//import profileRoot from './ProfileNavigator';
+//import ProfileScreen from '../screens/profilescreen/ProfileScreen';
 
 const drawerHome = createDrawerNavigator();
 

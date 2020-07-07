@@ -24,7 +24,7 @@ import {
   PickBottomDate,
   PickBottomGender,
 } from '../../components/Picker/PickBottom';
-import {StackActions, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 const {height} = Dimensions.get('window');
 const Sign = () => {
   const navigation = useNavigation();
@@ -57,8 +57,7 @@ const Sign = () => {
 };
 
 const SignInView = () => {
-  const navigation = useNavigation();
-
+  //const navigation = useNavigation();
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={styles.container}

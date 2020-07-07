@@ -1,5 +1,5 @@
-import React, {Component, useState} from 'react';
-import {View, Dimensions, Button, Text, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 
 import {styles} from './Style';
 import {Tab, RenderModal, RenderPhoto, RenderModel} from './Index';

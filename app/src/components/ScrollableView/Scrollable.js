@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 const createReactClass = require('create-react-class');
 import {
   StyleSheet,
-  Button,
   Text,
   View,
-  Animated,
   ViewPropTypes,
   TouchableOpacity,
 } from 'react-native';
@@ -51,7 +49,7 @@ const ScrollableView = createReactClass({
     return (
       <TouchableOpacity
         activeOpacity={0.8}
-        style={{flex: 1}}
+        style={styles.container}
         key={name}
         accessible={true}
         accessibilityLabel={name}
@@ -67,7 +65,7 @@ const ScrollableView = createReactClass({
   },
 
   render() {
-    const containerWidth = this.props.containerWidth;
+    //const containerWidth = this.props.containerWidth;
     // const numberOfTabs = this.props.tabs.length;
     // const tabUnderlineStyle = {
     //   position: 'absolute',
@@ -110,6 +108,9 @@ const ScrollableView = createReactClass({
 });
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   tab: {
     flex: 1,
     alignItems: 'center',

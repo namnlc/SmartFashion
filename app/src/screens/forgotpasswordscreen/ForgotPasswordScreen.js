@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import {Icon, Input, Button} from 'react-native-elements';
 import {styles} from './Style';
 const ForgotPassword = ({navigation: {goBack}}) => {
   const [username, setUserName] = React.useState('');
-  const [active, setActive] = useState('false');
+  //const [active, setActive] = useState('false');
   const [label, setLabel] = useState('');
   const [holder, setHolder] = useState('Email*');
   return (
