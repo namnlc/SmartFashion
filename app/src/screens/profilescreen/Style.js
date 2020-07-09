@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    //backgroundColor: 'red',
   },
   header: {
     alignItems: 'center',
@@ -14,7 +13,7 @@ export const styles = StyleSheet.create({
     width: width - 20,
   },
   txtHeader: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -25,7 +24,7 @@ export const styles = StyleSheet.create({
   },
   txtList: {
     fontSize: 16,
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     marginLeft: 10,
   },
   viewList: {
@@ -34,7 +33,7 @@ export const styles = StyleSheet.create({
   },
   txtSign: {
     fontSize: 14,
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     color: '#8A8A8A',
     //marginBottom: 30,
   },
@@ -49,22 +48,21 @@ export const styles = StyleSheet.create({
     padding: 10,
   },
   txtTouch: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
+    fontWeight: 'bold',
+  },
+  txAccount: {
+    fontFamily: 'optima',
   },
   divider: {
     height: 1,
     width: width - 40,
     backgroundColor: '#8A8A8A',
   },
-  txtSignin: {
-    fontFamily: 'Optima',
+  txSign: {
+    fontFamily: 'optima',
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  footer: {
-    width: '60%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   contentList: {
     marginVertical: 10,

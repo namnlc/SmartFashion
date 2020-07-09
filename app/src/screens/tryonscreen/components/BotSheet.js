@@ -1,10 +1,18 @@
 import React from 'react';
-import {View, Text, Dimensions, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import {styles} from './Style';
 import BottomSheet from 'reanimated-bottom-sheet';
 import {Icon} from 'react-native-elements';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../../components/ScrollableView/Scrollable';
+import notData from '../../../../res/images/notData.png';
 let {height} = Dimensions.get('window');
 import {useNavigation} from '@react-navigation/native';
 const BotSheet = () => {
@@ -25,7 +33,7 @@ const ViewBot = () => {
         name="minus"
         type="feather"
         color="#b3b3b3"
-        iconStyle={styles.iconMinius}
+        iconStyle={styles.iconMini}
       />
       <ScrollableTabView
         renderTabBar={() => (
@@ -47,10 +55,8 @@ const YourChoice = () => {
     <View style={styles.container}>
       <Arrange />
       <ScrollableTabView
-        //style={{top: -10}}
         renderTabBar={() => (
           <ScrollableView
-            tabStyle={styles.tabChoice}
             textStyle={styles.txtCate}
             activeTextColor="black"
             style={styles.yourChoice}
@@ -115,12 +121,15 @@ const Tried = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.viewTried}>
-      <Icon
-        name="plus"
-        type="simple-line-icon"
-        size={50}
-        onPress={() => navigation.navigate('homeNavigator')}
-      />
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('home')}>
+        <Image
+          source={notData}
+          style={styles.img}
+          resizeMode="contain"
+          onPress={() => navigation.navigate('home')}
+        />
+      </TouchableWithoutFeedback>
+
       <Text style={styles.txtTried}>There is no data yet!</Text>
     </View>
   );

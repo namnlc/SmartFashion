@@ -1,14 +1,14 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 
-let {width, height} = Dimensions.get('window');
+let {width: w, height: h} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   botView: {
-    width: width,
-    height: height / 3,
+    width: w,
+    height: h / 3,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -27,24 +27,19 @@ export const styles = StyleSheet.create({
     fontFamily: 'optima',
     fontSize: 13,
   },
-  iconMinius: {
+  iconMini: {
     fontSize: 50,
     height: 30,
     top: -15,
   },
   yourChoice: {
-    width: width / 2,
-    top: -10,
+    width: w / 2,
+    top: -12,
+    left: 15,
   },
   categories: {
-    width: width / 2 + 65,
+    width: (w * 3) / 4,
     top: -10,
-  },
-  tabCategories: {
-    left: -15,
-  },
-  tabChoice: {
-    //top: -20,
   },
   arrange: {
     flexDirection: 'row',
@@ -55,7 +50,7 @@ export const styles = StyleSheet.create({
     marginRight: 10,
   },
   viewArrange: {
-    width: width / 4,
+    width: w / 4,
     alignSelf: 'flex-end',
     top: 10,
   },
@@ -65,13 +60,17 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   viewTried: {
-    height: height / 6,
+    height: h / 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
   txtTried: {
     fontFamily: 'optima',
-    fontSize: 15,
-    color: '#777777',
+    fontSize: 14,
+    color: '#616161',
+  },
+  img: {
+    width: Platform.OS === 'ios' ? w / 8 : w / 10,
+    height: Platform.OS === 'ios' ? h / 8 : h / 10,
   },
 });

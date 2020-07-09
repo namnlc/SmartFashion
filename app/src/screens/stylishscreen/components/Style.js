@@ -22,11 +22,11 @@ export const styles = StyleSheet.create({
   txt: {
     textAlign: 'center',
     marginHorizontal: 20,
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
   },
   txtTouch: {
     marginLeft: 10,
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
   },
   img: {
     resizeMode: 'contain',
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   txBar: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 13,
   },
 });

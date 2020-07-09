@@ -108,7 +108,7 @@ function MyTabs() {
 
 const styles = StyleSheet.create({
   txt: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 12,
     top: 5,
   },

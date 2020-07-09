@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   txtDef: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'center',

@@ -1,3 +1,9 @@
+/**
+ * TODO:
+ * - fix sign
+ * fix header
+ * sign up view for android
+ */
 import React, {useState} from 'react';
 import {
   View,
@@ -42,11 +48,12 @@ const Sign = () => {
       <ScrollableTabView
         tabBarActiveTextColor="black"
         tabBarInactiveTextColor="#616161"
+        locked={true}
         renderTabBar={() => (
           <ScrollableView
             tabBarTextStyle={[styles.txtSign, styles.txt]}
             style={styles.content}
-            activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
+            activeTabs={{borderBottomWidth: 2}}
           />
         )}>
         <SignInView tabLabel="SIGN IN" />
@@ -94,8 +101,7 @@ const SignUpView = () => {
     <KeyboardAwareScrollView
       contentContainerStyle={styles.container}
       enableAutomaticScroll={true}
-      enableOnAndroid={true}
-      extraHeight={height}>
+      enableOnAndroid={true}>
       <View style={styles.contentSign}>
         <Text style={[styles.txt, styles.txtSmall, styles.txHeader]}>
           Sign In or Sign Up to unlock and explore more features
@@ -103,21 +109,25 @@ const SignUpView = () => {
         <Text style={[styles.txt, styles.txParam]}>
           Freely upload photos of yourself and your clothes
           {'\n'}
-          Unlimitedly try on millions of items
+          Unlimited try on millions of items
           {'\n'}
           Easily manage your data
         </Text>
         <FormSignUp />
-        <Button
-          title="Sign Up"
-          buttonStyle={styles.btnSignIn}
-          titleStyle={styles.txt}
-        />
+        <View>
+          <Button
+            title="Sign Up"
+            style={styles.btnSign}
+            buttonStyle={styles.btnSignUp}
+            titleStyle={[styles.txtSign, styles.colorSign]}
+          />
+        </View>
+
         <View>
           <Divider orientation="center">
             <Text style={styles.txt}>Or</Text>
           </Divider>
-          <View style={[styles.viewIcon, styles.viewIconSignUp]}>
+          <View style={styles.viewIcon}>
             <SocialIcon type="facebook" iconSize={20} style={styles.sizeIcon} />
             <SocialIcon type="twitter" iconSize={20} style={styles.sizeIcon} />
             <SocialIcon
@@ -134,16 +144,34 @@ const SignUpView = () => {
 };
 
 const FormSignUp = () => {
+  const [secure, setSecure] = useState(true);
   return (
     <View>
-      <Input placeholder="Name*" inputStyle={[styles.txt, styles.txtSmall]} />
+      <Input
+        placeholder="Name*"
+        inputStyle={[styles.txt, styles.txtSmall]}
+        placeholderTextColor="#3D3D3D"
+      />
       <PickBottomGender />
       <PickBottomDate />
-      <Input placeholder="Email*" inputStyle={[styles.txt, styles.txtSmall]} />
       <Input
-        placeholder="Password*"
+        placeholder="Email*"
         inputStyle={[styles.txt, styles.txtSmall]}
-        rightIcon={<Icon name="eye" type="foundation" color="#616161" />}
+        placeholderTextColor="#3D3D3D"
+      />
+      <Input
+        secureTextEntry={secure}
+        placeholder="Password*"
+        placeholderTextColor="#3D3D3D"
+        inputStyle={[styles.txt, styles.txtSmall]}
+        rightIcon={
+          <Icon
+            name="eye"
+            type="foundation"
+            color="#3D3D3D"
+            onPress={() => setSecure(!secure)}
+          />
+        }
       />
     </View>
   );
@@ -165,76 +193,84 @@ const FormSignIn = () => {
   };
   return (
     <View>
-      <Input
-        placeholder="Email*"
-        inputStyle={[styles.txt, styles.txtSmall]}
-        name="email"
-        onChange={() => {
-          emailErrorsMessage.forEach(({name, type, message}) =>
-            setError(name, {type, message}),
-          );
-        }}
-        onBlur={() =>
-          emailErrorsMessage.forEach(({name, type, message}) =>
-            setError(name, {type, message}),
-          )
-        }
-        errorMessage={
-          email.length === 0 && errors.NOEMAIL
-            ? errors.NOEMAIL.message
-            : !checkFormatEmail(email) && errors.INVALIDEMAIL
-            ? errors.INVALIDEMAIL.message
-            : ''
-        }
-        onChangeText={(value) => setEmail(value)}
-      />
-      <Input
-        secureTextEntry={secure}
-        placeholder="Password*"
-        name="password"
-        inputStyle={[styles.txt, styles.txtSmall]}
-        onChange={() => {
-          passwordErrorsMessage.forEach(({name, type, message}) =>
-            setError(name, {type, message}),
-          );
-        }}
-        rightIcon={
-          <Icon
-            name="eye"
-            type="foundation"
-            color="#616161"
-            onPress={() => setSecure(!secure)}
-          />
-        }
-        onBlur={() =>
-          passwordErrorsMessage.forEach(({name, type, message}) =>
-            setError(name, {type, message}),
-          )
-        }
-        errorMessage={
-          password.length === 0 && errors.NOPASSWORD
-            ? errors.NOPASSWORD.message
-            : password.length < 8 && errors.MINPASSWORD
-            ? errors.MINPASSWORD.message
-            : ''
-        }
-        onChangeText={(value) => setPassword(value)}
-      />
-      <TouchableOpacity onPress={() => navigation.navigate('forgotPassword')}>
-        <Text style={[styles.txt, styles.txtForgot]}>Forgot password?</Text>
-      </TouchableOpacity>
-      <Button
-        title="Sign In"
-        buttonStyle={styles.btnSignIn}
-        titleStyle={styles.txt}
-        onPress={handleSubmit(onSubmit)}
-      />
-      <Button
-        type="outline"
-        title="Face Id"
-        buttonStyle={styles.btnSignUp}
-        titleStyle={[styles.txt, styles.colorSign]}
-      />
+      <View>
+        <Input
+          placeholderTextColor="#3D3D3D"
+          placeholder="Email*"
+          inputStyle={[styles.txt, styles.txtSmall]}
+          name="email"
+          onChange={() => {
+            emailErrorsMessage.forEach(({name, type, message}) =>
+              setError(name, {type, message}),
+            );
+          }}
+          onBlur={() =>
+            emailErrorsMessage.forEach(({name, type, message}) =>
+              setError(name, {type, message}),
+            )
+          }
+          errorMessage={
+            email.length === 0 && errors.NOEMAIL
+              ? errors.NOEMAIL.message
+              : !checkFormatEmail(email) && errors.INVALIDEMAIL
+              ? errors.INVALIDEMAIL.message
+              : ''
+          }
+          onChangeText={(value) => setEmail(value)}
+        />
+        <Input
+          placeholderTextColor="#3D3D3D"
+          secureTextEntry={secure}
+          placeholder="Password*"
+          name="password"
+          inputStyle={[styles.txt, styles.txtSmall]}
+          onChange={() => {
+            passwordErrorsMessage.forEach(({name, type, message}) =>
+              setError(name, {type, message}),
+            );
+          }}
+          rightIcon={
+            <Icon
+              name="eye"
+              type="foundation"
+              color="#616161"
+              onPress={() => setSecure(!secure)}
+            />
+          }
+          onBlur={() =>
+            passwordErrorsMessage.forEach(({name, type, message}) =>
+              setError(name, {type, message}),
+            )
+          }
+          errorMessage={
+            password.length === 0 && errors.NOPASSWORD
+              ? errors.NOPASSWORD.message
+              : password.length < 8 && errors.MINPASSWORD
+              ? errors.MINPASSWORD.message
+              : ''
+          }
+          onChangeText={(value) => setPassword(value)}
+        />
+        <Text
+          style={[styles.txt, styles.txtForgot]}
+          onPress={() => navigation.navigate('forgotPassword')}>
+          Forgot password?
+        </Text>
+      </View>
+      <View>
+        <Button
+          title="Sign In"
+          buttonStyle={styles.btnSignIn}
+          titleStyle={styles.txtSign}
+          onPress={handleSubmit(onSubmit)}
+        />
+        <Button
+          title="Face Id"
+          style={styles.btnSign}
+          buttonStyle={styles.btnSignUp}
+          titleStyle={[styles.txtSign, styles.colorSign]}
+        />
+      </View>
     </View>
   );
 };

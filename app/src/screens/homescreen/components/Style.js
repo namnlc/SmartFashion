@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#F3F5F7',
   },
   txt: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 17,
     textTransform: 'uppercase',
   },
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   txtShow: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 15,
     marginRight: 10,
   },
@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
   },
   txTab: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 13,
   },
   content: {

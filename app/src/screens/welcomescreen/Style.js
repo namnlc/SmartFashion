@@ -23,13 +23,13 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   txLogin: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 16,
     fontWeight: 'bold',
     color: 'white',
   },
   tx: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 14,
     color: 'white',
     lineHeight: 20,
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
   },
   txt2: {
     fontSize: 15,
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     color: 'black',
     textTransform: 'uppercase',
   },

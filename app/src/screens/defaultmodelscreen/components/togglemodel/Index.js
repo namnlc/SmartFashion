@@ -16,7 +16,7 @@ export const Tab = ({title, onPress, active, index}) => {
   ];
   const styleText = [
     {color: index === active ? '#ffffff' : '#098FA8'},
-    {fontFamily: 'Optima'},
+    {fontFamily: 'optima'},
   ];
   return (
     <TouchableOpacity style={styleTab} activeOpacity={1} onPress={onPress}>

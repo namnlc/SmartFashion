@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
     color: '#fff',
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
   },
   txt: {
     fontWeight: 'bold',
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
   },
   txtPick: {
     textAlign: 'center',

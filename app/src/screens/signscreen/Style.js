@@ -6,13 +6,19 @@ export const styles = StyleSheet.create({
   },
   header: {},
   content: {
-    marginTop: 10,
-    alignSelf: 'center',
     width: w / 2,
-    top: -32,
+    alignSelf: 'center',
+    marginBottom: 20,
+    backgroundColor: 'blue',
   },
   txt: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
+  },
+  txtSignUp: {
+    fontFamily: 'optima',
+    color: 'black',
+    fontSize: 13,
+    textTransform: 'uppercase',
   },
   txtSmall: {
     fontSize: 14,
@@ -24,8 +30,9 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   txtSign: {
+    fontFamily: 'optima',
     textTransform: 'uppercase',
-    fontSize: 18,
+    fontSize: 17,
   },
   colorSign: {
     color: 'black',
@@ -43,37 +50,34 @@ export const styles = StyleSheet.create({
   btnSignIn: {
     backgroundColor: 'black',
     padding: 10,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   btnSignUp: {
-    borderColor: 'black',
     backgroundColor: 'white',
-    padding: 10,
   },
   viewIcon: {
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  viewIconSignUp: {
-    top: -10,
-  },
   apple: {
     backgroundColor: 'black',
   },
   viewHeader: {
-    width: w,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    //top: -20,
   },
   logo: {
     resizeMode: 'contain',
-    marginLeft: 10,
+    backgroundColor: 'green',
     height: 33,
     width: 33,
+    alignSelf: 'flex-start',
   },
   x: {
-    marginRight: 10,
+    alignSelf: 'flex-end',
+    backgroundColor: 'green',
   },
   sizeIcon: {
     width: 35,
@@ -87,5 +91,9 @@ export const styles = StyleSheet.create({
   },
   pickDate: {
     backgroundColor: 'transparent',
+  },
+  btnSign: {
+    borderColor: '#616161',
+    borderWidth: 0.5,
   },
 });

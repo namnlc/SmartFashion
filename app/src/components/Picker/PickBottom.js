@@ -14,7 +14,7 @@ export const PickBottomGender = () => {
     pickerFontSize: 18,
     pickerData: gender,
     pickerTitleColor: [255, 255, 255, 1],
-    pickerFontFamily: 'Optima',
+    pickerFontFamily: 'optima',
     pickerBg: [151, 151, 151, 1],
     pickerToolBarBg: [151, 151, 151, 1],
     pickerRowHeight: 34,
@@ -26,12 +26,12 @@ export const PickBottomGender = () => {
       //Picker.hide();
     },
   });
-  Picker.hide();
   return (
     <View>
       <Input
-        placeholderTextColor="#616161"
+        placeholderTextColor="#3D3D3D"
         disabled={true}
+        disabledInputStyle={styles.txt}
         rightIcon={
           <Icon
             name="arrow-down"
@@ -41,7 +41,7 @@ export const PickBottomGender = () => {
           />
         }
         inputStyle={styles.txt}
-        value={isGender.toString()}
+        placeholder={isGender.toString()}
       />
     </View>
   );
@@ -58,7 +58,7 @@ export const PickBottomDate = () => {
     pickerFontSize: 18,
     pickerData: createDate(),
     pickerTitleColor: [255, 255, 255, 1],
-    pickerFontFamily: 'Optima',
+    pickerFontFamily: 'optima',
     pickerBg: [151, 151, 151, 1],
     pickerToolBarBg: [151, 151, 151, 1],
     pickerRowHeight: 34,
@@ -69,11 +69,10 @@ export const PickBottomDate = () => {
       setBirth(birth);
     },
   });
-  Picker.hide();
   return (
     <View>
       <Input
-        placeholderTextColor="#616161"
+        placeholderTextColor="#3D3D3D"
         disabled={true}
         rightIcon={
           <Icon
@@ -84,7 +83,7 @@ export const PickBottomDate = () => {
           />
         }
         inputStyle={styles.txt}
-        value={isBirth.toString()}
+        placeholder={isBirth.toString()}
       />
     </View>
   );

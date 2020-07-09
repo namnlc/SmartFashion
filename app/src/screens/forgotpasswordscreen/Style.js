@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   txt: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 20,
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     fontSize: 15,
   },
   txButton: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 15,
     fontWeight: '500',
     textTransform: 'uppercase',
@@ -36,11 +36,11 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
   },
   txInput: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 15,
   },
   txLabel: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     fontSize: 15,
     fontWeight: '100',
     color: '#545454',

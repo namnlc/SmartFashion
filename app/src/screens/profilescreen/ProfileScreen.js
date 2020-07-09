@@ -2,13 +2,11 @@ import React from 'react';
 import {View, SafeAreaView, Text, Image} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
-import profile from './profile.jpg';
+import profile from '../../../res/images/profile.jpg';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styles} from './Style';
 
 const ProfileScreen = () => {
-  //const navigation = useNavigation();
-
   return <ProfileNotSign />;
 };
 
@@ -42,11 +40,16 @@ const ProfileNotSign = () => {
         <Text style={styles.txtTouch}>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.divider} />
-      <View style={styles.footer}>
-        <Text style={styles.txtTouch}>Already have an account?</Text>
-        <TouchableOpacity>
-          <Text style={styles.txtSignin}>Sign In</Text>
-        </TouchableOpacity>
+      <View>
+        <Text style={styles.txAccount}>
+          Already have an account?
+          <Text> </Text>
+          <Text
+            style={styles.txSign}
+            onPress={() => navigation.push('authNavigator')}>
+            Sign In
+          </Text>
+        </Text>
       </View>
     </SafeAreaView>
   );

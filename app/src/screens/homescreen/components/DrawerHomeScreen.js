@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontSize: 15,
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
   },
 });
 export default DrawerHomeScreen;

@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   txt: {
     fontSize: 18,
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
     marginLeft: 20,
   },
   contentProfile: {
