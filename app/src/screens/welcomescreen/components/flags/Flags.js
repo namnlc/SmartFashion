@@ -9,7 +9,7 @@ import {styles} from './Style';
 
 const Flag = ({selected, source, isExpand, onPress, index}) => {
   const style = [
-    {marginRight: 20},
+    {marginLeft: 20},
     index === selected && styles.touchFlags,
     !isExpand && selected !== index ? {display: 'none'} : null,
   ];
@@ -38,23 +38,23 @@ const Flags = () => {
   const [selected, setIsSelected] = useState(0);
   return (
     <View style={[styles.regionImg, styles.flag]}>
-      {flagsData.map((v, i) => (
-        <Flag
-          key={i}
-          source={v.source}
-          selected={selected}
-          isExpand={isExpand}
-          index={i}
-          onPress={() => setIsSelected(i)}
-        />
-      ))}
       <TouchableOpacity
         style={styles.expandArrow}
         onPress={() => {
           setIsExpand(!isExpand);
         }}>
-        <Image source={isExpand ? arrowRight : arrowLeft} />
+        <Image source={isExpand ? arrowLeft : arrowRight} />
       </TouchableOpacity>
+      {flagsData.map((v, i) => (
+        <Flag
+          key={i}
+          source={v.source}
+          selected={selected}
+          isExpand={!isExpand}
+          index={i}
+          onPress={() => setIsSelected(i)}
+        />
+      ))}
     </View>
   );
 };

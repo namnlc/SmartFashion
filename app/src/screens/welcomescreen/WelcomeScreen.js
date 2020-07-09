@@ -1,88 +1,57 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
+import {Text, View, SafeAreaView, Image, ImageBackground} from 'react-native';
 import Flags from './components/flags/Flags';
-import welcome from '../../../res/images/welcome.png';
-
-let {width, height} = Dimensions.get('window');
-
+import LogoWhite from '../../../res/images/logoWhite.png';
+import Background from '../../../res/images/background.png';
+import {Button} from 'react-native-elements';
+import {styles} from './Style';
 const WelcomeScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.content}>
-      <View style={styles.container}>
-        <Flags />
-        <View>
-          <Image style={styles.img} source={welcome} resizeMode="contain" />
+    <ImageBackground style={styles.img} source={Background}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Image
+            source={LogoWhite}
+            style={styles.imgLogo}
+            resizeMode="contain"
+          />
+          <Flags />
         </View>
-        <Text style={styles.txt}>Smarten up your Style!</Text>
-        <TouchableOpacity
-          activeOpacity={0.4}
-          style={styles.btn}
-          onPress={() => navigation.navigate('defaultModel')}>
-          <Text style={styles.txtStart}>Start</Text>
-        </TouchableOpacity>
-        <View>
-          <Text style={styles.txt2}>Try on everything on Smart Fashion</Text>
-          <Text style={styles.txt2}>
-            Be fashionable with our Stylish feature
-          </Text>
+        <View style={styles.content}>
+          <View style={styles.footer}>
+            <Button
+              title="women"
+              buttonStyle={styles.btn}
+              titleStyle={styles.txt2}
+            />
+            <Button
+              title="men"
+              buttonStyle={styles.btn}
+              titleStyle={styles.txt2}
+              onPress={() => navigation.navigate('primaryNavigator')}
+            />
+          </View>
+          <View>
+            <Text style={styles.tx}>
+              Already have an account?
+              <Text> </Text>
+              <Text
+                style={styles.txLogin}
+                onPress={() => navigation.push('authNavigator')}>
+                Login here
+              </Text>
+            </Text>
+          </View>
+          <View style={styles.txFooter}>
+            <Text style={styles.tx}>Try on everything on Smart Fashion</Text>
+            <Text style={styles.tx}>
+              Be fashionable with our Stylish feature
+            </Text>
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  btn: {
-    backgroundColor: '#098FA8',
-    borderRadius: 25,
-    //marginVertical: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: width / 2,
-    height: '8%',
-  },
-  txt: {
-    fontFamily: 'Optima',
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  txtStart: {
-    color: '#fff',
-    fontSize: 16,
-    fontFamily: 'Optima',
-  },
-  img: {
-    resizeMode: 'contain',
-    width: width,
-    height: height / 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: 20,
-  },
-
-  txt2: {
-    fontSize: 15,
-    fontFamily: 'Optima',
-    textAlign: 'center',
-    paddingVertical: 5,
-  },
-});
 
 export default WelcomeScreen;
