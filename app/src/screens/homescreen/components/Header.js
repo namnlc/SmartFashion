@@ -7,7 +7,6 @@ import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styles} from './Style';
 import ScrollableView from '../../../components/ScrollableView/Scrollable';
-
 const HeaderHome = () => {
   const navigation = useNavigation();
   return (
@@ -56,6 +55,7 @@ const ScrollTab = () => {
 };
 
 export const Test = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.test}>
       <View style={styles.containerHot}>
@@ -67,7 +67,6 @@ export const Test = () => {
           </TouchableOpacity>
         </View>
       </View>
-
       <View style={styles.containerNew}>
         <View style={styles.viewHot}>
           <Text style={styles.txt}>new arrivals</Text>

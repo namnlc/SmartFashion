@@ -10,7 +10,7 @@ import {Icon} from 'react-native-elements';
 import BotSheet from './components/BotSheet';
 import GIRL from './components/girl.png';
 let {width, height} = Dimensions.get('window');
-const TryonScreen = () => {
+const TryonScreen = (route, navigation) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={GIRL} style={styles.img}>

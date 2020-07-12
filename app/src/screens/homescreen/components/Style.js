@@ -45,6 +45,7 @@ export const styles = StyleSheet.create({
   },
   containerHot: {
     height: h / 3,
+    flex: 1,
   },
   containerNew: {
     //backgroundColor: 'white',

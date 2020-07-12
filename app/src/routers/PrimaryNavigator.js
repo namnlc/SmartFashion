@@ -7,6 +7,7 @@ import HomeNavigator from './HomeNavigator';
 import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
 import ProfileNavigator from './ProfileNavigator';
 import TryonScreen from '../screens/tryonscreen/TryonScreen';
+import EventScreen from '../screens/eventscreen/EventScreen';
 const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
@@ -71,7 +72,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Events"
-        component={DefaultModel}
+        component={EventScreen}
         options={{
           tabBarLabel: ({focused}) => (
             <Text style={[styles.txt, focused ? styles.color1 : styles.color2]}>
