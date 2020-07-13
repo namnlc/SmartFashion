@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import {Icon} from 'react-native-elements';
-import LIST from './list.png';
-import SETTING from './setting.png';
-import LISTDOWN from './listdown.png';
+import LIST from '../../../res/images/list.png';
+import SETTING from '../../../res/images/setting.png';
+import LISTDOWN from '../../../res/images/listdown.png';
 
 let {width} = Dimensions.get('window');
 const TabBarHome = ({title}) => {

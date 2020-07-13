@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, ViewPropTypes} from 'react-native';
 import {Overlay} from 'react-native-elements';
 import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ const ModalView = createReactClass({
   render() {
     return (
       <Overlay>
-        <Text>1</Text>
+        <Text>123</Text>
       </Overlay>
     );
   },

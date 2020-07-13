@@ -14,7 +14,7 @@ const EventScreen = () => {
         initialPage={0}
         renderTabBar={() => (
           <ScrollableView
-            tabBarTextStyle={styles.tx}
+            textStyle={styles.tx}
             style={styles.content}
             activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
           />

@@ -40,6 +40,7 @@ const ScrollTab = () => {
       tabBarActiveTextColor="black"
       tabBarInactiveTextColor="#616161"
       tabBarTextStyle={styles.txTab}
+      locked={true}
       initialPage={0}
       renderTabBar={() => (
         <ScrollableView

@@ -5,14 +5,7 @@
  * sign up view for android
  */
 import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  Image,
-  Dimensions,
-} from 'react-native';
+import {View, SafeAreaView, Text, Image, Dimensions} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
 import {Input, Icon, Button, SocialIcon} from 'react-native-elements';
@@ -51,9 +44,10 @@ const Sign = () => {
         locked={true}
         renderTabBar={() => (
           <ScrollableView
-            tabBarTextStyle={[styles.txtSign, styles.txt]}
+            textStyle={styles.txt}
+            tabStyle={styles.tabSign}
             style={styles.content}
-            activeTabs={{borderBottomWidth: 2}}
+            activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
           />
         )}>
         <SignInView tabLabel="SIGN IN" />

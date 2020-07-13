@@ -4,6 +4,7 @@ const {width: w, height: h} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
   content: {
     alignItems: 'center',
@@ -19,6 +20,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tx: {
-    fontFamily: 'Optima',
+    fontFamily: 'optima',
   },
 });

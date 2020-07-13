@@ -7,13 +7,12 @@
     "ios": "npx react-native run-ios --simulator='iphone 8'",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
-    "ipad": "npx react-native run-ios --simulator 'ipad pro' "
+    "lint": "eslint ."
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.10.4",
-    "@eva-design/eva": "^2.0.0",
     "@hookform/error-message": "0.0.2",
+    "@react-native-community/blur": "^3.6.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/viewpager": "^4.0.1",
     "@react-navigation/bottom-tabs": "^5.6.1",
@@ -22,8 +21,6 @@
     "@react-navigation/material-bottom-tabs": "^5.2.12",
     "@react-navigation/native": "^5.6.1",
     "@react-navigation/stack": "^5.6.2",
-    "@ui-kitten/components": "^5.0.0",
-    "@ui-kitten/eva-icons": "^5.0.0",
     "indicative": "^7.4.4",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
@@ -43,9 +40,7 @@
     "react-native-screens": "^2.9.0",
     "react-native-scrollable-tab-view": "^1.0.0",
     "react-native-svg": "^12.1.0",
-    "react-native-tab-view": "^2.14.4",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-walkthrough-tooltip": "^1.1.9",
     "reanimated-bottom-sheet": "^1.0.0-alpha.20",
     "rnpm": "^1.9.0",
     "validate.js": "^0.13.1"

@@ -36,6 +36,7 @@ const ViewBot = () => {
         iconStyle={styles.iconMini}
       />
       <ScrollableTabView
+        locked={true}
         renderTabBar={() => (
           <ScrollableView
             textStyle={styles.txt}
@@ -55,6 +56,7 @@ const YourChoice = () => {
     <View style={styles.container}>
       <Arrange />
       <ScrollableTabView
+        locked={true}
         renderTabBar={() => (
           <ScrollableView
             textStyle={styles.txtCate}
@@ -79,6 +81,7 @@ const Categories = () => {
     <View style={styles.container}>
       <Arrange />
       <ScrollableTabView
+        locked={true}
         renderTabBar={() => (
           <ScrollableView
             textStyle={styles.txtCate}

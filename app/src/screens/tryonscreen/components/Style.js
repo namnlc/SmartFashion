@@ -21,25 +21,25 @@ export const styles = StyleSheet.create({
   txt: {
     fontFamily: 'optima',
     textTransform: 'uppercase',
-    fontSize: 15,
+    fontSize: 14,
   },
   txtCate: {
     fontFamily: 'optima',
     fontSize: 13,
   },
   iconMini: {
-    fontSize: 50,
-    height: 30,
-    top: -15,
+    fontSize: 30,
+    height: 20,
   },
   yourChoice: {
     width: w / 2,
-    top: -12,
-    left: 15,
+    top: -25,
+    left: 0,
   },
   categories: {
-    width: (w * 3) / 4,
-    top: -10,
+    width: Platform.OS === 'android' ? w / 1.4 : w / 1.3,
+    top: -25,
+    left: -20,
   },
   arrange: {
     flexDirection: 'row',
@@ -56,11 +56,11 @@ export const styles = StyleSheet.create({
   },
   txtArrange: {
     fontFamily: 'optima',
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
   },
   viewTried: {
-    height: h / 8,
+    height: h / 9,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -71,6 +71,6 @@ export const styles = StyleSheet.create({
   },
   img: {
     width: Platform.OS === 'ios' ? w / 8 : w / 10,
-    height: Platform.OS === 'ios' ? h / 8 : h / 10,
+    height: Platform.OS === 'ios' ? h / 8 : h / 15,
   },
 });

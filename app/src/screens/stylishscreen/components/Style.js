@@ -5,9 +5,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  header: {
-    flex: 1,
-  },
   upload: {
     width: '40%',
     justifyContent: 'center',
@@ -43,5 +40,8 @@ export const styles = StyleSheet.create({
   txBar: {
     fontFamily: 'optima',
     fontSize: 13,
+  },
+  tx: {
+    fontFamily: 'optima',
   },
 });

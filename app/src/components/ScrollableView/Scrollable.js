@@ -27,8 +27,8 @@ const ScrollableView = createReactClass({
 
   getDefaultProps() {
     return {
-      activeTextColor: 'navy',
-      inactiveTextColor: 'black',
+      activeTextColor: 'black',
+      inactiveTextColor: '#616161',
       backgroundColor: null,
     };
   },
@@ -115,13 +115,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    //paddingBottom: 5,
   },
   tabs: {
-    height: 30,
-    backgroundColor: 'red',
+    height: 40,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderColor: '#F2F2F2',
   },
 });
 

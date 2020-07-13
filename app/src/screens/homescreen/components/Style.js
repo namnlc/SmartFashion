@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
   header: {
     marginHorizontal: 10,
     flexDirection: 'row',
-    height: h / 13,
     justifyContent: 'space-between',
   },
   logo: {

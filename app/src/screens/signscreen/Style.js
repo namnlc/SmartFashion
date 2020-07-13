@@ -3,13 +3,12 @@ let {width: w} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
   header: {},
   content: {
-    width: w / 2,
-    alignSelf: 'center',
+    width: w,
     marginBottom: 20,
-    backgroundColor: 'blue',
   },
   txt: {
     fontFamily: 'optima',
@@ -95,5 +94,11 @@ export const styles = StyleSheet.create({
   btnSign: {
     borderColor: '#616161',
     borderWidth: 0.5,
+  },
+  tabSign: {
+    backgroundColor: 'red',
+    flexDirection: 'row',
+    alignSelf: 'center',
+    justifyContent: 'flex-start',
   },
 });
