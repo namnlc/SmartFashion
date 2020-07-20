@@ -210,7 +210,7 @@ const FormSignIn = () => {
               ? errors.INVALIDEMAIL.message
               : ''
           }
-          onChangeText={value => setEmail(value)}
+          onChangeText={(value) => setEmail(value)}
         />
         <Input
           placeholderTextColor="#3D3D3D"
@@ -243,7 +243,7 @@ const FormSignIn = () => {
               ? errors.MINPASSWORD.message
               : ''
           }
-          onChangeText={value => setPassword(value)}
+          onChangeText={(value) => setPassword(value)}
         />
         <Text
           style={[styles.txt, styles.txtForgot]}
