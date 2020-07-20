@@ -14,9 +14,9 @@ const HomeScreen = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch('https://picsum.photos/v2/list')
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error))
+      .then(response => response.json())
+      .then(json => setData(json))
+      .catch(error => console.error(error))
       .finally(() => setLoading(false));
   }, []);
   return (

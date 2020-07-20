@@ -21,7 +21,7 @@ export const PickBottomGender = () => {
     wheelFlex: [1, 1],
     pickerFontColor: [255, 255, 255, 1],
     selectedValue: ['Male'],
-    onPickerConfirm: (gender) => {
+    onPickerConfirm: gender => {
       setGender(gender);
       //Picker.hide();
     },
@@ -65,7 +65,7 @@ export const PickBottomDate = () => {
     wheelFlex: [1, 1, 1],
     pickerFontColor: [255, 255, 255, 1],
     selectedValue: ['1997', '04', '24'],
-    onPickerConfirm: (birth) => {
+    onPickerConfirm: birth => {
       setBirth(birth);
     },
   });
@@ -103,7 +103,7 @@ const createDate = (startYear = 1950, len = 70) => {
         if ((y % 4 === 0 && y % 100 > 0) || y % 400 === 0) {
           day.push('29');
         }
-      } else if ([1, 3, 5, 7, 8, 10, 12].findIndex((it) => it === m) >= 0) {
+      } else if ([1, 3, 5, 7, 8, 10, 12].findIndex(it => it === m) >= 0) {
         for (let d = 1; d <= 31; d++) {
           day.push(d < 10 ? '0' + d : '' + d);
         }
