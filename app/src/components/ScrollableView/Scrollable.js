@@ -1,6 +1,6 @@
-import React from './node_modules/react';
-import PropTypes from './node_modules/prop-types';
-const createReactClass = require('./node_modules/create-react-class');
+import React from 'react';
+import PropTypes from 'prop-types';
+const createReactClass = require('create-react-class');
 import {
   StyleSheet,
   Text,

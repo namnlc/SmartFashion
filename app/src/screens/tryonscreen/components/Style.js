@@ -35,11 +35,13 @@ export const styles = StyleSheet.create({
     width: w / 2,
     top: -25,
     left: 0,
+    borderColor: 'transparent',
   },
   categories: {
     width: Platform.OS === 'android' ? w / 1.4 : w / 1.3,
     top: -25,
     left: -20,
+    borderColor: 'transparent',
   },
   arrange: {
     flexDirection: 'row',

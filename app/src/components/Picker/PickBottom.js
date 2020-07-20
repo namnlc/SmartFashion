@@ -1,7 +1,7 @@
-import React, {useState} from './node_modules/react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
-import Picker from './node_modules/react-native-picker';
-import {Input, Icon} from './node_modules/react-native-elements';
+import Picker from 'react-native-picker';
+import {Input, Icon} from 'react-native-elements';
 import {styles} from './Style';
 export const PickBottomGender = () => {
   const [isGender, setGender] = useState('Gender');
