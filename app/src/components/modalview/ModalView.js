@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, ViewPropTypes} from 'react-native';
 import {Overlay} from 'react-native-elements';
 import PropTypes from 'prop-types';
-const createReactClass = require('../scrollableview/node_modules/create-react-class');
+const createReactClass = require('create-react-class');
 
 const ModalView = createReactClass({
   propTypes: {

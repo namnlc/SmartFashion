@@ -7,7 +7,7 @@
 import React, {useState} from 'react';
 import {View, SafeAreaView, Text, Image, Dimensions} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import ScrollableView from '../../components/scrollableview/Scrollable';
+import ScrollableView from '../../components/react-native-scrollable-tab-view/Scrollable';
 import {Input, Icon, Button, SocialIcon} from 'react-native-elements';
 import {styles} from './Style';
 import Divider from 'react-native-divider';
@@ -22,7 +22,7 @@ import {
 import {
   PickBottomDate,
   PickBottomGender,
-} from '../../components/picker/PickBottom';
+} from '../../components/Picker/PickBottom';
 import {useNavigation} from '@react-navigation/native';
 const {height} = Dimensions.get('window');
 const Sign = () => {

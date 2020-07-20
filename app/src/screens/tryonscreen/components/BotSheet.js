@@ -11,7 +11,7 @@ import {styles} from './Style';
 import BottomSheet from 'reanimated-bottom-sheet';
 import {Icon} from 'react-native-elements';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import ScrollableView from '../../../components/scrollableview/Scrollable';
+import ScrollableView from '../../../components/ScrollableView/Scrollable';
 import notData from '../../../../res/images/notData.png';
 let {height} = Dimensions.get('window');
 import {useNavigation} from '@react-navigation/native';
