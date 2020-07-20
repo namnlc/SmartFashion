@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, SafeAreaView, View, Text} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import ScrollableView from '../../components/ScrollableView/Scrollable';
+import ScrollableView from '../../components/scrollableview/Scrollable';
 import {styles} from './Style';
 import Event from '../../../res/images/Event.png';
 const EventScreen = () => {

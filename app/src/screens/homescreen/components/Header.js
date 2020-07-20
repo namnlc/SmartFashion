@@ -6,7 +6,7 @@ import LOGO from '../../../../res/images/logohome.png';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styles} from './Style';
-import ScrollableView from '../../../components/ScrollableView/Scrollable';
+import ScrollableView from '../../../components/scrollableview/Scrollable';
 const HeaderHome = () => {
   const navigation = useNavigation();
   return (

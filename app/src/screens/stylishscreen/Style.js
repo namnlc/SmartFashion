@@ -3,7 +3,7 @@ let {width, height} = Dimensions.get('window');
 import styled from 'styled-components';
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import ScrollableView from '../../components/ScrollableView/Scrollable';
+import ScrollableView from '../../components/scrollableview/Scrollable';
 import {Button} from 'react-native-elements';
 export const styles = StyleSheet.create({
   container: {
