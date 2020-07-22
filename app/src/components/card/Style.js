@@ -3,16 +3,15 @@ import {Dimensions, StyleSheet} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
-  // img: {
-  //   width: width / 4,
-  //   height: height / 4,
-  // },
   container: {
-    display: 'flex',
     flex: 1,
-    width: width / 3,
+    margin: 5,
+    width: width / 2,
+  },
+  img: {
+    display: 'flex',
     height: height / 3,
-    padding: 10,
+    alignSelf: 'stretch',
   },
   footer: {
     flexDirection: 'row',
@@ -24,21 +23,21 @@ const styles = StyleSheet.create({
 const CardView = styled.View``;
 
 const ImageView = styled.Image`
-  width: 100%;
-  height: 200px;
+  /* flex: 1; */
+  justify-content: center;
 `;
 
 const Title = styled.Text`
   font-family: optima;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
   font-weight: 500;
-  line-height: 30;
+  padding: 10px 0;
 `;
 
 const FooterView = styled.View`
   background-color: green;
-  width: 50%;
+  /* width: 50%; */
   flex-direction: row;
   justify-content: space-between;
 `;

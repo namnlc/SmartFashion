@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, ViewPropTypes} from 'react-native';
+import {Text, ViewPropTypes} from 'react-native';
 import {Overlay} from 'react-native-elements';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 const createReactClass = require('create-react-class');
 
 const ModalView = createReactClass({

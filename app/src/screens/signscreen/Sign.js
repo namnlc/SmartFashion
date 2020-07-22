@@ -5,7 +5,7 @@
  * sign up view for android
  */
 import React, {useState} from 'react';
-import {View, SafeAreaView, Text, Image, Dimensions} from 'react-native';
+import {View, SafeAreaView, Text, Image} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
 import {Input, Icon, Button, SocialIcon} from 'react-native-elements';
@@ -24,7 +24,7 @@ import {
   PickBottomGender,
 } from '../../components/Picker/PickBottom';
 import {useNavigation} from '@react-navigation/native';
-const {height} = Dimensions.get('window');
+//const {height} = Dimensions.get('window');
 const Sign = () => {
   const navigation = useNavigation();
   return (

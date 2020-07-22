@@ -4,7 +4,7 @@ import {Text, StyleSheet} from 'react-native';
 import {Icon} from 'react-native-elements';
 import StylishScreen from '../screens/stylishscreen/StylishScreen';
 import HomeNavigator from './HomeNavigator';
-import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
+//import DefaultModel from '../screens/defaultmodelscreen/DefaultModelScreen';
 import ProfileNavigator from './ProfileNavigator';
 import TryonScreen from '../screens/tryonscreen/TryonScreen';
 import EventScreen from '../screens/eventscreen/EventScreen';

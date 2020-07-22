@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  SafeAreaView,
-  ActivityIndicator,
-  FlatList,
-  View,
-  Image,
-} from 'react-native';
+import {ActivityIndicator, FlatList, SafeAreaView} from 'react-native';
 import HeaderHome from './components/Header';
 import {styles} from './components/Style';
 import Card from '../../components/card/Card';
@@ -14,15 +8,15 @@ const HomeScreen = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch('https://picsum.photos/v2/list')
-      .then(response => response.json())
-      .then(json => setData(json))
-      .catch(error => console.error(error))
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
   return (
     <SafeAreaView style={styles.container}>
       <HeaderHome />
-      {/* {isLoading ? (
+      {isLoading ? (
         <ActivityIndicator />
       ) : (
         <FlatList
@@ -37,7 +31,7 @@ const HomeScreen = () => {
             />
           )}
         />
-      )} */}
+      )}
     </SafeAreaView>
   );
 };

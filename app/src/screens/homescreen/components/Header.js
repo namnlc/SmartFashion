@@ -56,7 +56,7 @@ const ScrollTab = () => {
 };
 
 export const Test = () => {
-  const navigation = useNavigation();
+  //const navigation = useNavigation();
   return (
     <ScrollView style={styles.test}>
       <View style={styles.containerHot}>

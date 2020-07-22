@@ -1,14 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Image, Text, TouchableOpacity, Button} from 'react-native';
 import {
   styles,
   Container,
-  TextHeader,
   Body,
-  Footer,
   ImageView,
-  ButtonView,
-  StyledButton,
   Scrollable,
   SafeAreaView,
   Title,
@@ -52,7 +48,7 @@ const StyleForYouView = () => {
 };
 
 const StyleForYouViewNoData = () => {
-  const [active, setActive] = useState(false);
+  //const [active, setActive] = useState(false);
   return (
     <Container>
       <Body>

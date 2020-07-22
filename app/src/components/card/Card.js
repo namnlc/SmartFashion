@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
-import {CardView, ImageView, Title, FooterView, Name, styles} from './Style';
+import {View} from 'react-native';
+import {ImageView, Title, Name, styles} from './Style';
 import {Icon} from 'react-native-elements';
 const Card = ({onLike, onTry, onPress, title, name, sourceImage}) => {
   return (
@@ -8,7 +8,7 @@ const Card = ({onLike, onTry, onPress, title, name, sourceImage}) => {
       <View>
         <ImageView
           source={sourceImage}
-          resizeMode="cover"
+          resizeMode="contain"
           style={styles.img}
           onPress={onPress}
         />
