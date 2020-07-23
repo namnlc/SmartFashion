@@ -55,8 +55,8 @@ const StyleForYouViewNoData = () => {
         <ImageView source={StylishNoData} />
       </Body>
       <ScrollableTabView renderTabBar={() => <ScrollableFooter />}>
-        <Text tabLabel="1">alo alo alo</Text>
-        <Text tabLabel="2">alo alo</Text>
+        <Text tabLabel="Mix & Match">alo alo alo</Text>
+        <Text tabLabel="Similar items">alo alo</Text>
       </ScrollableTabView>
     </Container>
   );

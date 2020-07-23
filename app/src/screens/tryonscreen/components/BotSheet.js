@@ -86,7 +86,6 @@ const Categories = () => {
           <ScrollableView
             textStyle={styles.txtCate}
             activeTextColor="black"
-            tabStyle={styles.tabCategories}
             style={styles.categories}
           />
         )}>

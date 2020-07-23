@@ -7,6 +7,7 @@ import {
   View,
   ViewPropTypes,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 const ScrollableView = createReactClass({
