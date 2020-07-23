@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 import {Info, Divider} from './Style';
-import {Button, Avatar, Icon} from 'react-native-elements';
+import {Input, Button, Avatar, Icon} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import profile from '../../../res/images/profile.jpg';
 import {styles} from './Style';
@@ -173,5 +173,31 @@ const data = [
     title: 'Experience unlimited features',
   },
 ];
+
+const EditProfile = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.body}>
+        <View style={styles.header}>
+          <Icon name="x" type="feather" size={24} />
+          <Text style={styles.txSign}>Edit Profile</Text>
+          <Text style={styles.txSign}>Save</Text>
+        </View>
+        <Avatar
+          rounded
+          size={50}
+          source={{
+            uri:
+              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+          }}
+        />
+        <View>
+          <Text style={styles.txAccount}>Display Information</Text>
+          <Input />
+        </View>
+      </View>
+    </View>
+  );
+};
 
 export default ProfileScreen;
