@@ -75,19 +75,17 @@ const ProfileSign = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.body}>
-        <View style={styles.header}>
-          <Icon
-            name="menu"
-            type="feather"
-            size={24}
-            onPress={() => navigation.openDrawer()}
-          />
-          <Text style={styles.txtHeader}>PROFILE</Text>
-          <Icon name="cart-plus" type="font-awesome" size={24} />
-        </View>
-        <ScrollTab />
+      <View style={styles.header}>
+        <Icon
+          name="menu"
+          type="feather"
+          size={24}
+          onPress={() => navigation.openDrawer()}
+        />
+        <Text style={styles.txtHeader}>PROFILE</Text>
+        <Icon name="cart-plus" type="font-awesome" size={24} />
       </View>
+      <ScrollTab />
     </SafeAreaView>
   );
 };
