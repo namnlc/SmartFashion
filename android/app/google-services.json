@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "256178467507",
+    "firebase_url": "https://smart-fashion-30620.firebaseio.com",
+    "project_id": "smart-fashion-30620",
+    "storage_bucket": "smart-fashion-30620.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256178467507:android:ddac0726a42337468e76c6",
+        "android_client_info": {
+          "package_name": "com.smartfashion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256178467507-6d6a58fbkkb0qv87181jh37rpejlq062.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartfashion",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "256178467507-m6ncgk287cmv0m68qj9skjk7ch5mh1ev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA48yp_jfKvsQ7k2hJsCkabGn1RLZQ6H0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256178467507-m6ncgk287cmv0m68qj9skjk7ch5mh1ev.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "256178467507-fibaqrpmeaqofakkp8clkm9uj6jm08o2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.SmartFashion"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

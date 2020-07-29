@@ -4,6 +4,7 @@ import React from 'react';
 import HomeScreen from '../screens/homescreen/HomeScreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerHomeScreen from '../screens/homescreen/components/DrawerHomeScreen';
+import ProductDetail from '../screens/productdetailscreen/ProductDetail';
 //import StylishScreen from '../screens/stylishscreen/StylishScreen';
 //import profileRoot from './ProfileNavigator';
 //import ProfileScreen from '../screens/profilescreen/ProfileScreen';
@@ -22,6 +23,11 @@ const HomeNavigator = () => {
       <drawerHome.Screen
         name="home"
         component={HomeScreen}
+        options={myOptions}
+      />
+      <drawerHome.Screen
+        name="productDetail"
+        component={ProductDetail}
         options={myOptions}
       />
     </drawerHome.Navigator>

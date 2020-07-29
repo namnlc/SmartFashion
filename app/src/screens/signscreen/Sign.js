@@ -76,10 +76,10 @@ const SignInView = () => {
         Alert.alert('success!');
         setAccessToken({accessToken: credentials.accessToken});
         navigation.navigate('primaryNavigator');
-        console.log(credentials.accessToken);
       })
       .catch((error) => console.log(error));
   };
+
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={styles.container}
