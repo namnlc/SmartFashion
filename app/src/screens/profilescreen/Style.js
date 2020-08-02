@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 10,
+    width: width - 20,
   },
   txtHeader: {
     fontFamily: 'optima',

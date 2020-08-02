@@ -5,7 +5,7 @@
  * sign up view for android
  */
 import React, {useState} from 'react';
-import {View, SafeAreaView, Text, Image, Alert} from 'react-native';
+import {View, SafeAreaView, Text, Image} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
 import {Input, Icon, Button, SocialIcon} from 'react-native-elements';
@@ -24,18 +24,9 @@ import {
   PickBottomGender,
 } from '../../components/Picker/PickBottom';
 import {useNavigation} from '@react-navigation/native';
-import Auth0 from 'react-native-auth0';
-import {acc} from 'react-native-reanimated';
 //const {height} = Dimensions.get('window');
-
-const auth0 = new Auth0({
-  domain: 'dev-smart-fashion.us.auth0.com',
-  clientId: '0SkLktd3IW1Qc38t7xG99jJoDI5PABLd',
-});
 const Sign = () => {
   const navigation = useNavigation();
-  //const [accessToken, setAccessToken] = useState();
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.viewHeader}>
@@ -67,19 +58,7 @@ const Sign = () => {
 };
 
 const SignInView = () => {
-  const navigation = useNavigation();
-  const [accessToken, setAccessToken] = useState();
-  const onLogin = () => {
-    auth0.webAuth
-      .authorize({scope: 'openid profile email'})
-      .then((credentials) => {
-        Alert.alert('success!');
-        setAccessToken({accessToken: credentials.accessToken});
-        navigation.navigate('primaryNavigator');
-        console.log(credentials.accessToken);
-      })
-      .catch((error) => console.log(error));
-  };
+  //const navigation = useNavigation();
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={styles.container}
@@ -103,12 +82,7 @@ const SignInView = () => {
               iconSize={20}
               style={[styles.sizeIcon, styles.apple]}
             />
-            <SocialIcon
-              type="google"
-              iconSize={20}
-              style={styles.sizeIcon}
-              onPress={() => onLogin()}
-            />
+            <SocialIcon type="google" iconSize={20} style={styles.sizeIcon} />
           </View>
         </View>
       </View>
