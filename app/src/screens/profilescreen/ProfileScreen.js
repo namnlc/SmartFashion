@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   SafeAreaView,
@@ -16,10 +16,35 @@ import {styles} from './Style';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
 import NoData from '../../../res/images/nodata.png';
+import auth from '@react-native-firebase/auth';
 
 const {width} = Dimensions.get('window');
 const ProfileScreen = () => {
-  return <ProfileSign />;
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) {
+      setInitializing(false);
+    }
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  if (initializing) {
+    return null;
+  }
+
+  if (!user) {
+    return <ProfileNotSign />;
+  }
+
+  return <ProfileSign uri={{uri: user.photoURL}} />;
 };
 
 const ProfileNotSign = () => {
@@ -71,7 +96,7 @@ const ProfileNotSign = () => {
   );
 };
 
-const ProfileSign = () => {
+const ProfileSign = ({uri}) => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
@@ -86,25 +111,34 @@ const ProfileSign = () => {
           <Text style={styles.txtHeader}>PROFILE</Text>
           <Icon name="cart-plus" type="font-awesome" size={24} />
         </View>
-        <ScrollTab />
+        <ScrollableTabView
+          //tabBarTextStyle={styles.txTab}
+          locked={true}
+          initialPage={4}
+          renderTabBar={() => (
+            <ScrollableView
+              textStyle={styles.txAccount}
+              style={styles.content}
+              activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
+            />
+          )}>
+          <Text tabLabel="Clothes" />
+          <Text tabLabel="Tried" />
+          <Text tabLabel="My Favorite" />
+          <Text tabLabel="Model" />
+          <MyProfile tabLabel="My Profile" uri={uri} />
+        </ScrollableTabView>
       </View>
     </SafeAreaView>
   );
 };
 
-const MyProfile = () => {
+const MyProfile = ({name, uri}) => {
   return (
     <View style={styles.container}>
       <View style={styles.bodyHeader}>
         <View style={styles.avatar}>
-          <Avatar
-            rounded
-            size={50}
-            source={{
-              uri:
-                'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-            }}
-          />
+          <Avatar rounded size={50} source={uri} />
           <View style={styles.info}>
             <View style={styles.container}>
               <Info style={styles.number}>0</Info>
@@ -141,27 +175,27 @@ const MyProfile = () => {
   );
 };
 
-const ScrollTab = () => {
-  return (
-    <ScrollableTabView
-      //tabBarTextStyle={styles.txTab}
-      locked={true}
-      initialPage={4}
-      renderTabBar={() => (
-        <ScrollableView
-          textStyle={styles.txAccount}
-          style={styles.content}
-          activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
-        />
-      )}>
-      <Text tabLabel="Clothes" />
-      <Text tabLabel="Tried" />
-      <Text tabLabel="My Favorite" />
-      <Text tabLabel="Model" />
-      <MyProfile tabLabel="My Profile" />
-    </ScrollableTabView>
-  );
-};
+// const ScrollTab = () => {
+//   return (
+//     <ScrollableTabView
+//       //tabBarTextStyle={styles.txTab}
+//       locked={true}
+//       initialPage={4}
+//       renderTabBar={() => (
+//         <ScrollableView
+//           textStyle={styles.txAccount}
+//           style={styles.content}
+//           activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
+//         />
+//       )}>
+//       <Text tabLabel="Clothes" />
+//       <Text tabLabel="Tried" />
+//       <Text tabLabel="My Favorite" />
+//       <Text tabLabel="Model" />
+//       <MyProfile tabLabel="My Profile" />
+//     </ScrollableTabView>
+//   );
+// };
 const data = [
   {
     title: 'Create your profile',

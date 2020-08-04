@@ -12,8 +12,9 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
-public class MainApplication extends Application implements ReactApplication {
+import androidx.multidex.MultiDexApplication;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+public class MainApplication extends MultiDexApplication implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+            new RNGoogleSigninPackage();
           return packages;
         }
 

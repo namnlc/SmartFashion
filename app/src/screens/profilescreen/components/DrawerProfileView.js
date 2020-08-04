@@ -5,6 +5,13 @@ import {useNavigation, DrawerActions} from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styles} from './Style';
+import auth from '@react-native-firebase/auth';
+
+async function SignOut() {
+  auth()
+    .signOut()
+    .then(() => console.log('User signed out!'));
+}
 const DrawerProfileView = ({props}) => {
   const navigation = useNavigation(props);
   return (
@@ -28,9 +35,12 @@ const DrawerProfileView = ({props}) => {
 };
 
 const ContentProfile = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.contentProfile}>
-      <TouchableOpacity style={styles.touchProfile}>
+      <TouchableOpacity
+        style={styles.touchProfile}
+        onPress={() => navigation.dispatch(DrawerActions.jumpTo('profiles'))}>
         <Icon name="user" type="font-awesome" size={22} />
         <Text style={styles.txt}>My Profile</Text>
       </TouchableOpacity>
@@ -45,7 +55,11 @@ const ContentProfile = () => {
         <Text style={styles.txt}>Help</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.touchProfile}>
+      <TouchableOpacity
+        style={styles.touchProfile}
+        onPress={() =>
+          SignOut().then(navigation.dispatch(DrawerActions.jumpTo('profiles')))
+        }>
         <Icon name="login" type="simple-line-icon" />
         <Text style={styles.txt}>Log out</Text>
       </TouchableOpacity>

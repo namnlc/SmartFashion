@@ -24,7 +24,27 @@ import {
   PickBottomGender,
 } from '../../components/Picker/PickBottom';
 import {useNavigation} from '@react-navigation/native';
+import {GoogleSignin} from '@react-native-community/google-signin';
+import auth from '@react-native-firebase/auth';
+GoogleSignin.configure({
+  webClientId:
+    '256178467507-6d6a58fbkkb0qv87181jh37rpejlq062.apps.googleusercontent.com',
+});
 //const {height} = Dimensions.get('window');
+
+async function onGoogleButtonPress() {
+  // Get the users ID token
+  const {idToken} = await GoogleSignin.signIn();
+
+  // Create a Google credential with the token
+  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  //console.log(idToken);
+  // Sign-in the user with the credential
+  return auth().signInWithCredential(googleCredential);
+}
+
+//signout
+
 const Sign = () => {
   const navigation = useNavigation();
   return (
@@ -82,7 +102,16 @@ const SignInView = () => {
               iconSize={20}
               style={[styles.sizeIcon, styles.apple]}
             />
-            <SocialIcon type="google" iconSize={20} style={styles.sizeIcon} />
+            <SocialIcon
+              type="google"
+              iconSize={20}
+              style={styles.sizeIcon}
+              onPress={() =>
+                onGoogleButtonPress().then(() =>
+                  console.log('Signed in with Google!'),
+                )
+              }
+            />
           </View>
         </View>
       </View>

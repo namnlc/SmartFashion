@@ -16,7 +16,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <HeaderHome />
-      {/* {isLoading ? (
+      {isLoading ? (
         <ActivityIndicator />
       ) : (
         <FlatList
@@ -31,7 +31,7 @@ const HomeScreen = () => {
             />
           )}
         />
-      )} */}
+      )}
     </SafeAreaView>
   );
 };
