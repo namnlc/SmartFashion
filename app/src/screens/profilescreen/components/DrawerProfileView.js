@@ -66,4 +66,37 @@ const ContentProfile = () => {
     </View>
   );
 };
+
+const ContentProfileNotSign = () => {
+  const navigation = useNavigation();
+  return (
+    <View style={styles.contentProfile}>
+      <TouchableOpacity
+        style={styles.touchProfile}
+        onPress={() => navigation.dispatch(DrawerActions.jumpTo('profiles'))}>
+        <Icon name="user" type="font-awesome" size={22} />
+        <Text style={styles.txt}>My Profile</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.touchProfile}>
+        <Icon name="settings" type="octicons" size={22} />
+        <Text style={styles.txt}>Settings</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.touchProfile}>
+        <Icon name="info" type="feather" />
+        <Text style={styles.txt}>Help</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.touchProfile}
+        onPress={() =>
+          SignOut().then(navigation.dispatch(DrawerActions.jumpTo('profiles')))
+        }>
+        <Icon name="login" type="simple-line-icon" />
+        <Text style={styles.txt}>Log out</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 export default DrawerProfileView;

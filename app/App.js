@@ -1,4 +1,8 @@
 import * as React from 'react';
-import RootNavigator from './src/routers/RootNavigator';
+import Providers from './src/routers';
 
-export default () => <RootNavigator />;
+const App = () => {
+  return <Providers />;
+};
+
+export default App;

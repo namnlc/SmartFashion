@@ -3,7 +3,7 @@ import {Text, View, SafeAreaView, Image, ImageBackground} from 'react-native';
 import Flags from './components/flags/Flags';
 import LogoWhite from '../../../res/images/logoWhite.png';
 import Background from '../../../res/images/background.png';
-import {Button} from 'react-native-elements';
+import Button from '../../components/button/Button';
 import {styles} from './Style';
 const WelcomeScreen = ({navigation}) => {
   return (
@@ -18,19 +18,13 @@ const WelcomeScreen = ({navigation}) => {
           <Flags />
         </View>
         <View style={styles.content}>
-          <View style={styles.footer}>
-            <Button
-              title="women"
-              buttonStyle={styles.btn}
-              titleStyle={styles.txt2}
-            />
-            <Button
-              title="men"
-              buttonStyle={styles.btn}
-              titleStyle={styles.txt2}
-              onPress={() => navigation.navigate('primaryNavigator')}
-            />
-          </View>
+          <Button label="Women" type="white" size="small" />
+          <Button
+            label="Men"
+            type="white"
+            size="small"
+            clicked={() => navigation.navigate('primaryNavigator')}
+          />
           <View>
             <Text style={styles.tx}>
               Already have an account?

@@ -1,21 +1,21 @@
 import React from 'react';
-import {View} from 'react-native';
-import {ImageView, Title, Name, styles} from './Style';
+import {View, Text, Image} from 'react-native';
+import {styles} from './Style';
 import {Icon} from 'react-native-elements';
-const Card = ({onLike, onTry, onPress, title, name, sourceImage}) => {
+const Card = (props) => {
   return (
     <View style={styles.container}>
       <View>
-        <ImageView
-          source={sourceImage}
+        <Image
+          source={props.sourceImage}
           resizeMode="contain"
           style={styles.img}
-          onPress={onPress}
+          onPress={props.clicked}
         />
-        <Title>{title}</Title>
+        <Text>{props.title}</Text>
         <View style={styles.footer}>
-          <Name>{name}</Name>
-          <Icon name="heart" type="feather" onPress={onTry} />
+          <Text>{props.name}</Text>
+          <Icon name="heart" type="feather" onPress={props.buttonTry} />
         </View>
       </View>
     </View>

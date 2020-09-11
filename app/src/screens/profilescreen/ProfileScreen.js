@@ -16,7 +16,7 @@ import {styles} from './Style';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
 import NoData from '../../../res/images/nodata.png';
-import auth from '@react-native-firebase/auth';
+import auth, {firebase} from '@react-native-firebase/auth';
 
 const {width} = Dimensions.get('window');
 const ProfileScreen = () => {
@@ -34,7 +34,7 @@ const ProfileScreen = () => {
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
-  }, []);
+  });
 
   if (initializing) {
     return null;
@@ -44,11 +44,12 @@ const ProfileScreen = () => {
     return <ProfileNotSign />;
   }
 
-  return <ProfileSign uri={{uri: user.photoURL}} />;
+  return <ProfileSign name={user.email} />;
 };
 
 const ProfileNotSign = () => {
   const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.body}>
@@ -76,7 +77,7 @@ const ProfileNotSign = () => {
         </Text>
         <TouchableOpacity
           style={styles.touchSign}
-          onPress={() => navigation.push('authNavigator')}>
+          onPress={() => navigation.navigate('authNavigator')}>
           <Text style={styles.txtTouch}>Sign Up</Text>
         </TouchableOpacity>
         <View style={styles.divider} />
@@ -86,7 +87,7 @@ const ProfileNotSign = () => {
             <Text> </Text>
             <Text
               style={styles.txSign}
-              onPress={() => navigation.push('authNavigator')}>
+              onPress={() => navigation.navigate('authNavigator')}>
               Sign In
             </Text>
           </Text>
@@ -133,12 +134,18 @@ const ProfileSign = ({uri}) => {
   );
 };
 
-const MyProfile = ({name, uri}) => {
+const MyProfile = ({name}) => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    setCurrentUser(firebase.auth().currentUser);
+  }, [currentUser]);
   return (
     <View style={styles.container}>
+      <Text>{currentUser && currentUser.email}</Text>
       <View style={styles.bodyHeader}>
         <View style={styles.avatar}>
-          <Avatar rounded size={50} source={uri} />
+          {/* <Avatar rounded size={50} source={uri} /> */}
           <View style={styles.info}>
             <View style={styles.container}>
               <Info style={styles.number}>0</Info>

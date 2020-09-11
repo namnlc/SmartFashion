@@ -9,7 +9,7 @@ import ProfileNavigator from './ProfileNavigator';
 import TryonScreen from '../screens/tryonscreen/TryonScreen';
 import EventScreen from '../screens/eventscreen/EventScreen';
 const Tab = createBottomTabNavigator();
-function MyTabs() {
+function PrimaryNavigator() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -126,4 +126,4 @@ const styles = StyleSheet.create({
     color: '#CACACA',
   },
 });
-export default MyTabs;
+export default PrimaryNavigator;

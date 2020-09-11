@@ -4,12 +4,13 @@
  * fix header
  * sign up view for android
  */
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {View, SafeAreaView, Text, Image} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
-import {Input, Icon, Button, SocialIcon} from 'react-native-elements';
+import {Input, Icon, SocialIcon} from 'react-native-elements';
 import {styles} from './Style';
+import Button from '../../components/button/Button';
 import Divider from 'react-native-divider';
 import logo from '../../../res/images/logo.png';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -25,12 +26,13 @@ import {
 } from '../../components/Picker/PickBottom';
 import {useNavigation} from '@react-navigation/native';
 import {GoogleSignin} from '@react-native-community/google-signin';
-import auth from '@react-native-firebase/auth';
+import auth, {firebase} from '@react-native-firebase/auth';
+import {AuthContext} from '../../routers/AuthProvider';
+
 GoogleSignin.configure({
   webClientId:
     '256178467507-6d6a58fbkkb0qv87181jh37rpejlq062.apps.googleusercontent.com',
 });
-//const {height} = Dimensions.get('window');
 
 async function onGoogleButtonPress() {
   // Get the users ID token
@@ -78,7 +80,6 @@ const Sign = () => {
 };
 
 const SignInView = () => {
-  //const navigation = useNavigation();
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={styles.container}
@@ -138,15 +139,6 @@ const SignUpView = () => {
         </Text>
         <FormSignUp />
         <View>
-          <Button
-            title="Sign Up"
-            style={styles.btnSign}
-            buttonStyle={styles.btnSignUp}
-            titleStyle={[styles.txtSign, styles.colorSign]}
-          />
-        </View>
-
-        <View>
           <Divider orientation="center">
             <Text style={styles.txt}>Or</Text>
           </Divider>
@@ -168,34 +160,61 @@ const SignUpView = () => {
 
 const FormSignUp = () => {
   const [secure, setSecure] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null);
+  const navigation = useNavigation();
+  const handleSignUp = () => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => navigation.navigate('primaryNavigator'))
+      .catch((error) => setErrorMessage({errorMessage: error.message}));
+  };
+
   return (
     <View>
-      <Input
-        placeholder="Name*"
-        inputStyle={[styles.txt, styles.txtSmall]}
-        placeholderTextColor="#3D3D3D"
-      />
-      <PickBottomGender />
-      <PickBottomDate />
-      <Input
-        placeholder="Email*"
-        inputStyle={[styles.txt, styles.txtSmall]}
-        placeholderTextColor="#3D3D3D"
-      />
-      <Input
-        secureTextEntry={secure}
-        placeholder="Password*"
-        placeholderTextColor="#3D3D3D"
-        inputStyle={[styles.txt, styles.txtSmall]}
-        rightIcon={
-          <Icon
-            name="eye"
-            type="foundation"
-            color="#3D3D3D"
-            onPress={() => setSecure(!secure)}
-          />
-        }
-      />
+      <View>
+        <Input
+          placeholder="Name*"
+          inputStyle={[styles.txt, styles.txtSmall]}
+          placeholderTextColor="#3D3D3D"
+          onChangeText={(name) => setName(name)}
+          value={name}
+        />
+        <PickBottomGender />
+        <PickBottomDate />
+        <Input
+          placeholder="Email*"
+          inputStyle={[styles.txt, styles.txtSmall]}
+          placeholderTextColor="#3D3D3D"
+          onChangeText={(email) => setEmail(email)}
+          value={email}
+        />
+        <Input
+          secureTextEntry={secure}
+          placeholder="Password*"
+          placeholderTextColor="#3D3D3D"
+          onChangeText={(password) => setPassword(password)}
+          value={password}
+          inputStyle={[styles.txt, styles.txtSmall]}
+          rightIcon={
+            <Icon
+              name="eye"
+              type="foundation"
+              color="#3D3D3D"
+              onPress={() => setSecure(!secure)}
+            />
+          }
+        />
+        <Button
+          label="Sign Up"
+          size="large"
+          type="black"
+          clicked={() => handleSignUp()}
+        />
+      </View>
     </View>
   );
 };
@@ -206,6 +225,7 @@ const FormSignIn = () => {
   const {handleSubmit, setError, errors} = useForm();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null);
   const onSubmit = () => {
     emailErrorsMessage.forEach(({name, type, message}) =>
       setError(name, {type, message}),
@@ -214,6 +234,15 @@ const FormSignIn = () => {
       setError(name, {type, message}),
     );
   };
+
+  const handleSignIn = () => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => this.props.navigation.navigate('Main'))
+      .catch((error) => setErrorMessage({errorMessage: error.message}));
+  };
+  const {login} = useContext(AuthContext);
   return (
     <View>
       <View>
@@ -239,7 +268,8 @@ const FormSignIn = () => {
               ? errors.INVALIDEMAIL.message
               : ''
           }
-          onChangeText={(value) => setEmail(value)}
+          onChangeText={(email) => setEmail(email)}
+          value={email}
         />
         <Input
           placeholderTextColor="#3D3D3D"
@@ -272,7 +302,8 @@ const FormSignIn = () => {
               ? errors.MINPASSWORD.message
               : ''
           }
-          onChangeText={(value) => setPassword(value)}
+          onChangeText={(password) => setPassword(password)}
+          value={password}
         />
         <Text
           style={[styles.txt, styles.txtForgot]}
@@ -280,20 +311,13 @@ const FormSignIn = () => {
           Forgot password?
         </Text>
       </View>
-      <View>
-        <Button
-          title="Sign In"
-          buttonStyle={styles.btnSignIn}
-          titleStyle={styles.txtSign}
-          onPress={handleSubmit(onSubmit)}
-        />
-        <Button
-          title="Face Id"
-          style={styles.btnSign}
-          buttonStyle={styles.btnSignUp}
-          titleStyle={[styles.txtSign, styles.colorSign]}
-        />
-      </View>
+      <Button
+        label="Sign In"
+        type="black"
+        clicked={() => login(email, password)}
+        size="large"
+      />
+      <Button label="Face Id" type="white" size="large" />
     </View>
   );
 };

@@ -16,12 +16,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  btn: {
-    width: w / 3,
-    height: h / 20,
-    marginVertical: 10,
-    backgroundColor: 'white',
-  },
+
   txLogin: {
     fontFamily: 'optima',
     fontSize: 16,
