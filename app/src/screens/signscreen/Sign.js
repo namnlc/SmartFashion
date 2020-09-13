@@ -5,12 +5,13 @@
  * sign up view for android
  */
 import React, {useState, useContext} from 'react';
-import {View, SafeAreaView, Text, Image} from 'react-native';
+import {View, SafeAreaView, Image} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import ScrollableView from '../../components/ScrollableView/Scrollable';
 import {Input, Icon, SocialIcon} from 'react-native-elements';
 import {styles} from './Style';
 import Button from '../../components/button/Button';
+import Text from '../../components/text/Text';
 import Divider from 'react-native-divider';
 import logo from '../../../res/images/logo.png';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -86,14 +87,15 @@ const SignInView = () => {
       enableAutomaticScroll={true}
       enableOnAndroid={true}>
       <View style={styles.contentSign}>
-        <Text style={[styles.txt, styles.txtSmall]}>
-          Sign In or Sign Up to unlock and explore more features with Smart
-          Fashion!
-        </Text>
+        <Text
+          color="black"
+          label="Sign In or Sign Up to unlock and explore more features with Smart
+          Fashion!"
+        />
         <FormSignIn />
         <View>
           <Divider orientation="center">
-            <Text style={styles.txt}>Or</Text>
+            <Text label="Or" color="black" />
           </Divider>
           <View style={styles.viewIcon}>
             <SocialIcon type="facebook" iconSize={20} style={styles.sizeIcon} />
@@ -127,15 +129,16 @@ const SignUpView = () => {
       enableAutomaticScroll={true}
       enableOnAndroid={true}>
       <View style={styles.contentSign}>
-        <Text style={[styles.txt, styles.txtSmall, styles.txHeader]}>
-          Sign In or Sign Up to unlock and explore more features
-        </Text>
-        <Text style={[styles.txt, styles.txParam]}>
-          Freely upload photos of yourself and your clothes
-          {'\n'}
-          Unlimited try on millions of items
-          {'\n'}
-          Easily manage your data
+        <Text
+          label="Sign In or Sign Up to unlock and explore more features"
+          color="black"
+        />
+        <Text
+          label="Freely upload photos of yourself and your clothes"
+          color="black"
+        />
+        <Text label="Unlimited try on millions of items" color="black">
+          <Text label="Easily manage your data" color="black" />
         </Text>
         <FormSignUp />
         <View>

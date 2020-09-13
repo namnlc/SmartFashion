@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View, SafeAreaView, Image, ImageBackground} from 'react-native';
+import {View, SafeAreaView, Image, ImageBackground} from 'react-native';
 import Flags from './components/flags/Flags';
 import LogoWhite from '../../../res/images/logoWhite.png';
 import Background from '../../../res/images/background.png';
 import Button from '../../components/button/Button';
+import Text from '../../components/text/Text';
 import {styles} from './Style';
 const WelcomeScreen = ({navigation}) => {
   return (
@@ -18,29 +19,25 @@ const WelcomeScreen = ({navigation}) => {
           <Flags />
         </View>
         <View style={styles.content}>
-          <Button label="Women" type="white" size="small" />
+          <Button label="Women" type="white" upper="upper" />
           <Button
             label="Men"
             type="white"
-            size="small"
+            upper="upper"
             clicked={() => navigation.navigate('primaryNavigator')}
           />
-          <View>
-            <Text style={styles.tx}>
-              Already have an account?
-              <Text> </Text>
-              <Text
-                style={styles.txLogin}
-                onPress={() => navigation.push('authNavigator')}>
-                Login here
-              </Text>
-            </Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text label="Already have an account? " />
+            <Text
+              clicked={() => navigation.push('authNavigator')}
+              type="large"
+              label="Login here"
+              fontWeight="bold"
+            />
           </View>
-          <View style={styles.txFooter}>
-            <Text style={styles.tx}>Try on everything on Smart Fashion</Text>
-            <Text style={styles.tx}>
-              Be fashionable with our Stylish feature
-            </Text>
+          <View>
+            <Text label="Try on everything on Smart Fashion" color="white" />
+            <Text label="Be fashionable with our Stylish feature" />
           </View>
         </View>
       </SafeAreaView>

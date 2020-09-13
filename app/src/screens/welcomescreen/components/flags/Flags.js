@@ -29,7 +29,7 @@ const Flags = () => {
   };
 
   return (
-    <View style={[styles.regionImg, styles.flag]}>
+    <View style={styles.regionImg}>
       <TouchableOpacity style={styles.expandArrow} onPress={animFlag}>
         <Image source={expand ? arrowLeft : arrowRight} />
       </TouchableOpacity>

@@ -6,7 +6,7 @@ const button = (props) => (
   <Button
     onPress={props.clicked}
     title={props.label}
-    titleStyle={[btnStyle.title, btnStyle[props.type]]}
+    titleStyle={[btnStyle.title, btnStyle[props.type], btnStyle[props.upper]]}
     buttonStyle={btnStyle[props.type]}
     containerStyle={[btnStyle.container, btnStyle[props.size]]}
   />

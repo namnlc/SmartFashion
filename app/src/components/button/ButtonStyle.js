@@ -3,9 +3,6 @@ import {StyleSheet, Dimensions} from 'react-native';
 let {width: w, height: h} = Dimensions.get('window');
 
 export const btnStyle = StyleSheet.create({
-  small: {
-    width: w / 3,
-  },
   medium: {
     width: w / 2,
   },
@@ -15,6 +12,7 @@ export const btnStyle = StyleSheet.create({
   container: {
     borderWidth: 1,
     borderColor: '#eee',
+    width: w / 3,
   },
   title: {
     fontFamily: 'optima',
@@ -27,5 +25,8 @@ export const btnStyle = StyleSheet.create({
   white: {
     backgroundColor: 'white',
     color: 'black',
+  },
+  upper: {
+    textTransform: 'uppercase',
   },
 });

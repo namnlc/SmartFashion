@@ -6,13 +6,13 @@ import Card from '../../components/card/Card';
 const HomeScreen = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch('https://picsum.photos/v2/list')
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://picsum.photos/v2/list')
+  //     .then((response) => response.json())
+  //     .then((json) => setData(json))
+  //     .catch((error) => console.error(error))
+  //     .finally(() => setLoading(false));
+  // }, []);
   return (
     <SafeAreaView style={styles.container}>
       <HeaderHome />

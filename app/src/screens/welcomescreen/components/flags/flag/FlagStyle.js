@@ -8,6 +8,6 @@ export const styles = StyleSheet.create({
   selected: {
     borderRadius: 25,
     borderWidth: 0.5,
-    borderColor: 'blue',
+    borderColor: 'white',
   },
 });
