@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, TouchableOpacity, Button} from 'react-native';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {
   styles,
   Container,
@@ -36,16 +36,16 @@ const Header = () => {
   );
 };
 
-const StyleForYouView = () => {
-  return (
-    <View style={styles.containerFor}>
-      <Image source={ForYou} style={styles.img} />
-      <Text style={styles.txt}>
-        Take a photo and see what match or look similar to your clothes
-      </Text>
-    </View>
-  );
-};
+// const StyleForYouView = () => {
+//   return (
+//     <View style={styles.containerFor}>
+//       <Image source={ForYou} style={styles.img} />
+//       <Text style={styles.txt}>
+//         Take a photo and see what match or look similar to your clothes
+//       </Text>
+//     </View>
+//   );
+// };
 
 const StyleForYouViewNoData = () => {
   //const [active, setActive] = useState(false);

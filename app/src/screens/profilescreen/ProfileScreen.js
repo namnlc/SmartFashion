@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {
   View,
   SafeAreaView,
-  ScrollView,
   Text,
   Image,
   TouchableOpacity,
@@ -18,18 +17,17 @@ import ScrollableView from '../../components/ScrollableView/Scrollable';
 import NoData from '../../../res/images/nodata.png';
 import auth, {firebase} from '@react-native-firebase/auth';
 
-const {width} = Dimensions.get('window');
 const ProfileScreen = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
   // Handle user state changes
-  function onAuthStateChanged(user) {
+  const onAuthStateChanged = (user) => {
     setUser(user);
     if (initializing) {
       setInitializing(false);
     }
-  }
+  };
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -182,27 +180,6 @@ const MyProfile = ({name}) => {
   );
 };
 
-// const ScrollTab = () => {
-//   return (
-//     <ScrollableTabView
-//       //tabBarTextStyle={styles.txTab}
-//       locked={true}
-//       initialPage={4}
-//       renderTabBar={() => (
-//         <ScrollableView
-//           textStyle={styles.txAccount}
-//           style={styles.content}
-//           activeTabs={{borderBottomWidth: 2, alignSelf: 'center'}}
-//         />
-//       )}>
-//       <Text tabLabel="Clothes" />
-//       <Text tabLabel="Tried" />
-//       <Text tabLabel="My Favorite" />
-//       <Text tabLabel="Model" />
-//       <MyProfile tabLabel="My Profile" />
-//     </ScrollableTabView>
-//   );
-// };
 const data = [
   {
     title: 'Create your profile',
